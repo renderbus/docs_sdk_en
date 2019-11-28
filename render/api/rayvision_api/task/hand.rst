@@ -1,5 +1,5 @@
 .. note::
-   **hand.py** Set option for asset and general configuration of the task.
+   Set option for asset and general configuration of the task.
 
 
 RayvisionTask

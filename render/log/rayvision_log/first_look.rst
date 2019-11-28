@@ -19,13 +19,15 @@ Set the log path
 
 Mac OS X:
 
-* ~/Library/Logs/<AppName>/Logs/<username>/<hostname>.log
+  ~/Library/Logs/<AppName>/Logs/<username>/<hostname>.log
+
 Unix:
 
-* ~/.cache/<AppName>/log/Logs/<username>/<hostname>.log
+  ~/.cache/<AppName>/log/Logs/<username>/<hostname>.log
+
 Window:
 
-* C:\Users\<username>\AppData\Local\<AppAuthor>\<AppName>\Logs\<username>\<hostname>.log
+  C:\Users\<username>\AppData\Local\<AppAuthor>\<AppName>\Logs\<username>\<hostname>.log
 
 2. Customized path
 

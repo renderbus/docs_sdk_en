@@ -1,5 +1,5 @@
 .. note::
-   **check.py** Mainly to verify the analysis results
+    Mainly to verify the analysis results
 
 Task Information Verification
 ---------------------------------

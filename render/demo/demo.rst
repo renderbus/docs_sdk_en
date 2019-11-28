@@ -1,4 +1,4 @@
-###  *Demo for maya, houdini and clarisse*
+Demo for maya, houdini and clarisse
 
 Maya demo
 -----------

@@ -4,7 +4,8 @@ General Parameter
 PACKAGE_NAME
 ------------------
 Set the log name and package name to deploy automatically with gitlab.
- For example::
+
+For example::
 
     PACKAGE_NAME = "rayvision_clarisse"
 
@@ -51,6 +52,7 @@ HEADERS
 CG Settings
 -------------
  **CG_SETTING** The first letter of the software name is capitalized
+
  ::
 
     CG_SETTING = {
@@ -106,6 +108,7 @@ task_info default parameters
 MODIFIABLE_PARAM
 ------------------
 optional parameters
+
  ::
 
     MODIFIABLE_PARAM = [
@@ -132,6 +135,7 @@ optional parameters
 TASK_STATUS_DESCRIPTION
 ---------------------------------------
 Set the execution status code of the task and the corresponding Chinese and English description
+
  ::
 
     TASK_STATUS_DESCRIPTION = {
@@ -185,6 +189,7 @@ Set the execution status code of the task and the corresponding Chinese and Engl
 TASK_END_STATUS_CODE_LIST
 ----------------------------------------
 The status code at the end of the task.
+
  ::
 
     TASK_END_STATUS_CODE_LIST = ['10', '20', '23', '25', '30', '35', '45']

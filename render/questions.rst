@@ -63,6 +63,5 @@ For details, please refer to `SDK Usage <SDK_tutorial.html#header-n209>`__
 6. What is the easiest way to use?
 ------------------------------------
 
-If you want to use it directly without customization, you can download the corresponding rendering package directly.
-
-Then select the corresponding [common full process sample] to experience the full process rendering. For details, please refer to the `SDK Getting Started Tutorial <SDK_tutorial.html>`__
+If you want to use it directly without customization, you can download the corresponding rendering package directly,
+then select the corresponding [common full process sample] to experience the full process rendering. For details, please refer to the `SDK Getting Started Tutorial <SDK_tutorial.html>`__

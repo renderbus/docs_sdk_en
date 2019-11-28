@@ -24,21 +24,21 @@ SDK Getting Started Tutorial
 
 **Parameters:**
 
-================= ====== ============ ==================== ===========================================================
-parameter          type    required       value              description
-================= ====== ============ ==================== ===========================================================
-domain             str       Y        task.renderbus.com    domain name：task.renderbus.com, no "http", "https"
-platform           str       Y        2                     platform ID, like "2"
-access_id          str       Y        xxx                   user authorization id
-access_key         str       Y        xxx                   user authorization key
-workspace          str       Y        c:\\workspace          SDK working directory(to save configration, log etc.)
-local_os           str       Y        windows               os, now support "window" and "linux"
-render_software    str       Y        Houdini               CG software(“Maya", "Clarisse", "Houdini")
-software_version   str       Y        17.5.293              CG software version
-project_name       str       N        Project1              project name, optional
-plugin_config      dict      N        {}                    plugin name, for example {"fumefx":"4.0.5"}
-cg_file            str       Y        E:\\copy\\test02.hip  scene file for rendering
-================= ====== ============ ==================== ===========================================================
+================ ==== ======== =================================================== ========================
+parameter        type required description                                         example
+================ ==== ======== =================================================== ========================
+domain           str  Y        domain name：task.renderbus.com, no "http", "https" task.renderbus.com
+platform         str  Y        platform ID, like "2"                               2
+access_id        str  Y        user authorization id
+access_key       str  Y        user authorization key
+workspace        str  Y        SDK working directory(to save configration)         c:\\workspace
+local_os         str  Y        os, now support "window" and "linux"                windows
+render_software  str  Y        CG software(“Maya", "Clarisse", "Houdini")          Houdini
+software_version str  Y        CG software version                                 17.5.293
+project_name     str  N        project name                                        Project1
+plugin_config    dict N        plugin name                                         {"fumefx":"4.0.5"}
+cg_file          str  Y        scene file for rendering                            scene file for rendering
+================ ==== ======== =================================================== ========================
 
 --------------
 
@@ -124,18 +124,18 @@ An object of RayvisionAPI that can be used to call other methods
 
 **Parameters:**
 
-========== ====== ====================== ===================== ===========================================================================
-parameter  type    required                value                  description
-========== ====== ====================== ===================== ===========================================================================
-config_bid   str   Y                       30201                 Transfer Configuration ID
-input_bid    str   Y                       10206                 storage ID
-output_bid   str   Y                       20201                 downloading ID
-domain       str   Y                       task.renderbus.com    domain name
-platform     str   Y                       2                     platform ID
-local_os     str   Y                       windows               os, now support "window" and "linux"
-user_id      str   Y                       100150764             user account ID
-local_path   str   N(upload),Y(download)   C:\\workspace          local path to save downloaded files, could be empty if only upload files
-========== ====== ====================== ===================== ===========================================================================
+========== ==== ===================== ======================================================================== ==================
+parameter  type required              description                                                              example
+========== ==== ===================== ======================================================================== ==================
+config_bid str  Y                     Transfer Configuration ID                                                30201
+input_bid  str  Y                     storage ID                                                               10206
+output_bid str  Y                     downloading ID                                                           20201
+domain     str  Y                     domain name                                                              task.renderbus.com
+platform   str  Y                     platform ID                                                              2
+local_os   str  Y                     os, now support "window" and "linux"                                     windows
+user_id    str  Y                     user account ID                                                          100150764
+local_path str  N(upload),Y(download) local path to save downloaded files, could be empty if only upload files C:\\workspace
+========== ==== ===================== ======================================================================== ==================
 
 - Start uploading
 
@@ -153,15 +153,15 @@ local_path   str   N(upload),Y(download)   C:\\workspace          local path to 
 
 **Parameters:**
 
-==================== ==== ======== ========================================= ===============================
-parameter            type required value                                      description
-==================== ==== ======== ========================================= ===============================
-task_id              str  Y        10837135                                   task ID
-task_json_path       str  Y        C:\\workspace\\work\\9458292\\task.json    absolute path of task.json
-tips_json_path       str  Y        C:\\workspace\\work\\9458292\\tips.json    absolute path of tips.json
-asset_json_path      str  Y        C:\\workspace\\work\\9458292\\asset.json   absolute path of asset.json
-upload_json_path     str  Y        C:\\workspace\\work\\9458292\\upload.json  absolute path of upload.json
-==================== ==== ======== ========================================= ===============================
+==================== ==== ======== ============================ ==========================================
+parameter            type required description                  example
+==================== ==== ======== ============================ ==========================================
+    task_id          str  Y        task ID                      10837135
+    task_json_path   str  Y        absolute path of task.json   C:\\workspace\\work\\9458292\\task.json
+    tips_json_path   str  Y        absolute path of tips.json   C:\\workspace\\work\\9458292\\tips.json
+    asset_json_path  str  Y        absolute path of asset.json  C:\\workspace\\work\\9458292\\asset.json
+    upload_json_path str  Y        absolute path of upload.json C:\\workspace\\work\\9458292\\upload.json
+==================== ==== ======== ============================ ==========================================
 
 --------------
 
