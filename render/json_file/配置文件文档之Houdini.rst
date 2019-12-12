@@ -81,7 +81,7 @@ parameter  type   description                                  example
 ========== ====== ============================================ ==========
 cg_name    string software                                     "Houdini"
 cg_version string software version                             "16.5.268"
-plugins    dict plugin{name, version}                          {}
+plugins    dict   plugin{name, version}                          {}
 ========== ====== ============================================ ==========
 
 .. _header-n340:
