@@ -143,6 +143,7 @@ plugins    dict   plugin{name, version}                        {}
 parameter                  type   description                                                                              example
 ========================== ====== ======================================================================================== =================================================================================================================
 is_layer_rendering         string render layer mode,"0":off, "1":on                                                        "1"
+enable_layered             string whether to open layer commit, '0' close, '1' open
 cg_id                      string software id."2000": Maya                                                                 "2000"
 ram                        string ram,64/128                                                                               "64"
 os_name                    string os, "0":Linux; "1": Windows                                                              "0"
