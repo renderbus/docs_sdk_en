@@ -2,7 +2,7 @@ Contribute to the RenderBusSDK
 ===============================
 
 .. important::
-    Please check carefully, you are ``https://renderbus.readthedocs.io/zh/latest/index.html`` on reading the latest version of this document.
+    Please check carefully, you are ``https://renderbus.readthedocs.io/en/latest/index.html`` on reading the latest version of this document.
 
 There are many ways to contribute to the RenderBusSDK, and here are some of them:
 
