@@ -40,14 +40,14 @@ api = RayvisionAPI(access_id=user_info['access_id'],
 | platform       | Integer   | Platform number             |           |
 | name           | String    | Platform number description |           |
 
-**Example of requesting**：
+**Example of request**：
 
 ```python
 # automatically distinguish domestic and foreign according to the "domain" parameter 
 platform = api.query.platforms()
 ```
 
-**Example of returning**：
+**Example of return**：
 
 ```json
 {
@@ -71,13 +71,13 @@ platform = api.query.platforms()
 
 **Request parameter**：No
 
-**The example of requesting: **
+**Example of request**：
 
 ```python
 user_profile = api.user.query_user_profile()
 ```
 
-**The example of return**：
+**Example of return**：
 
 ```json
 {
@@ -230,7 +230,7 @@ update_user_setting = api.user.update_user_settings(task_over_time=43200)
 
 ## Obtain user transfer BID
 
-**Interface path: **/api/render/task/getTransferBid
+**Interface path**：/api/render/task/getTransferBid
 
 **Request parameter**：default
 
@@ -268,7 +268,7 @@ user_transfer_bid = api.user.get_transfer_bid()
 
 ## Create task ID
 
-**Interface path: **/api/render/task/createTask
+**Interface path**：/api/render/task/createTask
 
 **Request parameter**：
 
