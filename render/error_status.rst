@@ -8,6 +8,7 @@ code      symbol                                description
 ======== ===================================== =================================================
 100       FAIL                                  failed
 200       SUCCESS                               returns successfully
+301       NEED_REDIRECT                         need to redirect to other addresses
 400       APIError                              error request
 403       FORBIDDEN                             no permission
 404       RESOURCE_NOT_FOUND                    resource does not exist
@@ -20,6 +21,9 @@ code      symbol                                description
 605       VINSUFFICIENT_PERMISSIONS             insufficient permissions
 606       VALIDATE_COMMOM_CODE_ERROR            verification code error
 607       VALIDATE_SEND_CODE_ERROR              verification code failed to send
+608       USER_AREA_ERROR                       customer’s domestic and foreign regions do not match
+610       SIGNATURE_EXPIRED                     signature expired
+611       SIGNATURE_INVALID                     invalid signature
 700       DO_NOT_HAVE_ANY_MORE_RECORD           no more records
 800       ACCOUNT_BINDING_USER_NULL             account does not exist
 801       ACCOUNT_NOT_BINDING                   device not bound
