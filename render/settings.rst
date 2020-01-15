@@ -16,7 +16,7 @@ ID mapping of DCC software
 
     DCC_ID_MAPPINGS = {
         'maya': 2000,
-        '3dsmax': 2001,
+        '3ds Max': 2001,
         'lightwave': 2002,
         'arnold': 2003,
         'houdini': 2004,
@@ -30,6 +30,7 @@ ID mapping of DCC software
         'keyshot': 2012,
         'clarisse': 2013,
         'octane_render': 2014,
+        'katana': 2016,
     }
 
 
@@ -60,10 +61,14 @@ CG Settings
         'Houdini': '2004',
         'Katana': '2016',
         'Clarisse': '2013',
+        'Blender': '2007',
+        '3ds Max': '2001',
         '2000': 'Maya',
         '2004': 'Houdini',
         '2016': 'Katana',
         '2013': 'Clarisse',
+        '2007': 'Blender',
+        '2001': '3ds Max'
     }
 
 
