@@ -9,10 +9,10 @@ SDK Getting Started Tutorial
 .. code:: python
 
    render_para = {
-           "domain": "task.renderbus.com",  # no need to modify
+           "domain": "task.renderbus.com",  # Foreign users please use: task.foxrenderbus.com
            "platform": "2",  # platform id
-           "access_id": "K2lbvJSlPScStv72niHGXZtbQYc5Fp6d",  # user's access_id(required)
-           "access_key": "6b4b6eab841772113113b61c79dbe40e",  # user's access_key(required)
+           "access_id": "xxxxxxx",  # user's access_id(required)
+           "access_key": "xxxxxxxxx",  # user's access_key(required)
            "local_os": 'windows',
            "workspace": "c:/workspace",  # local root directory of SDK, must be in english
            "render_software": "Houdini",  # CG software（Maya, Houdini, Katana, Clarisse）
@@ -27,7 +27,8 @@ SDK Getting Started Tutorial
 ================ ==== ======== =================================================== ========================
 parameter        type required description                                         example
 ================ ==== ======== =================================================== ========================
-domain           str  Y        domain name：task.renderbus.com, no "http", "https" task.renderbus.com
+domain           str  Y        China user:task.renderbus.com,                        task.renderbus.com
+                               Foreign user:task.foxrenderbus.com
 platform         str  Y        platform ID, like "2"                               2
 access_id        str  Y        user authorization id
 access_key       str  Y        user authorization key
