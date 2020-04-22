@@ -141,7 +141,7 @@ os_name                    string os, "0":Linux; "1": Windows                   
 render_layer_type          string render layer mode,"0"：renderlayer,"1"：rendersetup                                      "0"
 is_distribute_render       string distributed render mode,"0":off, "1":on                                                  "0"
 input_cg_file              string input file path                                                                          "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"
-job_stop_time              string stop when job exceeds time-out, unit:sec                                                 "28800"
+job_stop_time              string Set the frame timeout time, will only affect the current frame, unit seconds             "28800"
 user_id                    string user id
 pre_frames                 string priority frames                                                                          "000:1,3-4[1]"
 platform                   string platform id                                                                              "2"
@@ -156,8 +156,8 @@ frames_per_task            string frames per task                               
 stop_after_test            string "1":pause after priority render, "2":continue after priority render
 input_project_path         string project path, could be empty
 task_id                    string task id
-task_stop_time             string stop when task exceeds time-out, unit:sec                                                 "86400"
-time_out                   string time out setting, unit: sec                                                               "43200"
+task_stop_time             string Set the task timeout time. The task timeout stops all frames in unit seconds,unit: sec     "86400"
+time_out                   string Overtime reminder time, unit: sec                                                          "43200"
 ========================== ====== ======================================================================================== =================================================================================================================
 
 .. _header-n295:

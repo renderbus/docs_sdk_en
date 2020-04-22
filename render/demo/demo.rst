@@ -1,251 +1,289 @@
-Demo for maya, houdini and clarisse
+###  *houdini, clarisse, maya Demo*
 
 Maya demo
 -----------
 
  ::
 
-    from __future__ import print_function
     from rayvision_api.core import RayvisionAPI
-    from rayvision_utils.analyse_handle import RayvisionAnalyse
-    from rayvision_api.task.handle import RayvisionTask
-    from rayvision_api.task.check import RayvisionCheck
-    from rayvision_sync.transfer import RayvisionTransfer
+    from rayvision_maya.analyze_maya import AnalyzeMaya
     from rayvision_sync.upload import RayvisionUpload
-    from rayvision_sync.manage import RayvisionManageTask
     from rayvision_sync.download import RayvisionDownload
+    from rayvision_api.task.check import RayvisionCheck
+    from rayvision_api.utils import update_task_info, append_to_task, append_to_upload
 
-    # Set necessary parameters.
-
+    # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",  # no need to modify
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
-        "access_id": "xxxx",  # user's access_id(required)
-        "access_key": "xxxx",  # user's access_key(required)
-        "local_os": 'windows',
-        "workspace": "c:/workspace",  # local root directory(Automatically generated), must be in english
-        "render_software": "Maya",  # CG software（Maya, Houdini, Katana, Clarisse）
-        "software_version": "2018",  # CG software version
-        "project_name": "Project1",
-        "plugin_config": {  # CG plugins. If none, leave it as {}
-            "mtoa": "3.1.2.1"
-        }
+        "access_id": "xxxx",
+        "access_key": "xxxx",
     }
-
-    # absolute path of CG assets(required)
-    cg_file = r"E:\copy\muti_layer_test.ma"
 
     api = RayvisionAPI(access_id=render_para['access_id'],
                        access_key=render_para['access_key'],
                        domain=render_para['domain'],
                        platform=render_para['platform'])
 
-    # print user's info
-    print(api.user.query_user_profile())
-
-    # Rayvision analysis
-    task = RayvisionTask(cg_file=cg_file, **render_para)
-    RayvisionAnalyse.execute(task)
-    RayvisionCheck(task).execute(task.task_info, task.upload_info)
-
-    # Upload json file
-    transfer_info = {
-        'config_bid': api.user_info['config_bid'],
-        'input_bid': api.user_info['input_bid'],
-        "output_bid": api.user_info["output_bid"],
-        "domain": render_para['domain'],
-        "platform": render_para['platform'],
-        "local_os": render_para['local_os'],
-        "user_id": api.user_info['user_id'],
-        "local_path": r"C:\workspace",  # folder to save downloaded files
+    # Step1:Analyze CG File
+    analyze_info = {
+        "cg_file": r"D:\files\CG FILE\muti_layer_test.ma",
+        "workspace": "c:/workspace",
+        "software_version": "2019",
+        "project_name": "Project1",
+        "plugin_config": {
+            "mtoa": "3.2.1.1"
+        }
     }
+    analyze_obj = AnalyzeMaya(**analyze_info)
+    analyze_obj.analyse()
 
-    resource_config_file = {
-        "task_json_path": task.task_json_path,
-        "tips_json_path": task.tips_json_path,
-        "asset_json_path": task.asset_json_path,
-        "upload_json_path": task.upload_json_path,
+
+    # step2: Add some custom parameters, or update the original parameter value
+    update_task = {
+        "pre_frames": "100",
+        "stop_after_test": "1"
     }
+    update_task_info(update_task, analyze_obj.task_json)
 
-    # start transfer
-    trans = RayvisionTransfer(**transfer_info)
-    upload = RayvisionUpload(trans)
-    upload.upload(task_id=task.task_id, **resource_config_file)
+    custom_info_to_task = {}
+    append_to_task(custom_info_to_task, analyze_obj.task_json)
 
-    task_id = int(task.task_id)
-    result = api.submit(task_id)
+    custom_info_to_upload = []
+    append_to_upload(custom_info_to_upload, analyze_obj.upload_json)
 
-    # download
-    manage_task = RayvisionManageTask(api.query)
-    trans.manage_task = manage_task
-    download = RayvisionDownload(trans)
 
-    # provide 2 methods of downloading
-    # download.auto_download_after_task_completed([task_id])  # Download after all frames finish rendering
-    download.auto_download([task_id])  # Download after current frame finishes rendering
+    # step3:Check json files
+    check_obj = RayvisionCheck(api, analyze_obj)
+    task_id = check_obj.execute(analyze_obj.task_json, analyze_obj.upload_json)
+
+
+    # Step4: Transmission
+    """
+    There are two ways to upload the transmission:
+    Upload_method: 1: upload four json files and upload the resource file according to upload.json;
+                   2: json files and resources are uploaded separately;
+    """
+    CONFIG_PATH = {
+        "tips_json_path": analyze_obj.tips_json,
+        "task_json_path": analyze_obj.task_json,
+        "asset_json_path": analyze_obj.asset_json,
+        "upload_json_path": analyze_obj.upload_json,
+    }
+    upload_obj = RayvisionUpload(api)
+    """
+    The default of the test demo is to upload json and resource files at the same time,
+    and users can choose their own upload method according to the actual situation.
+    """
+    upload_method = 1
+    if upload_method == 1:
+        # step4.1:Json files are uploaded in conjunction with CG resources
+        upload_obj.upload(str(task_id), **CONFIG_PATH)
+    elif upload_method == 2:
+        # step4.2:CG resource files and json are uploaded separately
+        upload_obj.upload_asset(upload_json_path=CONFIG_PATH["upload_json_path"])
+        upload_obj.upload_config(str(task_id), list(CONFIG_PATH.values()))
+
+
+    # Step5:Submit Task
+    api.submit(int(task_id))
+
+
+    # Step6:Download
+    download = RayvisionDownload(api)
+    # All complete before the automatic start of uniform download.
+    # download.auto_download_after_task_completed([task_id])
+    # Poll download (automatic download for each completed frame)
+    download.auto_download([int(task_id)])
 
 
 Houdini demo
 -------------
  ::
 
-    from __future__ import print_function
     from rayvision_api.core import RayvisionAPI
-    from rayvision_utils.analyse_handle import RayvisionAnalyse
-    from rayvision_api.task.handle import RayvisionTask
-    from rayvision_api.task.check import RayvisionCheck
-    from rayvision_sync.transfer import RayvisionTransfer
+    from rayvision_houdini.analyze_houdini import AnalyzeHoudini
     from rayvision_sync.upload import RayvisionUpload
-    from rayvision_sync.manage import RayvisionManageTask
     from rayvision_sync.download import RayvisionDownload
+    from rayvision_api.task.check import RayvisionCheck
+    from rayvision_api.utils import update_task_info, append_to_task, append_to_upload
 
-    # Set necessary parameters
-
+    # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",  # no need to modify
-        "platform": "2",  # platform id
-        "access_id": "xxxxxx",  # user's access_id(required)
-        "access_key": "xxxxx",  # user's access_key(required)
-        "local_os": 'windows',
-        "workspace": "c:/workspace",  # local root directory(Automatically generated), must be in english
-        "render_software": "Houdini",  # CG software（Maya, Houdini, Katana, Clarisse）
-        "software_version": "17.5.293",  # CG software version
-        "project_name": "Project1",
-        "plugin_config": {}  # CG plugins. If none, leave it as {}
+        "domain": "jop.foxrenderfarm.com",
+        "platform": "2",
+        "access_id": "xxxx",
+        "access_key": "xxxx",
     }
-
-    # absolute path of CG assets(required)
-    cg_file = r"E:\copy\test02.hip"
 
     api = RayvisionAPI(access_id=render_para['access_id'],
                        access_key=render_para['access_key'],
                        domain=render_para['domain'],
                        platform=render_para['platform'])
 
-    # print user's info
-    print(api.user.query_user_profile())
-
-    # Rayvision analysis
-    task = RayvisionTask(cg_file=cg_file, **render_para)
-    RayvisionAnalyse.execute(task)
-    RayvisionCheck(task).execute(task.task_info, task.upload_info)
-
-    # Upload json file
-    transfer_info = {
-        'config_bid': api.user_info['config_bid'],
-        'input_bid': api.user_info['input_bid'],
-        "output_bid": api.user_info["output_bid"],
-        "domain": render_para['domain'],
-        "platform": render_para['platform'],
-        "local_os": render_para['local_os'],
-        "user_id": api.user_info['user_id'],
-        "local_path": r"C:\workspace",  #  folder to save downloaded files
+    # Step1:Analyze CG File
+    analyze_info = {
+        "cg_file": r"D:\houdini\CG file\flip_test_slice4.hip",
+        "workspace": "c:/workspace",
+        "software_version": "17.5.293",
+        "project_name": "Project1",
+        "plugin_config": {
+            'renderman': '22.6'
+        }
     }
+    analyze_obj = AnalyzeHoudini(**analyze_info)
+    analyze_obj.analyse()
 
-    resource_config_file = {
-        "task_json_path": task.task_json_path,
-        "tips_json_path": task.tips_json_path,
-        "asset_json_path": task.asset_json_path,
-        "upload_json_path": task.upload_json_path,
+
+    # step2: Add some custom parameters, or update the original parameter value
+    update_task = {
+        "pre_frames": "100",
+        "stop_after_test": "1"
     }
+    update_task_info(update_task, analyze_obj.task_json)
 
-    # start transfer
-    trans = RayvisionTransfer(**transfer_info)
-    upload = RayvisionUpload(trans)
-    upload.upload(task_id=task.task_id, **resource_config_file)
+    custom_info_to_task = {}
+    append_to_task(custom_info_to_task, analyze_obj.task_json)
 
-    task_id = int(task.task_id)
-    result = api.submit(task_id)
+    custom_info_to_upload = []
+    append_to_upload(custom_info_to_upload, analyze_obj.upload_json)
 
-    # download
-    manage_task = RayvisionManageTask(api.query)
-    trans.manage_task = manage_task
-    download = RayvisionDownload(trans)
 
-    # provide 2 methods of downloading
-    # download.auto_download_after_task_completed([task_id])  # Download after all frames finish rendering
-    download.auto_download([task_id])  # Download after current frame finishes rendering
+    # step3:Check json files
+    check_obj = RayvisionCheck(api, analyze_obj)
+    task_id = check_obj.execute(analyze_obj.task_json, analyze_obj.upload_json)
+
+
+    # Step4: Transmission
+    """
+    There are two ways to upload the transmission:
+    Upload_method: 1: upload four json files and upload the resource file according to upload.json;
+                   2: json files and resources are uploaded separately;
+    """
+    CONFIG_PATH = {
+        "tips_json_path": analyze_obj.tips_json,
+        "task_json_path": analyze_obj.task_json,
+        "asset_json_path": analyze_obj.asset_json,
+        "upload_json_path": analyze_obj.upload_json,
+    }
+    upload_obj = RayvisionUpload(api)
+    """
+    The default of the test demo is to upload json and resource files at the same time,
+    and users can choose their own upload method according to the actual situation.
+    """
+    upload_method = 1
+    if upload_method == 1:
+        # step3.1:Json files are uploaded in conjunction with CG resources
+        upload_obj.upload(str(task_id), **CONFIG_PATH)
+    elif upload_method == 2:
+        # step3.2:CG resource files and json are uploaded separately
+        upload_obj.upload_asset(upload_json_path=CONFIG_PATH["upload_json_path"])
+        upload_obj.upload_config(str(task_id), list(CONFIG_PATH.values()))
+
+
+    # Step5:Submit Task
+    api.submit(int(task_id))
+
+
+    # Step6:Download
+    download = RayvisionDownload(api)
+    # All complete before the automatic start of uniform download.
+    # download.auto_download_after_task_completed([task_id])
+    # Poll download (automatic download for each completed frame)
+    download.auto_download([int(task_id)])
+
 
 Clarisse demo
 --------------
 
  ::
 
-    from __future__ import print_function
-
     from rayvision_api.core import RayvisionAPI
-    from rayvision_api.task.check import RayvisionCheck
-    from rayvision_api.task.handle import RayvisionTask
-    from rayvision_sync.download import RayvisionDownload
-    from rayvision_sync.manage import RayvisionManageTask
-    from rayvision_sync.transfer import RayvisionTransfer
+    from rayvision_clarisse.analyse_clarisse import AnalyzeClarisse
     from rayvision_sync.upload import RayvisionUpload
-    from rayvision_utils.analyse_handle import RayvisionAnalyse
+    from rayvision_sync.download import RayvisionDownload
+    from rayvision_api.task.check import RayvisionCheck
+    from rayvision_api.utils import update_task_info, append_to_task, append_to_upload
 
-    # Set necessary parameters.
+    # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
-        "access_id": "xxxxx",
-        "access_key": "xxxxxx",
-        "local_os": 'windows',
-        "workspace": "c:/workspace",  # local root directory(Automatically generated), must be in english
-        "render_software": "Clarisse",  # CG software（Maya, Houdini, Katana, Clarisse）
-        "software_version": "clarisse_ifx_4.0_sp3",  # CG software version
-        "project_name": "Project1",
-        "plugin_config": {},  # CG plugins. If none, leave it as {}
+        "access_id": "xxxx",
+        "access_key": "xxxx",
     }
-
-    # absolute path of CG assets(required)
-    # cg_file = "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"
-    cg_file = r"D:\ziyuan\class01\feichuan.project"
 
     api = RayvisionAPI(access_id=render_para['access_id'],
                        access_key=render_para['access_key'],
                        domain=render_para['domain'],
                        platform=render_para['platform'])
 
-    # print user's info
-    print(api.user.query_user_profile())
-
-
-    # Rayvision analysis
-    task = RayvisionTask(cg_file=cg_file, **render_para)
-    RayvisionAnalyse.execute(task)
-    RayvisionCheck(task).execute(task.task_info, task.upload_info)
-
-    # upload
-    transfer_info = {
-        'config_bid': api.user_info['config_bid'],
-        'input_bid': api.user_info['input_bid'],
-        "output_bid": api.user_info["output_bid"],
-        "domain": render_para['domain'],
-        "platform": render_para['platform'],
-        "local_os": render_para['local_os'],
-        "user_id": api.user_info['user_id'],
-        "local_path": r"C:\workspace",  #  folder to save downloaded files
+    # Step1:Analyze CG File
+    analyze_info = {
+        "cg_file": r"D:\files\CG FILE\clarisse_test1.project",
+        "workspace": "c:/workspace",
+        "software_version": "clarisse_ifx_4.0_sp3",
+        "project_name": "Project1",
+        "plugin_config": {}
     }
+    analyze_obj = AnalyzeClarisse(**analyze_info)
+    analyze_obj.analyse()
 
-    resource_config_file = {
-        "task_json_path": task.task_json_path,
-        "tips_json_path": task.tips_json_path,
-        "asset_json_path": task.asset_json_path,
-        "upload_json_path": task.upload_json_path,
+
+    # step2:Add some custom parameters, or update the original parameter value
+    update_task = {
+        "pre_frames": "100",
+        "stop_after_test": "1"
     }
+    update_task_info(update_task, analyze_obj.task_json)
 
-    # start transfer
-    trans = RayvisionTransfer(**transfer_info)
-    upload = RayvisionUpload(trans)
-    upload.upload(task_id=task.task_id, **resource_config_file)
+    custom_info_to_task = {}
+    append_to_task(custom_info_to_task, analyze_obj.task_json)
 
-    task_id = int(task.task_id)
-    result = api.submit(task_id)
+    custom_info_to_upload = []
+    append_to_upload(custom_info_to_upload, analyze_obj.upload_json)
 
-    # download
-    manage_task = RayvisionManageTask(api.query)
-    trans.manage_task = manage_task
-    download = RayvisionDownload(trans)
+    # step3:Check json files
+    check_obj = RayvisionCheck(api, analyze_obj)
+    task_id = check_obj.execute(analyze_obj.task_json, analyze_obj.upload_json)
 
-    # provide 2 methods of downloading
-    # download.auto_download_after_task_completed([task_id])  # Download after all frames finish rendering
-    download.auto_download([task_id])  # Download after current frame finishes rendering
+
+    # Step4:Transmission
+    """
+    There are two ways to upload the transmission:
+    Upload_method: 1:upload four json files and upload the resource file according to upload.json;
+                   2:json files and resources are uploaded separately;
+    """
+    CONFIG_PATH = {
+        "tips_json_path": analyze_obj.tips_json,
+        "task_json_path": analyze_obj.task_json,
+        "asset_json_path": analyze_obj.asset_json,
+        "upload_json_path": analyze_obj.upload_json,
+    }
+    upload_obj = RayvisionUpload(api)
+    """
+    The default of the test demo is to upload json and resource files at the same time,
+    and users can choose their own upload method according to the actual situation.
+    """
+    upload_method = 1
+    if upload_method == 1:
+        # step4.1:Json files are uploaded in conjunction with CG resources
+        upload_obj.upload(str(task_id), **CONFIG_PATH)
+    elif upload_method == 2:
+        # step4.2:CG resource files and json are uploaded separately
+        upload_obj.upload_asset(upload_json_path=CONFIG_PATH["upload_json_path"])
+        upload_obj.upload_config(str(task_id), list(CONFIG_PATH.values()))
+
+
+    # Step5:Submit Task
+    api.submit(int(task_id))
+
+
+    # Step6:Download
+    download = RayvisionDownload(api)
+    # All complete before the automatic start of uniform download.
+    # download.auto_download_after_task_completed([task_id])
+    # Poll download (automatic download for each completed frame)
+    download.auto_download([int(task_id)])
+
+
