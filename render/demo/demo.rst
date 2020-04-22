@@ -14,7 +14,7 @@ Maya demo
 
     # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -110,7 +110,7 @@ Houdini demo
 
     # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -207,7 +207,7 @@ Clarisse demo
 
     # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
