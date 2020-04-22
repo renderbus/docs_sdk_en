@@ -120,8 +120,17 @@ custom_info_to_upload = [
 append_to_upload(custom_info_to_upload, analyze_obj.upload_json)
 ```
 
+### 四. Validate json file
 
-### 四. Upload
+When validating, we check whether there is' user_id ', 'project_id', 'task_id' in task.json,
+If not, the interface is called to fetch the relevant parameters from the server and write task.json
+
+```
+check_obj = RayvisionCheck(api, analyze_obj)
+task_id = check_obj.execute(analyze_obj.task_json, analyze_obj.upload_json)
+```
+
+### 五. Upload
 > Now there are two ways:
 
 ##### 1.Upload the json file first and then upload the resource file according to "upload.json":
@@ -160,8 +169,13 @@ UPLOAD.upload_config("5165465", CONFIG_PATH)
 【Warning】:You need a task ID to upload a json file, but you don't need a task ID to upload a resource file;  
 The 'is_db' parameter in upload_asset is used to control whether or not a local database is needed. By default, a local database is used;
 
+### 六. Submit Task
 
-### 五. Download
+```
+api.submit(int(task_id))
+```
+
+### 七. Download
 > Download now provides 3 ways:
 
 ##### 1. Supports custom downloads of hierarchical directory structures under each rendering task.
@@ -203,7 +217,7 @@ download.auto_download_after_task_completed([18164087], download_filename_format
 ```
 Warning: The method task ID cannot be empty
 
-### 六. Attachment: transfer configuration file
+### 八. Attachment: transfer configuration file
 
 
 **1. Transport configuration Settings include:**
