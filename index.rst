@@ -11,7 +11,7 @@ Welcome to use RenderbusSDK!
 
    render/first_look.rst
    render/installation_guide.rst
-   render/SDK_tutorial.rst
+   render/SDK_tutorial.md
    render/api/index.rst
    render/how to user API interface en.md
    render/log/index.rst

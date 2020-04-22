@@ -21,26 +21,28 @@ Please refer to `Installation Guide <installation_guide.html>`__
 3. To download only the first frame, how to set?
 --------------------------------------------------
 
-- Get a task instance
+ ::
 
-   ``task = RayvisionTask(cg_file=cg_file, **render_para)``
+   from rayvision_api.utils import update_task_info
+   update_task = {
+        "pre_frames": "100",
+    }
+    update_task_info(update_task, task_path=r"C:\workspace\1586932339\task.json")
 
-- Set to download only the first frame
-
-   ``task.task_info['task_info']['pre_frames'] = "100"``
 
 .. _header-n14:
 
 4. After the priority frame rendered, how to set to automatically render at full speed?
 -------------------------------------------------------------------------------------------
 
-- Get a task instance
+ ::
 
-   ``task = RayvisionTask(cg_file=cg_file, **render_para)``
+   from rayvision_api.utils import update_task_info
+   update_task = {
+        "stop_after_test": "1"
+    }
+   update_task_info(update_task, task_path=r"C:\workspace\1586932339\task.json")
 
-- Set automatic full speed rendering
-
-   ``task.task_info['task_info']['stop_after_test'] = "2"``
 
 For details, please refer to `Detailed Parameter Configuration <json_file>`__
 

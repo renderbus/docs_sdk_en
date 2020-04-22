@@ -58,5 +58,8 @@ code      symbol                                description
 916       RECEIPT_TYPE_ERROR                    invoice type not match
 920       NO_LATEST_VERSION                     no latest client version
 1000      REDIS_CACHE_FAIL                      redis cache exception
+20004     JSON_FILE_UPLOAD_FAILED               Uploading json file has failed many times, please check the network environment
+200024    ARGUMENT_FORMAT_INVALID               The transfer parameter name is set incorrectly. Please check the transfer CMD command
+200025    NON-UPLOADABLE FILES                  Unable to upload the file, check if the file exists or if the file is damaged
 1000000   RayvisionError                        python exception
 ======== ===================================== =================================================
