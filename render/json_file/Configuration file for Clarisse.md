@@ -1,5 +1,5 @@
-Clarisse 配置文件文档
-======
+Clarisse Configuration
+========================
 
 > Analyze clarisse scene and save the output as task.json, asset.json,
 upload.json and tips.json.
@@ -103,7 +103,7 @@ upload.json and tips.json.
 ```
 
 
-**task.json参数解析**
+**task.json Parametric Interpretation**
 
 
 parameter | type | description | example 
