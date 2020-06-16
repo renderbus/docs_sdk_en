@@ -1,5 +1,5 @@
-Houdini 配置文件文档
-======
+Houdini Configuration
+======================
 
 > Analyze houdini scene and save the output as task.json, asset.json,upload.json and tips.json.
 
@@ -72,7 +72,7 @@ Houdini 配置文件文档
 }
 ```
 
-**task.json**
+**task.json Parametric Interpretation**
 
 
 parameter | type |  | description | example 

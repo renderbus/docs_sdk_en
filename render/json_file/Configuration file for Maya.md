@@ -1,5 +1,5 @@
-Maya 配置文件文档
-======
+Maya Configuration
+===================
 
 > Analyze clarisse scene and save the output as task.json, asset.json,
 > upload.json and tips.json.
@@ -221,7 +221,7 @@ by_frame | string | Y | Frame interval | "1"
 ---|---|---|---
 asset | object | Asset path information to be uploaded | refer to [asset](#asset) 
 
-**<span id="asset">asset对象解析</span>**
+**<span id="asset">asset Parametric Interpretation</span>**
 
 
  parameter | type   | description                                                  | example                                            
