@@ -4,6 +4,6 @@ Detailed parameter configuration
 .. toctree::
    :maxdepth: 4
 
-   json_file/配置文件文档之Clarisse.md
-   json_file/配置文件文档之Houdini.md
-   json_file/配置文件文档之Maya.md
+   json_file/Configuration file for Clarisse.md
+   json_file/Configuration file for Houdini.md
+   json_file/Configuration file for Maya.md
