@@ -21,7 +21,7 @@ Houdini Configuration
                 "option": "-1", 
                 "render": "1",
                 "height": "720",
-				"width": "1280",
+				"width": "1280"
             }
         ], 
         "geo_node": [],
@@ -36,10 +36,11 @@ Houdini Configuration
 				"option": "1",
 				"frames": "1-240[1]",
 				"sliceType": "particle"
-			},
+			}
+        ]
     }, 
     "task_info": {
-        "is_layer_rendering": "1", 
+        "enable_layered":"1", 
         "cg_id": "2004", 
         "ram": "64", 
         "os_name": "1", 
@@ -62,7 +63,8 @@ Houdini Configuration
         "input_project_path": "", 
         "task_id": "440149", 
         "task_stop_time": "86400", 
-        "time_out": "12"
+        "time_out": "12",
+        "graphics_cards_num": "2"
     },  
     "software_config": {
         "cg_version": "16.5.268", 
@@ -99,7 +101,7 @@ plugins | object | plugin{name, version} | {}
 | cg_id                  | string | Y               | software id."2004": Houdini                                  |          | "2013"                                                       |
 | ram                    | string | Y               | ram: 64 / 128                                                | "64"     | "64"                                                         |
 | os_name                | string | Y               | Rendering machine operating system:  "0":Linux; "1": Windows | "1"      | "1"                                                          |
-| render_layer_type      | string | Y               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
+| render_layer_type      | string | N               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
 | is_distribute_render   | string | N               | distributed render mode,"0":off, "1":on                      | "0"      | "0"                                                          |
 | input_cg_file          | string | Y               | input file path                                              |          | "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"             |
 | input_project_path     | string | Y               | project path, could be empty                                 | " "      |                                                              |
@@ -148,7 +150,7 @@ width | string | N | Camera width | “1280”
 | parameter      | type   | Is it necessary | description                                                  | example                                          |
 | -------------- | ------ | --------------- | ------------------------------------------------------------ | ------------------------------------------------ |
 | node           | string | Y               | Node full path name                                          | "/out/distributedsim"                            |
-| output_driver  | string | N               | Output driver                                                | "/obj/distribute_flattank/save_slices"           |
+| output_driver  | string | N               | Solve node path                                              | "/obj/distribute_flattank/save_slices"           |
 | render         | string | Y               | Whether to activate rendering: <br/> 1: Render (solve) the node; <br/> 0: The node does not participate in rendering (solve) | "0"                                              |
 | simControlName | string | N               | Solve node name                                              | "/obj/flattank_sim/DISTRIBUTE_flattank_CONTROLS" |
 | output_file    | string | N               | Output file                                                  | "/geo/flip_test_slice4.flattank.0.1.bgeo.sc"     |
@@ -199,7 +201,7 @@ server | string | Relative path on the server side, generally consistent with lo
 ```json
 {
     "50001":[
-        "Nodes: /obj/flattank_fluid/compressed_cache/file_mode  File name: $HIP/geo/$HIPNAME.$OS.$F.bgeo.sc  miss file: /geo/flip_test_slice4.compressed_cache.1.bgeo.sc ",
+        "Nodes: /obj/flattank_fluid/compressed_cache/file_mode  File name: $HIP/geo/$HIPNAME.$OS.$F.bgeo.sc  miss file: /geo/flip_test_slice4.compressed_cache.1.bgeo.sc "
     ]
 }
 ```
