@@ -78,7 +78,7 @@ Maya Configuration
         }
     }, 
     "task_info": {
-        "is_layer_rendering": "1", 
+        "enable_layered": "1", 
         "cg_id": "2000", 
         "ram": "64", 
         "os_name": "1", 
@@ -101,7 +101,8 @@ Maya Configuration
         "input_project_path": "", 
         "task_id": "439800", 
         "task_stop_time": "86400", 
-        "time_out": "12"
+        "time_out": "12",
+        "graphics_cards_num": "2"
     }, 
     "software_config": {
         "cg_version": "2016", 
@@ -138,7 +139,7 @@ plugins | object | Y | plugin{name, version} | {}
 | cg_id                  | string | Y               | software id."2000": Maya                                     |          | "2013"                                                       |
 | ram                    | string | Y               | ram: 64 / 128                                                | "64"     | "64"                                                         |
 | os_name                | string | Y               | Rendering machine operating system:  "0":Linux; "1": Windows | "1"      | "1"                                                          |
-| render_layer_type      | string | Y               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
+| render_layer_type      | string | N               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
 | is_distribute_render   | string | N               | distributed render mode,"0":off, "1":on                      | "0"      | "0"                                                          |
 | input_cg_file          | string | Y               | input file path                                              |          | "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"             |
 | input_project_path     | string | Y               | project path, could be empty                                 | " "      |                                                              |
