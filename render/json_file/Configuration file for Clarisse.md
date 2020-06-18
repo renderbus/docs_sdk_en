@@ -123,68 +123,72 @@ plugins | object | plugin{name, version} | {}
 
 **<span id="task_info">task_info</span>**
 
+| parameter              | type   | Is it necessary | description                                                  | default  | example                                                      |
+| ---------------------- | ------ | --------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
+| graphics_cards_num     | string | Y               | 1： open single card rendering 2: open dual card rendering   | "2"      | "2"                                                          |
+| enable_layered         | string | Y               | render layer mode,"0":off, "1":on                            | "0"      | "1"                                                          |
+| cg_id                  | string | Y               | software id."2013": Clarisse                                 |          | "2013"                                                       |
+| ram                    | string | Y               | ram: 64 / 128                                                | "64"     | "64"                                                         |
+| os_name                | string | Y               | Rendering machine operating system:  "0":Linux; "1": Windows | "1"      | "1"                                                          |
+| render_layer_type      | string | Y               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
+| is_distribute_render   | string | N               | distributed render mode,"0":off, "1":on                      | "0"      | "0"                                                          |
+| input_cg_file          | string | Y               | input file path                                              |          | "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"             |
+| input_project_path     | string | Y               | project path, could be empty                                 | " "      |                                                              |
+| job_stop_time          | string | Y               | Set the frame timeout time, will only affect the current frame, unit seconds | "259200" | "28800"                                                      |
+| user_id                | string | Y               | user id                                                      |          |                                                              |
+| pre_frames             | string | Y               | Priority rendering (priority frames are not recommended to customize multiple individual frames) | "000"    | "000: 1,3-4 [1]" means:  Priority rendering first frame: No  Priority rendering middle frame: No  Priority rendering last frame: No  Priority rendering custom frame: 1,3-4 [1] |
+| platform               | string | Y               | submit platform : "2": "www2", "3": "www3", "6": "www4", "21": "gpu", |          | "2"                                                          |
+| is_picture             | string | Y               | "0: Effect Chart "1": Animation Chart                        | "0"      | "0"                                                          |
+| project_id             | string | Y               | project id                                                   | " "      | "200953"                                                     |
+| project_name           | string | Y               | project name                                                 | " 0"     | "Project1"                                                   |
+| channel                | string | Y               | 1:Web local analysis (animation deduction); 2:web cloud analysis; 3:Rendering plugin submission； 4：API/SDK submission; 8：Animation plugin submission | "4"      | "4"                                                          |
+| tiles_type             | string | Y               | "block, strip"                                               | "block"  | "block"                                                      |
+| tiles                  | string | Y               | tile number, 1 for single node, greater than 1 for tiles rendering(multi-nodes) | "1"      | "1"                                                          |
+| distribute_render_node | string | N               | nodes number for distributed rendering                       | "3"      | "3"                                                          |
+| frames_per_task        | string | Y               | frames per task                                              | "1"      | "1"                                                          |
+| stop_after_test        | string | Y               | "1":pause after priority render, "2":continue after priority render (default "2") | "2"      | "2"                                                          |
+| task_id                | string | Y               | task id                                                      |          |                                                              |
+| task_stop_time         | string | Y               | Large task timeout stops in unit seconds, "0" means unlimited | "0"      | "86400"                                                      |
+| time_out               | string | Y               | Overtime reminder time, unit: sec                            | "43200"  | "43200"                                                      |
 
- parameter              | type   | description                                                  | example                                                      
----|---|---|---
-is_layer_rendering | string | render layer mode,"0":off, "1":on | "1"
-cg_id | string | software id."2013": Clarisse | "2013" 
-ram | string | ram: 64 / 128 | "64"
-os_name | string | Rendering machine operating system: <br>"0":Linux; "1": Windows | "1" 
-render_layer_type | string | render layer mode: <br/>"0"：renderlayer方式<br/>"1"：rendersetup方式 | "0"
-is_distribute_render | string | distributed render mode,"0":off, "1":on | "0"
-input_cg_file | string | input file path | "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project" 
-job_stop_time | string | Set the frame timeout time, will only affect the current frame, unit seconds | "28800"
-user_id | string | user id | 
-pre_frames | string | Priority rendering (priority frames are not recommended to customize multiple individual frames) | "000: 1,3-4 [1]" means: <br/> Priority rendering first frame: No <br/> Priority rendering middle frame: No <br/> Priority rendering last frame: No <br/> Priority rendering custom frame: 1,3-4 [1] 
-platform | string | submit platform :<br>"2": "www2",<br/>"3": "www3",<br/>"6": "www4",<br/>"21": "gpu", | "2"
-is_picture | string | if it's architectural rendering | "0"
-project_id | string | project id | "200953" 
-channel | string | 1:Web local analysis (animation deduction);<br/>2:web cloud analysis;<br/>3:Rendering plugin submission；<br/>4：API/SDK submission;<br/>8：Animation plugin submission | "4"
-tiles_type | string | "block, strip" | "block"
-tiles | string | tile number, 1 for single node, greater than 1 for tiles rendering(multi-nodes) | "1"
-project_name | string | project name | "Project1" 
-distribute_render_node | string | nodes number for distributed rendering | "3"
-frames_per_task | string | frames per task | "1"
-stop_after_test | string | "1":pause after priority render,<br> "2":continue after priority render<br>(default "2") |"2"
-input_project_path | string | project path, could be empty |
-task_id | string | task id | 
-task_stop_time | string | Set the task timeout time. The task timeout stops all frames in unit seconds,unit: sec | "86400"
-time_out | string | Overtime reminder time, unit: sec | "43200" 
+> **Note:** Clarisse temporarily does not support distributed rendering (is_distribute_render) and tiled rendering (tiles)
 
 **<span id="scene_info_render">scene_info_render</span>**
 
 
  parameter  | type   | description  | example                                                      
 ---|---|---|---
-image_node | object | general info | refer to [scene_info_render.image_node](#scene_info_render.image_node) 
+image_node | object | Clarisse IFX includes all images in the scene and 3dlayer under the image, and clarisse BUiLDER includes all VariableRange in the scene and ImageNodeWrite under VariableRange. | refer to [scene_info_render.image_node](#scene_info_render.image_node) 
 
 **<span id="scene_info_render.common">scene_info_render.image_node</span>**
 
 
  parameter    | type   | description                                                  | example                                                      
 ---|---|---|---
-renderable | string | "0": do not open rendering,<br>“1”: open rendering (this is not the value in the scene,the platform is not open by default, the platform is notrecommended to directly render image) | "0" 
-output | string | output path of current image | "D:\temp\cam02" 
-format | string | the output format for the current image | "exr16" 
-LUT | string | the output color management of the current image | "linear" 
-save_to_disk | string | Whether to open save output for the current image | "1" 
-name | string | the name of the current image is also the path in the scene | "project://scene/cam02" 
-layers | string | The value of 3dlayer in the current image is list, and the value of list is dict | [scene_info_render.image_node.layers](#scene_info_render.image_node.layers) 
- frames       | string | frame range                                            | "0-50[1]"                                                    
+renderable | string | "0": do not open rendering,<br>“1”: open rendering (this is not the value in the scene,the platform is not open by default, the platform is notrecommended to directly render image and VariableRange) | "0" 
+output | string | The output path of the current image in clarisse IFX, no output in clarisse BUiLDER The output path of the current image in clarisse IFX, no in clarisse BUiLDER | "D:\temp\cam02" 
+format | string | The output format of the current image in clarisse IFX, optional value, none under clarisse BUiLDER | "exr16" 
+LUT | string | The stringIFX manages the output color of the current image. Non-essential values, none under clarisse BUiLDER | "linear" 
+save_to_disk | string | Whether to save the output of the current image in clarisse IFX, no under clarisse BUiLDER | "1" 
+name | string | The name of the current image in clarisse IFX, the name of the current VariableRange in clarisse BUiLDER, and the path of the two in the scene | "project://scene/cam02" 
+layers | string | IFX is the 3dlayer in the current image, the value is list, the value of list is dict, there are several layers of dict in the current image, there are several layers of dict, clarisse BUiLDER is the ImageNodeWrite in the current VariableRange, the value is list, The value of list is dict. How many ImageNodeWrites are in the current VariableRange, there are several dicts of ImageNodeWrites. See scene_info_render.image_node.layers object analysis | [scene_info_render.image_node.layers](#scene_info_render.image_node.layers) 
+ frames       | string | clarisse IFX is the frame range of the current image, clarisse BUiLDER is the value of the F or Frame variable of the current VariableRange | "0-50[1]"                                                    
 
 **<span id="scene_info_render.image_node.layers">scene_info_render.image_node.layers</span>**
 
 
  parameter               | type   | description                                                  | example                               
 ---|---|---|---
-frames | string | frame range | "0-50[1]" 
+frames | string | clarisse IFX is the current 3dlayer start frame and end frame, and clarisse BUiLDER is the coverage value of the ImageNodeWrite under the current VariableRange | "0-50[1]" 
 renderable | string | "0": do not open rendering<br>“1”: open rendering | "1" 
-output | string | output path | "D:\\temp\\cam02_layer02" 
-format | string | image format | "exr16" 
-enable_deep_output | string | Whether the current layer should enable deep to save the output | "1" 
-save_to_disk | string |  | "3"
-enable_deep_output_path | string | The deep output path of the current layer | "D:\\temp\\cam02_layer02_deep" 
-name | string | The name of the current layer is also the path in the scene | "project://scene/cam02.cam02_layer02" 
+output | string | The output path of the current layer in clarisse IFX, not under clarisse BUiLDER | "D:\\temp\\cam02_layer02" 
+format | string | The output format of the current layer or ImageNodeWrite | "exr16" 
+enable_deep_output | string | Whether to enable deep save output for the current layer in clarisse IFX, no under clarisse BUiLDER | "1" 
+save_to_disk | string | Whether to save the output of the current layer in clarisse IFX, no under clarisse BUiLDER | "1"
+enable_deep_output_path | string | clarisse IFX is the deep output path of the current layer, there is no under clarisse BUiLDER | "D:\\temp\\cam02_layer02_deep" 
+name | string | 1: The current layer name in clarisse IFX is also the path in the scene; <br/>2: The name of the current ImageNodeWrite in clarisse BUiLDER, the value is the path in the scene of the current VariableRange and the current imageNodeWrite in the scene Path to === link | 1："project://scene/cam02.cam02_layer02"<br/>2：“build://yt_0080===build://cloudShadow” 
+
+> 
 
 ### 2.upload.json
 
