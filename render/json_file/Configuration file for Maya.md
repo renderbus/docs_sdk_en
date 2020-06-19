@@ -194,11 +194,11 @@ image_file_prefix | string | Y | Output file name setting，"<RenderLayer>/<Scen
 all_camera | array<string> | Y | List of all cameras | ["stereoCameraRightShape", "cameraShape1"]
 render_camera | array<string> | Y | List of cameras to be rendered | ["stereoCameraRightShape"]
 start | string | Y | Start frame | "1"
-animation | string | N | Animation switch | "1"
+animation | string | N | Animation switch | "False" 
 renderer | string | Y | Renderer name | “arnold“
 frames | string | Y | Render frame | "1-10[1]"
 height | string | Y | High-resolution | "1080"
-renumber_frames | string | N | Frame overlay | "1"
+renumber_frames | string | N | Frame overlay | "False" 
 by_frame | string | Y | Frame interval | "1"
 
 
