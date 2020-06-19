@@ -125,12 +125,12 @@ plugins | object | plugin{name, version} | {}
 
 | parameter              | type   | Is it necessary | description                                                  | default  | example                                                      |
 | ---------------------- | ------ | --------------- | ------------------------------------------------------------ | -------- | ------------------------------------------------------------ |
-| graphics_cards_num     | string | Y               | 1: open single card rendering 2: open dual card rendering   | "2"      | "2"                                                          |
+| graphics_cards_num     | string | Y               | 1: open single card rendering 2: open dual card rendering    | "2"      | "2"                                                          |
 | enable_layered         | string | Y               | render layer mode,"0":off, "1":on                            | "0"      | "1"                                                          |
 | cg_id                  | string | Y               | software id."2013": Clarisse                                 |          | "2013"                                                       |
 | ram                    | string | Y               | ram: 64 / 128                                                | "64"     | "64"                                                         |
 | os_name                | string | Y               | Rendering machine operating system:  "0":Linux; "1": Windows | "1"      | "1"                                                          |
-| render_layer_type      | string | N               | render layer mode:  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
+| render_layer_type      | string | N               | render layer mode(only support maya):  "0"：renderlayer方式 "1"：rendersetup方式 | "0"      | "0"                                                          |
 | is_distribute_render   | string | N               | distributed render mode,"0":off, "1":on                      | "0"      | "0"                                                          |
 | input_cg_file          | string | Y               | input file path                                              |          | "E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project"             |
 | input_project_path     | string | Y               | project path, could be empty                                 | " "      |                                                              |
