@@ -15,7 +15,7 @@ Installation Guide
 
    ``pip install rayvision_maya``
 
-   ``pip install rayvision_clarissa``
+   ``pip install rayvision_clarisse``
 
    ``pip install rayvision_houdini``
 
