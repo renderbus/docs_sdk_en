@@ -1280,6 +1280,69 @@ label_list = api.tag.get_label_list()
 }
 ```
 
+## Add a task label
+
+**Interface path:** /api/render/task/addTaskLabel
+
+**Request parameter**：
+
+| **Parameter** | **Type**  | **Description**     | **Memo** |
+| -------- | --------- | ------------ | -------- |
+| tag      | string    | task tag    |          |
+| task_ids | list[int] | task id list |          |
+
+**Return parameter**：No
+
+**Example of request**：No
+
+```python
+tag = api.tag.add_task_tag(tag="test_tag", task_ids=[29445045, 29435295])
+```
+
+**Example of return**：
+
+```json
+{
+    "version": "1.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": null,
+    "serverTime": 15942751740441
+}
+```
+
+## Delete task label
+
+**Interface path:** /api/render/task/deleteTaskLabel
+
+**Request parameter**：
+
+| **Parameter** | **Type**  | **Description**        | **Memo** |
+| ------------- | --------- | ---------------------- | -------- |
+| tag_ids       | list[int] | Delete the task tag ID |          |
+
+**Return parameter**：No
+
+**Example of request**：No
+
+```python
+del_tag = api.tag.delete_task_tag(tag_ids=[21205])
+```
+
+**Example of return**：
+
+```json
+{
+    "version": "1.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": null,
+    "serverTime": 15942760110461
+}
+```
+
 ## Obtain the supported rendering software
 
 **Interface path**：/api/render/common/querySupportedSoftware
