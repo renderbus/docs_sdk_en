@@ -301,7 +301,7 @@ Clarisse demo
 
     # API Parameter
     render_para = {
-        "domain": "task.renderbus.com",
+        "domain": "jop.foxrenderfarm.com",
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
