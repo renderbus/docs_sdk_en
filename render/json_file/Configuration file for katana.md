@@ -153,10 +153,10 @@ parameter | type | description | example
 
  parameter         | type          | Is it necessary | description                                        | example                                    
 ---|---|---|---|---
- renderable | string |                 | Whether the node is active, "1" : active, "0" : inactive     |                    
- denoise    | string |                 | Noise reduction (effective only on GPU platform), "0" : not on, "1" : on | "denoise": "0"     
- frames     | string |                 | Frame range of current node                                  | "frames": "1-1[1]" 
- aov        | dict   |                 | AOV network, key: AOV name, value: output address            |                    
+ renderable | string | Y | Whether the node is active, "1" : active, "0" : inactive     |                    
+ denoise    | string | Y | Noise reduction (effective only on GPU platform), "0" : not on, "1" : on | "denoise": "0"     
+ frames     | string | Y | Frame range of current node                                  | "frames": "1-1[1]" 
+ aov        | dict   | Y | AOV network, key: AOV name, value: output address            |                    
 
 
 ### 2.upload.json
