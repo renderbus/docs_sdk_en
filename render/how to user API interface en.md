@@ -65,7 +65,7 @@ platform = api.query.platforms()
 
 ## Obtain the user information
 
-**Interface path**：/api/render/user/queryUserProfile
+**Interface path**：/api/render/setUp/queryUserProfile
 
 **Request parameter**：No
 
@@ -137,7 +137,7 @@ user_profile = api.user.query_user_profile()
 
 ## Obtain user settings
 
-**Interface path**：/api/render/user/queryUserSetting
+**Interface path**： /api/render/setUp/queryUserSetting
 
 **Request parameter**：No
 
@@ -197,13 +197,13 @@ user_setting = api.user.query_user_setting()
 
 ## Update user settings
 
-**Interface path**：/api/render/user/updateUserSetting
+**Interface path**： /api/render/setUp/updateUserSetting
 
 **Request parameter**：
 
-| **Parameter**  | **Type** | **Description**                                | **Memo** |
-| -------------- | -------- | ---------------------------------------------- | -------- |
-| task_over_time | Integer  | Set up of Task timeout situation, unit: second |          |
+| **Parameter**  | **Type** | Necessary | **Description**                                | **Memo** |
+| -------------- | -------- | --------- | ---------------------------------------------- | -------- |
+| task_over_time | Integer  | Y         | Set up of Task timeout situation, unit: second |          |
 
 **Return parameter: default**
 
@@ -228,17 +228,21 @@ update_user_setting = api.user.update_user_settings(task_over_time=43200)
 
 ## Obtain user transfer BID
 
-**Interface path**：/api/render/task/getTransferBid
+**Interface path**：/api/render/transfer/getBid
 
 **Request parameter**：default
 
 **Return parameter**：
 
-| **Parameter** | **Type** | **Description**                | **Memo** |
-|---------------|----------|--------------------------------|----------|
-| config_bid    | String   | Configuration file transfer ID |          |
-| output_bid    | String   | Download the transfer file ID  |          |
-| input_bid     | String   | Asset upload transfer ID       |          |
+| **Parameter**        | **Type** | **Description**                                              | **Memo** |
+| -------------------- | -------- | ------------------------------------------------------------ | -------- |
+| config_bid           | String   | Configuration file transfer ID                               |          |
+| output_bid           | String   | Download the transfer file ID                                |          |
+| input_bid            | String   | Asset upload transfer ID                                     |          |
+| parent_input_bid     | String   | Input transfer bid for corresponding main account            |          |
+| sub_user_output_bids | Object   | Subaccount Outputbids: If the accessed user is the main account, there is a subaccount value; otherwise, it is empty |          |
+| userId               | String   | ID of subaccount                                             |          |
+| output_bid           | String   | output_bid for subaccount                                    |          |
 
 **Example of request**：default
 
@@ -255,27 +259,33 @@ user_transfer_bid = api.user.get_transfer_bid()
     "message": "success",
     "code": 200,
     "data": {
-        "parent_input_bid": "10206"
         "config_bid": "30201",
+        "input_bid": "10201",
         "output_bid": "20201",
-        "input_bid": "10206"
-    },
+        "parent_input_bid": "10202",
+        "sub_user_output_bids": [{
+            userId:"119776",
+            outputBid:"10401"
+        }]
+	},
     "serverTime": 1535957964631
 }
 ```
 
 ## Create task ID
 
-**Interface path**：/api/render/task/createTask
+**Interface path**：/api/render/submit/createTask
 
 **Request parameter**：
 
-| **parameter**   | **Type**     | **Description**                   | **Memo**                                                   |
-| --------------- | ------------ | --------------------------------- | ---------------------------------------------------------- |
-| count           | Integer      | create the number of task Numbers | Not required, Default  1                                   |
-| out_user_id     | Long         | external user ID                  | Not required，used to distinguish third party access users |
-| task_user_level | Integer      | task user level                   | Not required，optional 50 and 60, default is 50            |
-| labels          | List<String> | custom tag                        | Not required                                               |
+| **parameter**     | **Type**     | Necessary | **Description**                   | **Memo**                                                   |
+| ----------------- | ------------ | --------- | --------------------------------- | ---------------------------------------------------------- |
+| count             | Integer      | N         | create the number of task Numbers | Not required, Default  1                                   |
+| out_user_id       | Long         | N         | external user ID                  | Not required，used to distinguish third party access users |
+| task_user_level   | Integer      | N         | task user level                   | Not required，optional 50 and 60, default is 50            |
+| labels            | List<String> | N         | custom tag                        | Not required                                               |
+| clone_original_id | integer      | N         | Clone the original task ID        |                                                            |
+| artist            | String       | N         | Productor                         |                                                            |
 
 **Return parameter**：
 
@@ -315,22 +325,14 @@ create_task_id = api.task.create_task(count=1,
 
 ## Submit task
 
-**Interface path**：/api/render/task/submitTask
+**Interface path**：/api/render/submit/task
 
 **Request parameter**：
 
-| **Parameter**         | **Type** | **Description**                | **Memo**                                                     |
-| --------------------- | -------- | ------------------------------ | ------------------------------------------------------------ |
-| task_id               | Integer  | task id                        |                                                              |
-| asset_lsolation_model | String   | Asset isolation type           | Optional value, default is null, optional value：'TASK_ID_MODEL'、'OUT_USER_MODEL'. |
-| out_user_id           | String   | The asset isolates the user ID | Optional value, when asset_lsolation_model='OUT_USER_MODEL' ,‘out_user_id’ cant be empty. |
-
-**asset_lsolation_model**：
-
-| **Parameter**  | **Description**                                              | **Applicable scenario**                                      | **Clean rules**                                              |
-| -------------- | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| TASK_ID_MODEL  | Divide task_id into three segments, with a minimum of 3 bits for each segment. If the high level is insufficient, add 0. For example, task_id=12345, then ASSET_ISOLATION_PATH="000/012/345". | Renderings API enterprise users, there is no repeatability for the asset file, the platform task number is referenced to do the asset isolation, to avoid the abnormal rendering effect caused by the file name conflict. | Keep for a maximum of 15 days.                               |
-| OUT_USER_MODEL | If out_user_id=12345, ASSET_ISOLATION_PATH="000/012/345". If out_user_id is more than 9 bits, such as: 11223344556677, the final isolation path bit is ASSET_ISOLATION_PATH="11223344/556/677". | Animation API enterprise user, refers to the third party user ID left asset isolation, to avoid the third party user's asset file conflict caused by the rendering result exception. | If the directory does not have a new render task reference for 20 consecutive days, it is removed. |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo** |
+| ------------- | -------- | --------- | --------------- | -------- |
+| task_id       | Integer  | Y         | task id         |          |
+| producer      | String   | N         | producer        |          |
 
 **Return parameter**：default
 
@@ -357,14 +359,15 @@ Warning: *Before committing, you need to call the transport interface to upload 
 
 ## Obtain analysis error code
 
-**Interface path**：/api/render/common/queryErrorDetail
+**Interface path**： /api/render/submit/queryAnalyseErrorDetail
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description**       | **Memo**                         |
-| ------------- | -------- | --------------------- | -------------------------------- |
-| code          | String   | Mandatary，error code |                                  |
-| language      | String   | Optional，language    | 0：Chinese（default） 1：English |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                             |
+| ------------- | -------- | --------- | --------------- | ------------------------------------ |
+| code          | String   | N         | error code      | Codes and codes are either mandatory |
+| codes         | String   | N         | Error code list | Codes and codes are either mandatory |
+| language      | String   | N         | language        | 0：Chinese（default） 1：English     |
 
 **Return parameter**：List\<CodeInfo\>
 
@@ -417,18 +420,18 @@ error_detail = api.query.error_detail(code="50001")
 
 ## Obtain the task list
 
-**Interface path**：/api/render/task/getTaskList
+**Interface path**：/api/render/handle/getTaskList
 
 **Request parameter**：
 
-| **Parameter**  | **Type**        | **Description**                                            | **Memo**                                  |
-| -------------- | --------------- | ---------------------------------------------------------- | ----------------------------------------- |
-| page_num       | Integer         | Mandatary，number of current page                          | Default: 1                                |
-| page_size      | Integer         | Mandatary，quantities of displaying per page               | Default: 1                                |
-| status_list    | List\<Integer\> | status code list，query the status of the task in the list | Check task status description for details |
-| search_keyword | String          | Optional, scenario name or job ID                          | Fuzzy search                              |
-| start_time     | String          | Optional, search limit for start time                      | Example:yyyy-MM-dd HH:mm:ss               |
-| end_time       | String          | Optional, search limit for end time                        | Example:yyyy-MM-dd HH:mm:ss               |
+| **Parameter**  | **Type**        | Necessary | **Description**                                            | **Memo**                                  |
+| -------------- | --------------- | --------- | ---------------------------------------------------------- | ----------------------------------------- |
+| page_num       | Integer         | N         | Mandatary，number of current page                          | Default: 1                                |
+| page_size      | Integer         | N         | Mandatary，quantities of displaying per page               | Default: 1                                |
+| status_list    | List\<Integer\> | N         | status code list，query the status of the task in the list | Check task status description for details |
+| search_keyword | String          | N         | Optional, scenario name or job ID                          | Fuzzy search                              |
+| start_time     | String          | N         | Optional, search limit for start time                      | Example:yyyy-MM-dd HH:mm:ss               |
+| end_time       | String          | N         | Optional, search limit for end time                        | Example:yyyy-MM-dd HH:mm:ss               |
 
 **Task status description**：
 
@@ -686,13 +689,13 @@ task_list = api.query.get_task_list(page_num=1, page_size=1)
 
 ## Stop task
 
-**Interface path**： /api/render/task/stopTask
+**Interface path**： /api/render/handle/stopTask
 
 **Request parameter**：
 
-| **parameter**   | **Type**        | **Description**            | **Memo** |
-| --------------- | --------------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Combination of the task ID |          |
+| **parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
+| --------------- | --------------- | --------- | -------------------------- | -------- |
+| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
 
 **Return parameter**：default
 
@@ -717,13 +720,13 @@ stop_task = api.task.stop_task(task_param_list=[13798105])
 
 ## Start task
 
-**Interface path**：/api/render/task/startTask
+**Interface path**：/api/render/handle/startTask
 
 **Request parameter**：
 
-| **parameter**   | **Type**        | **Description**            | **Memo** |
-| --------------- | --------------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Combination of the task ID |          |
+| **parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
+| --------------- | --------------- | --------- | -------------------------- | -------- |
+| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
 
 **Return parameter**：default
 
@@ -748,13 +751,13 @@ start_task = api.task.start_task(task_param_list=[13798105])
 
 ## Abandon task
 
-**Interface path**：/api/render/task/abortTask
+**Interface path**：/api/render/handle/abandonTask
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | **Description**            | **Memo** |
-| --------------- | --------------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Combination of the task ID |          |
+| **Parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
+| --------------- | --------------- | --------- | -------------------------- | -------- |
+| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
 
 **Return parameter**：default
 
@@ -779,13 +782,13 @@ abort_task = api.task.abort_task(task_param_list=[13798105])
 
 ## Delete task
 
-**Interface path**：/api/render/task/deleteTask
+**Interface path**：/api/render/handle/deleteTask
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | **Description** | **Memo** |
-| --------------- | --------------- | --------------- | -------- |
-| task_param_list | List\<Integer\> | Task ID list    |          |
+| **Parameter**   | **Type**        | Necessary | **Description** | **Memo** |
+| --------------- | --------------- | --------- | --------------- | -------- |
+| task_param_list | List\<Integer\> | Y         | Task ID list    |          |
 
 **Return parameter**：default
 
@@ -810,16 +813,16 @@ delete_task = api.task.delete_task(task_param_list=[13798105])
 
 ## Obtain the task rendering frame details
 
-**Interface path:** /api/render/task/queryTaskFrames
+**Interface path:**  /api/render/handle/queryTaskFrames 
 
 **Request parameter**：
 
-| **Parameter**  | **Type** | **Description**                                              | **Memo**                                                     |
-| -------------- | -------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| task_id        | Integer  | Task ID                                                      | Task ID，Is the unique identifier of the task, mandatary field |
-| search_keyword | String   | Query based on the name of the multiple frames that rendered on one machine | Is a string that be queried based on name of the multiple frames that rendered on one machine, optional field |
-| page_num       | Integer  | Current page number                                          |                                                              |
-| page_size      | Integer  | Size of the data that displayed per page                     |                                                              |
+| **Parameter**  | **Type** | Necessary | **Description**                                              | **Memo**                                                     |
+| -------------- | -------- | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| task_id        | Integer  | Y         | Task ID                                                      | Task ID，Is the unique identifier of the task, mandatary field |
+| search_keyword | String   | N         | Query based on the name of the multiple frames that rendered on one machine | Is a string that be queried based on name of the multiple frames that rendered on one machine, optional field |
+| page_num       | Integer  | N         | Current page number                                          |                                                              |
+| page_size      | Integer  | N         | Size of the data that displayed per page                     |                                                              |
 
 **Return parameter**：List\<FrameInfo\>
 
@@ -927,7 +930,7 @@ task_frame = api.query.task_frames(task_id=13790691, page_num=1, page_size=1)
 
 ## Obtain the overview of task rendering frames
 
-**Interface path**：/api/render/task/queryAllFrameStats
+**Interface path**： /api/render/handle/queryAllFrameStats
 
 **Request parameter**：No
 
@@ -969,13 +972,14 @@ all_frame_status = api.query.all_frame_status()
 
 ## Re-submit the failed frames
 
-**Interface path**： /api/render/task/restartFailedFrames
+**Interface path**：  /api/render/handle/recommitTasks
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | **Description** | **Memo** |
-| --------------- | --------------- | --------------- | -------- |
-| task_param_list | List\<Integer\> | Task ID list    |          |
+| **Parameter**   | **Type**        | Necessary | **Description**                                              | **Memo** |
+| --------------- | --------------- | --------- | ------------------------------------------------------------ | -------- |
+| task_param_list | List\<Integer\> | Y         | Task ID list                                                 |          |
+| status          | List\<Integer>  | N         | A set of frame task states that are not filled to represent failed frames |          |
 
 **Return parameter**：default
 
@@ -1000,15 +1004,16 @@ restart_failed_frames = api.query.restart_failed_frames(task_param_list=[1378898
 
 ## Re-submit the specified frames
 
-**Interface path**：/api/render/task/restartFrame
+**Interface path**： /api/render/handle/recommitTaskFrames
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | **Description**         | **Memo**                                 |
-| ------------- | --------------- | ----------------------- | ---------------------------------------- |
-| task_id       | Integer         | Task ID                 |                                          |
-| ids_list      | List\<Integer\> | Combine the frame ID    | Effective if 0 displayed when select_all |
-| select_all    | Integer         | Choose if re-submit all | 1：All，0：Only the specified frame      |
+| **Parameter** | **Type**        | Necessary | **Description**         | **Memo**                                 |
+| ------------- | --------------- | --------- | ----------------------- | ---------------------------------------- |
+| task_id       | Integer         | N         | Task ID                 |                                          |
+| ids_list      | List\<Integer\> | N         | Combine the frame ID    | Effective if 0 displayed when select_all |
+| select_all    | Integer         | N         | Choose if re-submit all | 1：All，0：Only the specified frame      |
+| status        | List\<Integer>  | N         | frame status            | Only pass taskId will take effect        |
 
 **Return parameter**：default
 
@@ -1033,13 +1038,13 @@ restart_frame = api.query.restart_frame(task_id=14362099, select_all=1)
 
 ## Obtain the task details
 
-**Interface path**：/api/render/task/queryTaskInfo
+**Interface path**： /api/render/handle/queryTaskInfo
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | **Description**           | **Memo** |
-| ------------- | --------------- | ------------------------- | -------- |
-| task_ids_list | List\<Integer\> | Combine the shell task ID |          |
+| **Parameter** | **Type**        | Necessary | **Description**           | **Memo** |
+| ------------- | --------------- | --------- | ------------------------- | -------- |
+| task_ids_list | List\<Integer\> | N         | Combine the shell task ID |          |
 
 **Return parameter**：List\<TaskInfo\>
 
@@ -1179,14 +1184,14 @@ task_info = api.query.task_info(task_ids_list=[14400249])
 
 ## Add a custom label
 
-**Interface path**：/api/render/common/addLabel
+**Interface path**： /api/render/project/add
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description** | **Memo**                    |
-| ------------- | -------- | --------------- | --------------------------- |
-| new_name      | String   | Label name      |                             |
-| status        | Integer  | Lable status    | 0: on, 1: off, default is 1 |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                    |
+| ------------- | -------- | --------- | --------------- | --------------------------- |
+| new_name      | String   | N         | Label name      |                             |
+| status        | Integer  | N         | Lable status    | 0: on, 1: off, default is 1 |
 
 **Return parameter**：default
 
@@ -1211,7 +1216,7 @@ task_info = api.tag.add_label(new_name="test_tag4", status=0)
 
 ## Delete custom label
 
-**Interface path**：/api/render/common/deleteLabel
+**Interface path**： /api/render/project/delete
 
 **Request parameter**：
 
@@ -1242,7 +1247,7 @@ delete_label_name = api.tag.delete_label(del_name="test_tag2")
 
 ## Obtain custom label
 
-**Interface path**： /api/render/common/getLabelList
+**Interface path**： /api/render/project/getList
 
 **Request parameter**：No
 
@@ -1282,14 +1287,14 @@ label_list = api.tag.get_label_list()
 
 ## Add a task label
 
-**Interface path:** /api/render/task/addTaskLabel
+**Interface path:** /api/render/handle/addTaskLabel
 
 **Request parameter**：
 
-| **Parameter** | **Type**  | **Description**     | **Memo** |
-| -------- | --------- | ------------ | -------- |
-| tag      | string    | task tag    |          |
-| task_ids | list[int] | task id list |          |
+| **Parameter** | **Type**  | Necessary | **Description**     | **Memo** |
+| -------- | --------- | ------------ | -------- | -------- |
+| tag      | string    | Y  | task tag    |          |
+| task_ids | list[int] | Y | task id list |          |
 
 **Return parameter**：No
 
@@ -1345,7 +1350,7 @@ del_tag = api.tag.delete_task_tag(tag_ids=[21205])
 
 ## Obtain the supported rendering software
 
-**Interface path**：/api/render/common/querySupportedSoftware
+**Interface path**：/api/render/plugin/querySoftwareList
 
 **Request parameter**：No
 
@@ -1468,13 +1473,13 @@ support_software = api.query.supported_software()
 
 ## Obtain supported rendering software plugins
 
-**Interface path**：/api/render/common/querySupportedPlugin
+**Interface path**：/api/render/plugin/querySoftwareDetail
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description**    | **Memo** |
-| ------------- | -------- | ------------------ | -------- |
-| name          | String   | Render software ID |          |
+| **Parameter** | **Type** | Necessary | **Description**    | **Memo** |
+| ------------- | -------- | --------- | ------------------ | -------- |
+| name          | String   | Y         | Render software ID |          |
 
 **Return parameter**：
 
@@ -1543,25 +1548,26 @@ support_software_plugin = api.query.supported_plugin(name='maya')
 
 ## New user rendering environment configuration
 
-**Interface path**：/api/render/common/addRenderEnv
+**Interface path**：/api/render/plugin/addUserPluginConfig
 
 **Request parameter**：
 
-| **Parameter**             | **Type** | **Description** | **Memo** |
-| ------------------------- | -------- | --------------- | -------- |
-| [render_env](#render_env) | Dict     |                 |          |
+| **Parameter**             | **Type** | Necessary | **Description**                  | **Memo**                     |
+| ------------------------- | -------- | --------- | -------------------------------- | ---------------------------- |
+| [render_env](#render_env) | Dict     | Y         | Render environment configuration | Detailed parameters refer to |
 
 **<span id="render_env">render_env</span>**：
 
-| **Parameter**   | **Type**        | **Description**                | **Memo**                     |
-| --------------- | --------------- | ------------------------------ | ---------------------------- |
-| cgId            | Integer         | Render software ID             | **Soft Version.cgId**        |
-| cgName          | String          | Render software name           | **Soft Version.cgName**      |
-| cgVersion       | String          | Render software version        | **Soft Version.cgVersion**   |
-| renderLayerType | Integer         | Maya render Type               |                              |
-| editName        | String          | render environment custom name |                              |
-| renderSystem    | Integer         | Render system                  | 0 linux, 1 windows           |
-| pluginIds       | List\<Integer\> | render plugin list             | **Plugin Version.plugin Id** |
+| **Parameter**   | **Type**        | Necessary | **Description**                | **Memo**                     |
+| --------------- | --------------- | --------- | ------------------------------ | ---------------------------- |
+| cgId            | Integer         | Y         | Render software ID             | **Soft Version.cgId**        |
+| cgName          | String          | Y         | Render software name           | **Soft Version.cgName**      |
+| cgVersion       | String          | Y         | Render software version        | **Soft Version.cgVersion**   |
+| renderLayerType | Integer         | N         | Maya render Type               |                              |
+| editName        | String          | Y         | render environment custom name |                              |
+| renderSystem    | Integer         | Y         | Render system                  | 0 linux, 1 windows           |
+| pluginIds       | List\<Integer\> | Y         | render plugin list             | **Plugin Version.plugin Id** |
+| projectPath     | String          | N         | Engineering path               |                              |
 
 **Return parameter**：
 
@@ -1601,25 +1607,26 @@ add_user_env = api.env.add_render_env(render_env=env)
 
 ## Adjust user render environment configuration
 
-**Interface path**：/api/render/common/updateRenderEnv
+**Interface path**：/api/render/plugin/editUserPluginConfig
 
 **Request parameter**：
 
-| **Parameter**             | **Type** | **Description** | **Memo** |
-| ------------------------- | -------- | --------------- | -------- |
-| [render_env](#render_env) | Dict     |                 |          |
+| **Parameter**             | **Type** |      | **Description**                  | **Memo**                     |
+| ------------------------- | -------- | ---- | -------------------------------- | ---------------------------- |
+| [render_env](#render_env) | Dict     | Y    | Render environment configuration | Detailed parameters refer to |
 
 **<span id="render_env">render_env</span>**：
 
-| **Parameter**   | **Type**        | **Description**                | **Memo**                                              |
-| --------------- | --------------- | ------------------------------ | ----------------------------------------------------- |
-| cgId            | Integer         | Render software ID             | **Soft Version.cgId**                                 |
-| cgName          | String          | Render software name           | **Soft Version.cgName**                               |
-| cgVersion       | String          | Render software version        | **Soft Version.cgVersion**                            |
-| renderLayerType | Integer         | Maya render Type               |                                                       |
-| editName        | String          | render environment custom name | Adjust the configuration name that required a passing |
-| renderSystem    | Integer         | Render system                  | 0 linux, 1 windows                                    |
-| pluginIds       | List\<Integer\> | render plugin list             | **Plugin Version plugin Id **                         |
+| **Parameter**   | **Type**      | Necessary | **Description**                | **Memo**                     |
+| --------------- | ------------- | --------- | ------------------------------ | ---------------------------- |
+| cgId            | Integer       | Y         | Render software ID             | **Soft Version.cgId**        |
+| cgName          | String        | Y         | Render software name           | **Soft Version.cgName**      |
+| cgVersion       | String        | Y         | Render software version        | **Soft Version.cgVersion**   |
+| renderLayerType | Integer       | N         | Maya render Type               |                              |
+| editName        | String        | Y         | render environment custom name |                              |
+| renderSystem    | Integer       | Y         | Render system                  | 0 linux, 1 windows           |
+| pluginIds       | List<Integer> | Y         | render plugin list             | **Plugin Version.plugin Id** |
+| projectPath     | String        | N         | Engineering path               |                              |
 
 **Return parameter**：default
 
@@ -1655,13 +1662,13 @@ update_user_env = api.env.update_render_env(render_env=update_env)
 Delete user render environment configuration 
 ---------------------------------------------
 
-**Interface path:**/api/render/common/deleteRenderEnv
+**Interface path:**  /api/render/plugin/deleteUserPluginConfig
 
 **Request parameter**：
 
-| **parameter** | **Type** | **Description**                | **Memo** |
-| ------------- | -------- | ------------------------------ | -------- |
-| edit_name     | String   | render environment custom name |          |
+| **parameter** | **Type** | Necessary | **Description**                | **Memo** |
+| ------------- | -------- | --------- | ------------------------------ | -------- |
+| edit_name     | String   | Y         | render environment custom name |          |
 
 **Return parameter**：default
 
@@ -1688,13 +1695,13 @@ delete_user_env = api.env.delete_render_env(edit_name="testRenderEnv")
 Set up default render environment configuration
 -----------------------------------------------
 
-**Interface path**：/api/render/common/setDefaultRenderEnv
+**Interface path**：/api/render/plugin/setDefaultUserPluginConfig
 
 **Request parameter**：
 
-| **parameter** | **Type** | **Description**                | **Memo** |
-| ------------- | -------- | ------------------------------ | -------- |
-| edit_name     | String   | render environment custom name |          |
+| **parameter** | **Type** | Necessary | **Description**                | **Memo** |
+| ------------- | -------- | --------- | ------------------------------ | -------- |
+| edit_name     | String   | Y         | render environment custom name |          |
 
 **Return parameter**：default
 
@@ -1719,13 +1726,15 @@ set_default_user_env = api.env.set_default_render_env(edit_name="testRenderEnv")
 
 ## Obtain user render environment configuration
 
-**Interface path**：/api/render/common/getRenderEnv
+**Interface path**：/api/render/plugin/getUserPluginConfig
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description**         | **Memo** |
-| ------------- | -------- | ----------------------- | -------- |
-| name          | String   | Rendering software name |          |
+| **Parameter** | **Type**      |      | **Description**         | **Memo**                           |
+| ------------- | ------------- | ---- | ----------------------- | ---------------------------------- |
+| name          | String        | N    | Rendering software name | cg_names and name must fill in one |
+| cg_names      | List\<string> | N    | 渲染软件名列表          | cg_names and name must fill in one |
+| os_name       | Integer       | N    | 选择操作系统            | 0:Linux，1:windows,默认1           |
 
 **Return parameter**: List\<RenderEnv\>
 
@@ -1819,14 +1828,14 @@ user_render_config = api.env.get_render_env(name='houdini')
 Task Progress (Only support Max )
 -------------
 
-**Interface path**：/api/render/task/loadTaskProcessImg
+**Interface path**：/api/render/handle/loadTaskProcessImg
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description** | **Memo**                                                     |
-| ------------- | -------- | --------------- | ------------------------------------------------------------ |
-| task_id       | Integer  | Task ID         | required                                                     |
-| frame_type    | Integer  | Frame type      | 2：photon，5：picture Without transmission, the background will dynamically return the results according to the stage of the rendering task |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                     |
+| ------------- | -------- | --------- | --------------- | ------------------------------------------------------------ |
+| task_id       | Integer  | Y         | Task ID         | required                                                     |
+| frame_type    | Integer  | N         | Frame type      | 2：photon，5：picture Without transmission, the background will dynamically return the results according to the stage of the rendering task |
 
 **Return parameter**：
 
@@ -1910,14 +1919,14 @@ task_processing_img = api.query.get_task_processing_img(task_id=14470635, frame_
 
 ## Task Setting Of  Over Time Stop
 
-**Interface path**：/api/render/task/setOverTimeStop
+**Interface path**： /api/render/handle/setTaskOverTimeStop
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | **Description**   | **Memo**             |
-| ------------- | --------------- | ----------------- | -------------------- |
-| task_id_list  | List\<Integer\> | Task ID           | required             |
-| overtime      | Long            | Time of Task stop | Required,unit:second |
+| **Parameter** | **Type**        | Necessary | **Description**   | **Memo**             |
+| ------------- | --------------- | --------- | ----------------- | -------------------- |
+| task_id_list  | List\<Integer\> | Y         | Task ID           | required             |
+| overtime      | Long            | Y         | Time of Task stop | Required,unit:second |
 
 **Example of request**：
 
@@ -1941,14 +1950,14 @@ set_task_overtime = api.task.set_task_overtime_top(task_id_list=[14684405], over
 
 ## Task thumbnail
 
-**Interface path**：/api/render/task/loadingFrameThumbnail
+**Interface path**：/api/render/handle/loadingFrameThumbnail
 
 **Request parameter**：
 
-| **Parameter** | **Type** | **Description** | **Memo**                                                     |
-| ------------- | -------- | --------------- | ------------------------------------------------------------ |
-| frame_id      | Integer  | Yes             | Frame ID                                                     |
-| frame_status  | Integer  | Yes             | A value of 4 means complete, only thumbnails are available when completed |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                     |
+| ------------- | -------- | --------- | --------------- | ------------------------------------------------------------ |
+| frame_id      | Integer  | Y         | Frame ID        | This can be obtained through the "Obtain the task rendering frame details" interface |
+| frame_status  | Integer  | N         | Frame status    | A value of 4 means complete, only thumbnails are available when completed |
 
 **Example of request**：
 
@@ -1972,7 +1981,7 @@ frame_thumbnall = api.query.get_frame_thumbnall(frame_id=230772361)
 
 ## Get Raysync transmission message
 
-**Interface path**：api/render/task/getTransferServerMsg
+**Interface path**： /api/render/transfer/getServerInfo
 
 **Request parameter**：No
 
@@ -2055,13 +2064,13 @@ raysync_user_key = api.query.get_raysync_user_key()
 
 ## Full  Speed Render
 
-**Interface path**：/api/render/task/fullSpeed
+**Interface path**： /api/render/handle/fullSpeedRendering
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | **Description** | **Memo** |
-| ------------- | --------------- | --------------- | -------- |
-| task_id_list  | List\<Integer\> | Yes             | Task id  |
+| **Parameter** | **Type**        | Necessary | **Description** | **Memo** |
+| ------------- | --------------- | --------- | --------------- | -------- |
+| task_id_list  | List\<Integer\> | Y         | Yes             | Task id  |
 
 **Example of request**：
 
@@ -2080,6 +2089,180 @@ full_speed_render = api.task.full_speed(task_id_list=[13652193])
     "data": "成功",
     "serverTime": 1578311448826,
     "requestId": "X81MN5-VGFzay1TZXJ2aWNlMDQ-1578311448620"
+}
+```
+
+##  Get transport configuration 
+
+**Interface path**：  /api/render/transfer/getConfig
+
+**Request parameter**：No
+
+**Return parameter**：
+
+| Parameter           | **Type** | **Description**                                      | **Memo** |
+| ------------------- | -------- | ---------------------------------------------------- | -------- |
+| inputBid            | String   | Input bid                                            |          |
+| outputBid           | String   | output bid                                           |          |
+| configBid           | String   | config bid                                           |          |
+| parentInputBid      | String   | Input Bid corresponds to the main account            |          |
+| resqEngines         | Object[] | Engine configuration                                 |          |
+| engineName          | String   | Engine name                                          |          |
+| checkServer         | String   | Check server                                         |          |
+| checkPort           | String   | Check port                                           |          |
+| checkEnable         | String   | Check for availability                               |          |
+| checkExcludType     | String   | Detect exception file type, separate                 |          |
+| automaticCheck      | number   | Automatic detection and switching of line 1 is 0: No |          |
+| isDefault           | number   | 1: Yes; 0: No, default 1                             |          |
+| resqEngineAccounts  | Object[] | aspera account                                       |          |
+| bid                 | String   | aspera input bid                                     |          |
+| name                | String   | aspera username                                      |          |
+| password            | String   | aspera password                                      |          |
+| respTaskEngineLines | Object[] | Engine list                                          |          |
+| name                | String   | Line name                                            |          |
+| server              | String   | Line server IP                                       |          |
+| port                | String   | Line server port                                     |          |
+| isDefault           | Number   | 1: Yes; 0: No, default 1                             |          |
+| lineId              | Number   | ID of line tables                                    |          |
+| type                | Number   | Line type 1. Special line 0. General line            |          |
+| subUserOutputBids   | Object[] | Collection outputbid subaccount                      |          |
+| userId              | String   | ID of subaccount                                     |          |
+| outputBid           | String   | outputBid                                            |          |
+
+**Example of request**：
+
+```python
+transfer_config = api.transmit.get_transfer_config()
+```
+
+**Example of return**：
+
+```json
+{
+    "version": "1.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": {
+        "inputBid": "10202",
+        "outputBid": "20202",
+        "configBid": "30201",
+        "parentInputBid": null,
+        "resqEngines": [
+            {
+                "resqEngineAccounts": [
+                    {
+                        "bid": "20202",
+                        "name": "20202",
+                        "password": "xB9CWAML1qd+k1X9prYHheQUAtZ0hcpmJHxe7mfVw9Q="
+                    }
+                ],
+                "respTaskEngineLines": [
+                    {
+                        "name": "Aspera_main",
+                        "server": "10.60.197.79",
+                        "port": "10221",
+                        "isDefault": 1,
+                        "lineId": 123,
+                        "type":1
+                    }
+                ],
+                "engineName": "trtt",
+                "automaticCheck": 1,
+                "checkServer": "677",
+                "checkPort": "8888",
+                "checkEnable": "1",
+                "checkExcludType": "88",
+                "isDefault": 0
+            },
+            {
+                "resqEngineAccounts": null,
+                "respTaskEngineLines": [
+                    {
+                        "name": "raysync_main",
+                        "server": "10.60.197.79",
+                        "port": "10200",
+                        "isDefault": 1,
+                        "lineId": 121
+                    }
+                ],
+                "engineName": "RaySync",
+                "automaticCheck": 0,
+                "checkServer": "10.60.196.151",
+                "checkPort": "10100",
+                "checkEnable": "0",
+                "checkExcludType": "tx",
+                "isDefault": 1
+            },
+            {
+                "resqEngineAccounts": [
+                    {
+                        "bid": "30201",
+                        "name": "30201",
+                        "password": "ACz/0lNMCgyq/7WjR0QGpaXmR0/Xb0//6UaMn/s8QN4="
+                    }
+                ],
+                "respTaskEngineLines": [
+                    {
+                        "name": "Aspera_main",
+                        "server": "10.60.197.79",
+                        "port": "10221",
+                        "isDefault": 1,
+                        "lineId": 123
+                    }
+                ],
+                "engineName": "Aspera",
+                "automaticCheck": 0,
+                "checkServer": "test2.raysync.cn",
+                "checkPort": "8888",
+                "checkEnable": "0",
+                "checkExcludType": "tx",
+                "isDefault": 0
+            }
+        ],
+        "subUserOutputBids": [
+            {
+                "userId": "119784",
+                "outputBid": "10202"
+            }
+        ]
+    },
+    "serverTime": 1587380763325,
+    "requestId": "K7wW6L-QmV5b25kTGVlZGVNYWNCb29rLVByby5sb2NhbA-1587380762156"
+}
+```
+
+##  Upload the task profile 
+
+**Interface path**：  /api/render/submit/taskJsonFile 
+
+**Request parameter**：
+
+| Parameter | **Type** | Necessary | **Description**           | **Memo**           |
+| --------- | -------- | --------- | ------------------------- | ------------------ |
+| task_id   | Integer  | Y         | task id                   |                    |
+| content   | String   | Y         | File values in jsonformat |                    |
+| file_name | String   | N         | file name                 | default“task.json” |
+
+**Return parameter**：No
+
+**Example of request**：
+
+```Python
+start_task = api.task.start_task(task_param_list=[13798105])
+```
+
+**Example of return**：
+
+```json
+{
+    "version": "2.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": null,
+    "serverTime": 1589532607599,
+    "requestId": null
 }
 ```
 
