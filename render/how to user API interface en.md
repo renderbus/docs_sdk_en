@@ -928,6 +928,100 @@ task_frame = api.query.task_frames(task_id=13790691, page_num=1, page_size=1)
 }
 ```
 
+## Gets the page frame details for the specified task
+
+[^api]: Add in v2.4.0
+
+**Request parameter**：
+
+| **Parameter** | **Type** | **Is necessary** | **Description**                                              | **Memo**                                           |
+| ------------- | -------- | ---------------- | ------------------------------------------------------------ | -------------------------------------------------- |
+| task_id       | Integer  | Y                | small task id                                                | If the job ID is "2W35736251", task_ID is 35736251 |
+| start_page    | Integer  | N                | Query Start Page, default is 1                               |                                                    |
+| end_page      | Integer  | N                | Query end page, default is 2000                              |                                                    |
+| page_size     | Integer  | N                | Specifies the number of frames to display per page, which defaults to a maximum of 100 |                                                    |
+
+**Example of request**：
+
+```python
+all_frames = api.query.get_all_frames(task_id=35736251)
+```
+
+**Example of return**：
+
+```json
+{
+    "1": {
+        "id": 665078505,
+        "userId": null,
+        "framePrice": null,
+        "feeType": null,
+        "platform": null,
+        "frameIndex": "1",
+        "frameStatus": 1,
+        "feeAmount": 0.0,
+        "startTime": 0,
+        "endTime": 0,
+        "frameExecuteTime": 33,
+        "currentRenderTime": 0,
+        "frameStatusText": "task_frame_status_1",
+        "arrearsFee": null,
+        "munuJobId": "0",
+        "taskId": 37439351,
+        "munuTaskId": "2020092801043",
+        "frameType": 4,
+        "couponFee": 0.037,
+        "recommitFlag": 0,
+        "isCopy": null,
+        "frameBlock": "",
+        "taskOverTime": 259200,
+        "gopName": null,
+        "frameRam": 64,
+        "averageCpu": 9,
+        "averageMemory": 2240647168,
+        "isOverTime": 0,
+        "overOneMonth": null,
+        "renderRam": null,
+        "nodeId": "10.60.3.224",
+        "openRenderRam": null
+    },
+    "2-4[1]": {
+        "id": 665078511,
+        "userId": null,
+        "framePrice": null,
+        "feeType": null,
+        "platform": null,
+        "frameIndex": "2-4[1]",
+        "frameStatus": 1,
+        "feeAmount": null,
+        "startTime": 0,
+        "endTime": 0,
+        "frameExecuteTime": 0,
+        "currentRenderTime": 0,
+        "frameStatusText": "task_frame_status_1",
+        "arrearsFee": null,
+        "munuJobId": "0",
+        "taskId": 37439351,
+        "munuTaskId": "2020092801165",
+        "frameType": 5,
+        "couponFee": null,
+        "recommitFlag": 0,
+        "isCopy": null,
+        "frameBlock": "",
+        "taskOverTime": 259200,
+        "gopName": null,
+        "frameRam": 64,
+        "averageCpu": 0,
+        "averageMemory": 0,
+        "isOverTime": 0,
+        "overOneMonth": null,
+        "renderRam": null,
+        "nodeId": "",
+        "openRenderRam": null
+    }
+}
+```
+
 ## Obtain the overview of task rendering frames
 
 **Interface path**： /api/render/handle/queryAllFrameStats
@@ -1001,6 +1095,25 @@ restart_failed_frames = api.query.restart_failed_frames(task_param_list=[1378898
     "serverTime": 1535957894211
 }
 ```
+
+## Re-submit the specified frames based on the frame number
+
+[^api]: Add in v2.4.0 
+
+**Request parameter**：
+
+| **Parameter** | **Type**  | Necessary | **Description**                                | **Memo**                                           |
+| ------------- | --------- | --------- | ---------------------------------------------- | -------------------------------------------------- |
+| task_id       | Integer   | Y         | small task id                                  | If the job ID is "2W35736251", task_ID is 35736251 |
+| restartframes | List[str] | Y         | List of frame Numbers that need to be replayed | example：["6", "7-9[1]"]                           |
+
+**Example of request**：
+
+```python
+restart_frame = api.query.get_custome_frames(task_id=37439351, restartframes=["6", "7-9[1]"])
+```
+
+**Example of return**：None
 
 ## Re-submit the specified frames
 
