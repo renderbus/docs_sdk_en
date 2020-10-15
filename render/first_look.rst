@@ -45,6 +45,12 @@ Supported software
 
 - Clarisse
 
+- 3ds Max
+
+- Katana
+
+- Arnorld Standalone
+
 .. _header-n19:
 
 Preparation
