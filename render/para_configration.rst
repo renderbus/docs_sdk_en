@@ -9,3 +9,4 @@ Detailed parameter configuration
    json_file/Configuration file for Maya.md
    json_file/Configuration file for Max.md
    json_file/Configuration file for katana.md
+   json_file/Configuration file for Arnold.md
