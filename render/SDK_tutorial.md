@@ -70,8 +70,8 @@ AnalyzeHoudini Parameters:
 | ---------------- | ------ | -------- | ------ | -------------------------------------------------------- |
 | cg_file          | string | Y       |        | Scenario files to analyze                                       |
 | software_version | string | Y       |        | The version of the software                                       |
-| project_name     | string | N       | None   | The project name                                                   |
-| plugin_config    | dict   | N       | None   | The plug-in configuration，example {'renderman': '22.6'}                       |
+| project_name     | string | N       |        | The project name                                                   |
+| plugin_config    | dict   | N       |        | The plug-in configuration，example {'renderman': '22.6'}                       |
 | workspace        | string | N       | None   | Analyze the location of the generated json file (avoiding duplication automatically adds a timestamp folder) |
 
 
