@@ -132,7 +132,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Renderbus SDK'
+htmlhelp_basename = 'FoxRenderFarm SDK'
 
 
 # -- Options for LaTeX output ---------------------------------------------
