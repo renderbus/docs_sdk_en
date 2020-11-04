@@ -18,7 +18,6 @@
         "cg_name": "Arnold Standalone"
     },
     "task_info": {
-        "test_frames": "111",
         "tiles": "1",
         "graphics_cards_num": "2",
         "edit_name": "arnord1111",
