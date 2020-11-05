@@ -502,7 +502,7 @@ Arnorld Standalone demo
     # API Parameter
     render_para = {
         "domain": "jop.foxrenderfarm.com",
-        "platform": "2",
+        "platform": "6",
         "access_id": "xxxxx",
         "access_key": "xxxxx",
     }
