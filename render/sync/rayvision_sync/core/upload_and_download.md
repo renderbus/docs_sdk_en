@@ -239,6 +239,29 @@ append_to_upload(custom_info_to_upload, r"D:\test\upload.json")
 UPLOAD.upload_asset(r"D:\test\upload.json")
 ```
 
+#### 8. Modify upload service address
+
+> Generally, there is no need to modify the upload service address. If the user has special needs to modify the upload service address, it can be set as follows:
+
+#####    1.Navigate to the location below the "rayvision_sync" module
+
+`rayvision_sync/rayvision_sync/transmission/transports.json`
+
+#####    2.Modify "server_IP" and "server_port" according to the specific upload platform number (engin_type and server_name may not need to be modified)
+
+```json
+"foxrenderfarm_www6": {
+        "engine_type":"aspera",
+        "server_name":"Europe",
+        "server_ip":"18.196.46.13",
+        "server_port":"10621"
+    },
+```
+
+For example:
+
+![](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20201105190325.png)
+
 ### Download
 
 #### 1. The automatic download is completed with a single frame as the granularity rendering (task id must be)
@@ -385,31 +408,6 @@ api = RayvisionAPI(access_id="xxx",
 download = RayvisionDownload(api)
 download.download(download_filename_format="true", server_path="18164087_muti_layer_test/l_ayer2")
 ```
-
-### Modify upload service address
-
-> Generally, there is no need to modify the upload service address. If the user has special needs to modify the upload service address, it can be set as follows:
-
-####    1.Navigate to the location below the "rayvision_sync" module
-
-`rayvision_sync/rayvision_sync/transmission/transports.json`
-
-####    2.Modify "server_IP" and "server_port" according to the specific upload platform number (engin_type and server_name may not need to be modified)
-
-```json
-"foxrenderfarm_www6": {
-        "engine_type":"aspera",
-        "server_name":"Europe",
-        "server_ip":"18.196.46.13",
-        "server_port":"10621"
-    },
-```
-
-For example:
-
-![](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20201105190325.png)
-
-
 
 
 
