@@ -94,6 +94,18 @@ common | string | Y | Public parameters for rendering |
 
 
 > File to save assets info
+>
+> Warning:
+>
+> - Please only use English letter, Number, and Underline in the file name and file path;
+>
+> - Fox does not support A,B,C,D drives, we do not support shared shared directory (\share\project)    and IP path  like "\192.168.0.22";
+>
+> - Please make sure the folder structure at Fox is the same as your local;
+>
+> - Root directories can't exceed 22 folders;
+
+
 
 **upload.json example**
 
@@ -101,8 +113,8 @@ common | string | Y | Public parameters for rendering |
 {
   "asset": [
     {
-      "local": "D:/chensr/scene/maya2016_multi_layers_cameras.ma", 
-      "server": "/D/chensr/scene/maya2016_multi_layers_cameras.ma"
+      "local": "E:/chensr/scene/maya2016_multi_layers_cameras.ma", 
+      "server": "/E/chensr/scene/maya2016_multi_layers_cameras.ma"
     }
   ]
 }
@@ -120,6 +132,6 @@ asset | object | Asset path information to be uploaded | refer to [asset](#asset
 
  parameter | type   | description                                                  | example                                            
 ---|---|---|---
-local | string | local path of asset | "D:/chensr/scene/maya2016_multi_layers_cameras.ma"
-server | string | Relative path on the server side, generally consistent with local | "/D/chensr/scene/maya2016_multi_layers_cameras.ma"
+local | string | local path of asset | "E:/chensr/scene/maya2016_multi_layers_cameras.ma" 
+server | string | Relative path on the server side, generally consistent with local | "/E/chensr/scene/maya2016_multi_layers_cameras.ma" 
 
