@@ -54,13 +54,12 @@ analyze_obj.analyse()
 Instructions：
 
 - "workspace" is used to control the location of the generated json file. If workspace is not set, the default location is generated:
-   
+  
    ```
    windows : os.environ["USERPROFILE"] + "renderfarm_sdk"  
    Linux：os.environ["HOME"] + “renderfarm_sdk”
    ```
-     
-     
+   
 - Analytically generated task.json is no “task_id”、“user_id”、"project_id" parameters，Users can choose to write the three parameters themselves, or to write the three parameters automatically when check.
 
 
@@ -226,7 +225,31 @@ Select database type, database file path Settings, transfer log path Settings
 
 **2. The transport configuration file used by default: db_config.ini， The following figure**
 
+
+
    ![db_config.ini](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20200415114705.png)
+
+   db_config.ini:
+
+```ini
+[TRANSFER_LOG_PATH]
+transfer_log_path =
+
+[DATABASE_CONFIG]
+on = true
+type = sqlite
+db_path =D:\test\upload
+
+[REDIS]
+host = 127.0.0.1
+port = 6379
+password =
+table_index = 0
+timeout = 5000
+
+[SQLITE]
+temporary = false
+```
 
    The user can also modify the configuration for the template based on the default configuration and specify the database configuration file location, 
    specifying a custom configuration file as follows.
@@ -278,6 +301,7 @@ UPLOAD = RayvisionUpload(api, db_config_path=r"D:\test\upload\db_config.ini")
   >     Linux：The environment variable "HOME" /<renderfarm_sdk> 
   
   
+
 **5. rayvision_houdini Analyze the generated db database location**
 
 > The Houdini script saves some analysis commands and files in a sqlite database file during analysis
