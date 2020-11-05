@@ -212,6 +212,33 @@ upload_obj = RayvisionUpload(api)
 upload_obj.upload("5165465", **CONFIG_PATH)
 ```
 
+#### 7. append_to_upload: Custom upload.json file
+
+```python
+from rayvision_api import RayvisionAPI
+from rayvision_sync.upload import RayvisionUpload
+from rayvision_api.utils import append_to_upload
+
+api = RayvisionAPI(access_id="xxxxx",
+                   access_key="xxxxx",
+                   domain="jop.foxrenderfarm.com",
+                   platform="2")
+UPLOAD = RayvisionUpload(api)
+
+# 1. Can accept the list, the list can be passed in the folder path or file path
+custom_info_to_upload = [
+    r"E:\fang\ass_test\static_ass.ass",
+    r"E:\fang",
+    r"D:\houdini\CG file\F"
+]
+# 2.You can also receive a single string
+# custom_info_to_upload = r"D:\houdini\CG file\katana_file"
+
+# Need to specify an existing upload.json path
+append_to_upload(custom_info_to_upload, r"D:\test\upload.json")
+UPLOAD.upload_asset(r"D:\test\upload.json")
+```
+
 ### Download
 
 #### 1. The automatic download is completed with a single frame as the granularity rendering (task id must be)
