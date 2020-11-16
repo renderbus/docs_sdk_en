@@ -239,28 +239,77 @@ append_to_upload(custom_info_to_upload, r"D:\test\upload.json")
 UPLOAD.upload_asset(r"D:\test\upload.json")
 ```
 
-#### 8. Modify upload service address
+#### 8. Customize upload service address and transport engine selection
 
-> Generally, there is no need to modify the upload service address. If the user has special needs to modify the upload service address, it can be set as follows:
+> Upload service address generally does not need to be modified, if the line is not good also support custom modification.
 
-#####    1.Navigate to the location below the "rayvision_sync" module
+#####    1. The following upload interface supports custom server addresses and transport engine Settings
 
-`rayvision_sync/rayvision_sync/transmission/transports.json`
+> Transport engine support: "aspera" and "raysync"
 
-#####    2.Modify "server_IP" and "server_port" according to the specific upload platform number (engin_type and server_name may not need to be modified)
+- upload_asset
 
-```json
-"foxrenderfarm_www6": {
-        "engine_type":"aspera",
-        "server_name":"Europe",
-        "server_ip":"18.196.46.13",
-        "server_port":"10621"
-    },
-```
+  > ```python
+  > UPLOAD.upload_asset(r"D:\test\upload.json", engine_type='aspera', server_ip="45.251.92.16", server_port="12121")
+  > ```
 
-For example:
+- upload_config
 
-![](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20201105190325.png)
+  ```python
+  CONFIG_PATH = [
+      r"C:\workspace\work\tips.json",
+      r"C:\workspace\work\task.json",
+      r"C:\workspace\work\asset.json",
+      r"C:\workspace\work\upload.json",
+  ]
+  UPLOAD.upload_config(task_id="5165465",
+                       config_file_list=config_list,
+                       server_ip="45.251.92.16",
+                       server_port="12121")
+  ```
+
+- upload
+
+  ```python
+  UPLOAD.upload(task_id="41235091",
+                    engine_type='aspera',
+                    server_ip="45.251.92.16",
+                    server_port="12121",
+                    task_json_path=r"C:\workspace\work\task.json",
+                    tips_json_path=r"C:\workspace\work\tips.json",
+                    asset_json_path=r"C:\workspace\work\asset.json",
+                    upload_json_path=r"C:\workspace\work\upload.json")
+  ```
+
+#### 9. Upload file type (transmit_type)
+
+> The upload file is controlled by the parameter "transmit_type", and the supported transmission file formats are: "upload_list" and "upload_json".
+
+- 1. upload_list
+
+  > The content of the "upload_json_path" file specified by this upload mode (support txt and json files) can be a file absolute path or folder absolute path for each line. If it is a folder, all files in the folder will be uploaded.
+
+  For Example:
+
+  ![](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20201116160335.png)
+
+- 2. upload_json
+
+  > The content of the "upload_json_path" file (json file) specified by this upload mode must follow a fixed format, and only files can be uploaded.
+
+  例如:
+
+  ```json
+  // upload.json
+  {
+    "asset": [
+      {
+        "local": "D:/houdini/CG file/local/clarisse_test1.project", 
+        "server": "/D/houdini/CG file/local/clarisse_test1.project"
+      }
+    ]
+  }
+  ```
 
 ### Download
 
