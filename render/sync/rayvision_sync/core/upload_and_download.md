@@ -315,41 +315,47 @@ UPLOAD.upload_asset(r"D:\test\upload.json")
 
 #### 1. The automatic download is completed with a single frame as the granularity rendering (task id must be)
 
-```
-def auto_download(self, task_id_list=None, max_speed=None,
-                  print_log=False, sleep_time=10,
-                  download_filename_format="true",
-                  local_path=None):
-    """Automatic download (complete one frame download).
+```python
+    def auto_download(self, task_id_list=None, max_speed=None,
+                      print_log=False, sleep_time=10,
+                      download_filename_format="true",
+                      local_path=None,
+                      engine_type="aspera", server_ip=None, server_port=None):
+        """Automatic download (complete one frame download).
 
-    Wait for all downloads to update undownloaded records.
+        Wait for all downloads to update undownloaded records.
 
-    Args:
-        task_id_list (list of int): List of tasks ids that need to be
-            downloaded.
-        max_speed (str, optional): Download speed limit,
-            The unit of 'max_speed' is KB/S,default value is 1048576 KB/S,
-            means 1 GB/S.
-        print_log (bool, optional): Print log, True: print, False: not
-            print.
-        sleep_time (int, optional): Sleep time between download,
-            unit is second.
-        download_filename_format: File download local save style,
-            "true": tape task ID and scene name,
-            "false" : download directly without doing processing.
-        local_path (str): Download file locally save path,
-            default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
-            Linux system is "HOME" environment variable address splicing "renderfarm_sdk".
+        Args:
+            task_id_list (list of int): List of tasks ids that need to be
+                downloaded.
+            max_speed (str, optional): Download speed limit,
+                The unit of 'max_speed' is KB/S,default value is 1048576 KB/S,
+                means 1 GB/S.
+            print_log (bool, optional): Print log, True: print, False: not
+                print.
+            sleep_time (int, optional): Sleep time between download,
+                unit is second.
+            download_filename_format: File download local save style,
+                "true": tape task ID and scene name,
+                "false" : download directly without doing processing.
+            local_path (str): Download file locally save path,
+                default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
+                Linux system is "HOME" environment variable address splicing "renderfarm_sdk".
+            engine_type (str, optional): set engine type, support "aspera" and "raysync", Default "aspera".
+            server_ip (str, optional): transmit server host,
+                if not set, it is obtained from the default transport profile.
+            server_port (str, optional): transmit server port,
+                if not set, it is obtained from the default transport profile.
 
-    Returns:
-        bool: True is success.
+        Returns:
+            bool: True is success.
 
-    """
+        """
 ```
 
 > Use example
 
-```
+```python
 from rayvision_api import RayvisionAPI
 from rayvision_sync.download import RayvisionDownload
 
@@ -364,40 +370,46 @@ download.auto_download([18164087], download_filename_format="false")
 
 #### 2. Taking task as the granularity, downloading starts when all frames in the task are rendered (task id must be)
 
-```
-def auto_download_after_task_completed(self, task_id_list=None,
-                                       max_speed=None, print_log=True,
-                                       sleep_time=10,
-                                       download_filename_format="true",
-                                       local_path=None):
-    """Auto download after the tasks render completed.
+```python
+    def auto_download_after_task_completed(self, task_id_list=None,
+                                           max_speed=None, print_log=True,
+                                           sleep_time=10,
+                                           download_filename_format="true",
+                                           local_path=None,
+                                           engine_type="aspera", server_ip=None, server_port=None):
+        """Auto download after the tasks render completed.
 
-    Args:
-        task_id_list(list of int): List of tasks ids that need to be
-            downloaded.
-        max_speed(str, optional): Download speed limit,
-            The unit of 'max_speed' is KB/S,default value is 1048576 KB/S,
-            means 1 GB/S.
-        print_log(bool, optional): Print log, True: print, False: not
-            print.
-        sleep_time(int, optional): Sleep time between download,
-            unit is second.
-        download_filename_format: File download local save style,
-            "true": tape task ID and scene name,
-            "false" : download directly without doing processing.
-        local_path (str): Download file locally save path,
-            default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
-            Linux system is "HOME" environment variable address splicing "renderfarm_sdk".
+        Args:
+            task_id_list(list of int): List of tasks ids that need to be
+                downloaded.
+            max_speed(str, optional): Download speed limit,
+                The unit of 'max_speed' is KB/S,default value is 1048576 KB/S,
+                means 1 GB/S.
+            print_log(bool, optional): Print log, True: print, False: not
+                print.
+            sleep_time(int, optional): Sleep time between download,
+                unit is second.
+            download_filename_format: File download local save style,
+                "true": tape task ID and scene name,
+                "false" : download directly without doing processing.
+            local_path (str): Download file locally save path,
+                default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
+                Linux system is "HOME" environment variable address splicing "renderfarm_sdk".
+            engine_type (str, optional): set engine type, support "aspera" and "raysync", Default "aspera".
+            server_ip (str, optional): transmit server host,
+                if not set, it is obtained from the default transport profile.
+            server_port (str, optional): transmit server port,
+                if not set, it is obtained from the default transport profile.
 
-    Returns:
-        bool: True is success.
+        Returns:
+            bool: True is success.
 
-    """
+        """
 ```
 
 > Use example
 
-```
+```python
 from rayvision_api import RayvisionAPI
 from rayvision_sync.download import RayvisionDownload
 
@@ -412,40 +424,46 @@ download.auto_download_after_task_completed([18164087], download_filename_format
 
 ####  3. User-defined download server directory structure download (task id is not required)
 
-```
-def download(self, task_id_list=None,
-             max_speed=None, print_log=True,
-             download_filename_format="true",
-             local_path=None, server_path=None):
-    """Download and update the undownloaded record.
+```python
+    def download(self, task_id_list=None,
+                 max_speed=None, print_log=True,
+                 download_filename_format="true",
+                 local_path=None, server_path=None,
+                 engine_type="aspera", server_ip=None, server_port=None):
+        """Download and update the undownloaded record.
 
-    Args:
-        task_id_list (list of int): List of tasks ids that need to be
-            downloaded.
-        max_speed (str, optional): Download speed limit,
-            The unit of ``max_speed`` is KB/S,default value is 1048576
-            KB/S, means 1 GB/S.
-        print_log (bool, optional): Print log, True: print, False: not
-            print.
-        download_filename_format: File download local save style,
-            "true": tape task ID and scene name,
-            "false" : download directly without doing processing.
-        local_path (str): Download file locally save path,
-            default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
-            Linux system is "HOME" environment variable address splicing "renderfarm_sdk",
-        server_path (str or list): The user customizes the file structure to be downloaded from
-            the output server, and all file structures are downloaded by default,
-            example: "18164087_test/l_layer".
+        Args:
+            task_id_list (list of int): List of tasks ids that need to be
+                downloaded.
+            max_speed (str, optional): Download speed limit,
+                The unit of ``max_speed`` is KB/S,default value is 1048576
+                KB/S, means 1 GB/S.
+            print_log (bool, optional): Print log, True: print, False: not
+                print.
+            download_filename_format: File download local save style,
+                "true": tape task ID and scene name,
+                "false" : download directly without doing processing.
+            local_path (str): Download file locally save path,
+                default Window system is "USERPROFILE" environment variable address splicing "renderfarm_sdk",
+                Linux system is "HOME" environment variable address splicing "renderfarm_sdk",
+            server_path (str or list): The user customizes the file structure to be downloaded from
+                the output server, and all file structures are downloaded by default,
+                example: "18164087_test/l_layer".
+            engine_type (str, optional): set engine type, support "aspera" and "raysync", Default "aspera".
+            server_ip (str, optional): transmit server host,
+                if not set, it is obtained from the default transport profile.
+            server_port (str, optional): transmit server port,
+                if not set, it is obtained from the default transport profile.
 
-    Returns:
-        bool: True is success.
+        Returns:
+            bool: True is success.
 
-    """
+        """
 ```
 
 > Use example:
 
-```
+```python
 from rayvision_api import RayvisionAPI
 from rayvision_sync.download import RayvisionDownload
 
