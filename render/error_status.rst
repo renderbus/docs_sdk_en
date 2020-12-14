@@ -13,6 +13,7 @@ code      symbol                                description
 403       FORBIDDEN                             no permission
 404       RESOURCE_NOT_FOUND                    resource does not exist
 500       INTERNAL_ERROR                        server processing failed
+513       USER_CACHE_NOTFOUNT                   user_message_find_fail
 600       PARAMETER_INVALID                     illegal parameter
 601       PARAMETER_CANT_BE_EMPTY               missing required parameters
 602       NEED_USER_LOGIN                       requires user login
