@@ -38,3 +38,9 @@ Major update:
    rayvision_sync(tag 2.0):
      - Update Transmission aspera Engine.
      - Support raysync engine transmission.
+
+1.6 (2020-12-16):
+---------------------------
+   rayvision_api(tag 2.4.5):
+     - Add new interface;
+     - Fixes an insanity in the name of the main sub-account query item;

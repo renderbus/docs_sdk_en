@@ -1358,7 +1358,7 @@ delete_label_name = api.tag.delete_label(del_name="test_tag2")
 }
 ```
 
-## Obtain custom label
+## Get the project name
 
 **Interface path**： /api/render/project/getList
 
@@ -1381,6 +1381,50 @@ label_list = api.tag.get_label_list()
 **Example of return**：
 
 ```json
+{
+    "version": "1.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": {
+        "projectNameList": [
+            {
+                "projectId": 3671,
+                "projectName": "myLabel"
+            }
+        ]
+    },
+    "serverTime": 1546998557770
+}
+```
+
+## Get the project name(Control by flag)
+
+**Interface path:**   /api/render/project/list
+
+**Request parameter**：
+
+| Parameter | Type | Necessary | Description                                                  | Memo       |
+| --------- | ---- | --------- | ------------------------------------------------------------ | ---------- |
+| flag      | int  | N         | 0:Check the items under this account;<br>1:Check the items under this account and the main account;<br>2:Query associated with all items (all items under the same main account); | default: 0 |
+
+**Return parameter**：
+
+| **Parameter**      | **Type**       | **Description** | **Memo** |
+| ------------------ | -------------- | --------------- | -------- |
+| projectNameList    | List\<Object\> | project list    |          |
+| Object.projectName | String         | project name    |          |
+| Object.projectId   | Integer        | project id      |          |
+
+**Example of request**：
+
+```python
+new_projects = api.tag.get_list(flag=0)
+```
+
+**Example of return**：
+
+```python
 {
     "version": "1.0.0",
     "result": true,
