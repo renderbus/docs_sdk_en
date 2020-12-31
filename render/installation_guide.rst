@@ -29,22 +29,12 @@ Installation Guide
 
 Download source code directly from GitHub:
 
-``git clone https://github.com/renderbus/rayvision_log.git``
+``git clone https://github.com/foxrenderfarm/rayvision_log.git``
 
-``git clone https://github.com/renderbus/rayvision_api.git``
+``git clone https://github.com/foxrenderfarm/rayvision_api.git``
 
-``git clone https://github.com/renderbus/rayvision_utils.git``
+``git clone https://github.com/foxrenderfarm/rayvision_utils.git``
 
-``git clone https://github.com/renderbus/rayvision_sync.git``
+``git clone https://github.com/foxrenderfarm/rayvision_sync.git``
 
 *other modules are installed similarly to the secondary installation method*
-
-**Method Three:**
-
-* Setup IDE for PIP with address: ``https://pip.renderbus.com/simple/``
-
-* Take pycharm as an example:
-
-.. image:: ../_static/image/pycharm配置PIP地址.png
-
-.. image:: ../_static/image/pycharm安装自定义包.png
