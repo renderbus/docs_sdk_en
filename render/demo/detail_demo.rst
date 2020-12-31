@@ -8,11 +8,11 @@ SDK usage
 1.Parameters
 ----------------------
 
-.. code:: python
+.. code::  python
 
    render_para = {
 
-           "domain": "task.renderbus.com",  # no need to modify
+           "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
            "platform": "2",  # platform id
            "access_id": "K2lbvJSlPScStv72niHGXZtbQYc5Fp6d",  # user's access_id(required)
            "access_key": "6b4b6eab841772113113b61c79dbe40e",  # user's access_key(required)
@@ -30,21 +30,21 @@ SDK usage
 
 **Parameters**
 
-================ ===== ========== ==================== =========================================================================================================
-parameter        type   required   value                description
-================ ===== ========== ==================== =========================================================================================================
-domain           str     Y         task.renderbus.com   domain name：task.renderbus.com, no "http", "https"
-platform         str     Y         2                    platform ID, like "2"
-access_id        str     Y         xxx                  user authorization id
-access_key       str     Y         xxx                  user authorization key
-workspace        str     Y         c:/workspace         SDK working directory(to save configration, log etc. Default is the 'workspace' folder of SDK programe)
-local_os         str     Y         windows              os, now support "window" and "linux"
-render_software  str     Y         Houdini              CG software(“Maya", "Clarisse", "Houdini")
-software_version str     Y         17.5.293             CG software version
-project_name     str     N         Project1             project name, optional
-plugin_config    dict    N         {}                   plugin name, for example {"fumefx":"4.0.5"}
-cg_file          str     Y         E:\copy\test02.hip   scene file for rendering
-================ ===== ========== ==================== =========================================================================================================
+================ ===== ========== ====================== ============================================================================================================
+parameter        type   required   value                    description
+================ ===== ========== ====================== ============================================================================================================
+domain           str     Y         jop.foxrenderfarm.com    domain name：jop.foxrenderfarm.com, no "http", "https"
+platform         str     Y         2                        platform ID, like "2"
+access_id        str     Y         xxx                      user authorization id
+access_key       str     Y         xxx                      user authorization key
+workspace        str     Y         c:/workspace             SDK working directory(to save configration, log etc. Default is the 'workspace' folder of SDK programe)
+local_os         str     Y         windows                  os, now support "window" and "linux"
+render_software  str     Y         Houdini                  CG software(“Maya", "Clarisse", "Houdini")
+software_version str     Y         17.5.293                 CG software version
+project_name     str     N         Project1                 project name, optional
+plugin_config    dict    N         {}                       plugin name, for example {"fumefx":"4.0.5"}
+cg_file          str     Y         E:\copy\test02.hip       scene file for rendering
+================ ===== ========== ====================== ============================================================================================================
 
 --------------
 

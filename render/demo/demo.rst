@@ -14,7 +14,7 @@ Maya demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com", # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -110,7 +110,7 @@ Houdini demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -207,7 +207,7 @@ Clarisse demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -301,7 +301,7 @@ Clarisse demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "2",
         "access_id": "xxxx",
         "access_key": "xxxx",
@@ -391,7 +391,7 @@ Katana demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "2",
         "access_id": "xxxxxxxxxxx",
         "access_key": "xxxxxxxxxxxxx",
@@ -501,7 +501,7 @@ Arnorld Standalone demo
 
     # API Parameter
     render_para = {
-        "domain": "jop.foxrenderfarm.com",
+        "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
         "platform": "6",
         "access_id": "xxxxx",
         "access_key": "xxxxx",

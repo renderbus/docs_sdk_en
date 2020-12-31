@@ -4,7 +4,7 @@
 
 ```
 render_para = {
-    "domain": "jop.foxrenderfarm.com",
+    "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
     "platform": "2",
     "access_id": "xxxx",
     "access_key": "xxxx",
