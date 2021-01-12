@@ -10,7 +10,7 @@ Overview
 
    We provide a simple Python rendering SDK to make use of our cloud rendering service easily;
    This official rendering SDK is developed and maintained by RD and TD groups of RENDERBUS;
-   This rendering SDK has been tested on python2.7 and python3.6.
+   This rendering SDK has been tested on python2.7 and python3.6;
 
 .. _header-n5:
 
@@ -23,7 +23,7 @@ Why to use the rendering SDK?
 
    3. Cross-version. Python2 and python3 are both supported.
 
-   4. Cross-platform. Windows and Linux are both supported.
+   4. Cross-platform. Windows and Linux are both supported(rayvision_sync only supports Windows and Centos7 and above).
 
    5. Security. Dynamic signature algorithm authentication (HmacSHA256 + Base64 + UTC timestamp time-limited authentication + random number to prevent replay attacks) adopted, more secure.
 
@@ -50,6 +50,9 @@ Supported software
 - Katana
 
 - Arnorld Standalone
+
+.. note::
+   If the user analyzes the scene by himself, the theory can also support rendering software such as Blender, c4d, Arnold Standalone, and KeyShot.
 
 .. _header-n19:
 
