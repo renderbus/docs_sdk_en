@@ -299,30 +299,5 @@ UPLOAD = RayvisionUpload(api, db_config_path=r"D:\test\upload\db_config.ini")
   >
   >     window: The environment variable "USERPROFILE"/<renderfarm_sdk>  
   >     Linux：The environment variable "HOME" /<renderfarm_sdk> 
-  
-  
 
-**5. rayvision_houdini Analyze the generated db database location**
-
-> The Houdini script saves some analysis commands and files in a sqlite database file during analysis
-
-- Use the custom custom path first, the custom path setting method is as follows:
-  
-  The 'custom_db_path' parameter is set when the "AnalyzeHoudini" analysis class is called
-```
-class AnalyzeHoudini(object):
-    def __init__(self, cg_file, software_version, project_name=None,
-                 plugin_config=None, render_software="Houdini",
-                 local_os=None, workspace=None, custom_exe_path=None,
-                 platform="2", custom_db_path=None):
-```
-
-- The following rules are used if the custom path is not set:
-
-> - Use environment variables first 'RAYVISION_HOUDINI'
-  >
-  > - Second use:  
-  >
-  >     window: The environment variable "USERPROFILE"/<renderfarm_sdk>  
-  >     Linux：The environment variable "HOME" /<renderfarm_sdk> 
 
