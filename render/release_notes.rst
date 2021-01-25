@@ -44,3 +44,22 @@ Major update:
    rayvision_api(tag 2.4.5):
      - Add new interface;
      - Fixes an insanity in the name of the main sub-account query item;
+
+1.7 (2021-01-25):
+---------------------------
+   rayvision_houdini (tag 1.3.0)
+      - Update Houdini analysis script;
+      - Remove Houdini to analyze local sql database comparison function;
+      - Other compatibility optimization;
+
+   rayvision_max (tag 1.1.0)
+      - Update 3ds Max analysis script;
+
+   rayvision_maya (tag 1.3.0)
+      - Update Maya analysis script;
+
+   rayvision_clarisse (tag 1.2.0)
+      - Update Clarissa analysis script;
+
+   rayvision_sync (tag 2.20)
+      - Remove common multi-threaded upload, retain and fix thread pool upload BUG;
