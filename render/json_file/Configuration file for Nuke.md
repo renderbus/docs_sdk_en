@@ -83,7 +83,6 @@ plugins | object | Y | plugin{name, version} | {}
 | graphics_cards_num | string | Y               | "1": open single card rendering;<br /> "2": open dual card rendering | "2"      | “2”                                                          |
 | cg_id              | string | Y               | software id: <br />"Nuke": "2015"                            |          | "2015"                                                       |
 | ram                | string | Y               | Render machine memory selection: 64 / 128                    | “64”     | "64"                                                         |
-| concurrent_tasks   | string | Y               |                                                              |          |                                                              |
 | input_cg_file      | string | Y               | Render the scene local path                                  |          | "D:/Myx/nuke_project/test_new_pipeline.nk"                   |
 | job_stop_time      | string | Y               | Set the frame timeout time, will only affect the current frame, unit seconds | “259200” | "28800"                                                      |
 | user_id            | string | N               | user id                                                      |          |                                                              |
@@ -102,7 +101,7 @@ plugins | object | Y | plugin{name, version} | {}
 
 **Parameter** | **Type** | **Is it necessary** | **Description** | **Example** 
 ---|---|---|---|---
-**write_nodes** | **object** | **Y** | **节点** | **[refer to scene_info_render.write_nodes](#scene_info_render.write_nodes)** 
+**write_nodes** | **List** | **Y** | **node** | **[refer to scene_info_render.write_nodes](#scene_info_render.write_nodes)** 
 
 **<span id="scene_info_render.write_nodes">scene_info_render.write_nodes Parameter</span>**
 
