@@ -1,4 +1,4 @@
-### Upload
+### 一. Upload
 
 #### 1. Upload file cutting
 
@@ -279,7 +279,7 @@ UPLOAD.upload_asset(r"D:\test\upload.json")
   }
   ```
 
-### Download
+### 二. Download
 
 #### 1. The automatic download is completed with a single frame as the granularity rendering (task id must be)
 
@@ -443,6 +443,30 @@ api = RayvisionAPI(access_id="xxx",
 download = RayvisionDownload(api)
 download.download(download_filename_format="true", server_path="18164087_muti_layer_test/l_ayer2")
 ```
+
+### 三. Automatically obtain transmission lines
+
+#### 1. to enable automatic acquisition of transmission lines (default is off), set automatic_line = True, for example:
+
+- Automatically obtain the transmission line when uploading:
+
+  `RayvisionUpload(api, automatic_line=True)`
+
+- Download the transmission line automatically:
+
+  `RayvisionDownload(api, automatic_line=True)`
+
+#### 2. Enable automatic acquisition of transmission lines and select a network provider
+
+The network business name can be obtained through the interface `get_transfer_config`
+
+- Upload automatically obtain the transmission line and customize the network provider.
+
+  `RayvisionUpload(api, automatic_line=True, internet_provider="移动")`
+
+- Automatically obtain the transmission line and customize the network provider when downloading.
+
+  `RayvisionDownload(api, automatic_line=True, internet_provider="移动")`
 
 
 
