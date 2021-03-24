@@ -2423,3 +2423,78 @@ start_task = api.task.start_task(task_param_list=[13798105])
 }
 ```
 
+##  Gets the user storage file structure 
+
+[^2021/1/18]: Add New Interface
+
+**Interface path**：  /api/render/file/operate/getOutputUserDirFile 
+
+**Request parameter**：
+
+| **Parameter** | **Type** | Necessary | **Description**                                              | **备注**                  |
+| ------------- | -------- | --------- | ------------------------------------------------------------ | ------------------------- |
+| task_id       | Integer  | N         | Task number, if it is a hierarchical task, refers to the sub-task number, that is, the task number of each layer. |                           |
+| tree_path     | String   | N         | The path relative to the user storage (output) root.         | The default value is: "/" |
+
+**Return parameter[data]**：
+
+| Parameter  | **Type** | **Description**                                              |
+| ---------- | -------- | ------------------------------------------------------------ |
+| fileName   | string   | Current file name or folder name                             |
+| fileSize   | int      | File size, or "null" if it is a folder                       |
+| iconPath   | string   | Chart path (this parameter can be ignored)                   |
+| lastModify | string   | File or folder update date                                   |
+| fileType   | string   | File suffix, or "null" if it is a folder                     |
+| filePath   | string   | The relative path of the file or folder to the user storage output root |
+| directory  | bool     | Whether it is a folder, "true": is a folder, "false": not a folder |
+| isArrears  | int      | Whether you are in arrears, 0: Not in arrears, 1: In arrears |
+
+**Example of request**：
+
+```
+paths = api.transmit.get_output_files(task_id=1484861)
+```
+
+**Example of return**：
+
+```json
+[
+    {
+        "fileName": "1484861_muti_layer_test",
+        "fileSize": null,
+        "iconPath": null,
+        "lastModify": "2021-01-15 12:11:59",
+        "fileType": null,
+        "filePath": "/1484861_muti_layer_test",
+        "directory": true,
+        "isArrears": 0
+    }
+]
+```
+
+##  Get all subtask numbers of the task 
+
+[^2021/1/18]: Add New Interface
+
+**Interface path**：
+
+**Interface path**：
+
+| Parameter | **Type**          | Necessary | **Description**                                              |
+| --------- | ----------------- | --------- | ------------------------------------------------------------ |
+| task_id   | Integer or string | Y         | Get all sub-accounts under the main account, if there is no sub-account, return the current account ID. |
+
+**Return parameter[data]**：
+
+**Example of request**：
+
+```python
+ids = api.query.get_small_task_id(task_id=1521323)
+```
+
+**Example of return**：
+
+```
+[1521325, 1521327, 1521329]
+```
+

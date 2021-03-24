@@ -207,49 +207,7 @@ append_to_upload(custom_info_to_upload, r"D:\test\upload.json")
 UPLOAD.upload_asset(r"D:\test\upload.json")
 ```
 
-#### 7. Customize upload service address and transport engine selection
-
-> Upload service address generally does not need to be modified, if the line is not good also support custom modification.
-
-#####    1. The following upload interface supports custom server addresses and transport engine Settings
-
-> Transport engine support: "aspera" and "raysync"
-
-- upload_asset
-
-  > ```python
-  > UPLOAD.upload_asset(r"D:\test\upload.json", engine_type='aspera', server_ip="45.251.92.16", server_port="12121")
-  > ```
-
-- upload_config
-
-  ```python
-  CONFIG_PATH = [
-      r"C:\workspace\work\tips.json",
-      r"C:\workspace\work\task.json",
-      r"C:\workspace\work\asset.json",
-      r"C:\workspace\work\upload.json",
-  ]
-  UPLOAD.upload_config(task_id="5165465",
-                       config_file_list=config_list,
-                       server_ip="45.251.92.16",
-                       server_port="12121")
-  ```
-
-- upload
-
-  ```python
-  UPLOAD.upload(task_id="41235091",
-                    engine_type='aspera',
-                    server_ip="45.251.92.16",
-                    server_port="12121",
-                    task_json_path=r"C:\workspace\work\task.json",
-                    tips_json_path=r"C:\workspace\work\tips.json",
-                    asset_json_path=r"C:\workspace\work\asset.json",
-                    upload_json_path=r"C:\workspace\work\upload.json")
-  ```
-
-#### 8. Upload file type (transmit_type)
+#### 7. Upload file type (transmit_type)
 
 > The upload file is controlled by the parameter "transmit_type", and the supported transmission file formats are: "upload_list" and "upload_json".
 
@@ -444,5 +402,102 @@ download = RayvisionDownload(api)
 download.download(download_filename_format="true", server_path="18164087_muti_layer_test/l_ayer2")
 ```
 
+### Automatically obtain transmission lines
 
+#### 1. to enable automatic acquisition of transmission lines (default is off), set automatic_line = True, for example:
 
+- Automatically obtain the transmission line when uploading:
+
+  `RayvisionUpload(api, automatic_line=True)`
+
+- Download the transmission line automatically:
+
+  `RayvisionDownload(api, automatic_line=True)`
+
+#### 2. Enable automatic acquisition of transmission lines and select a network provider
+
+The network business name can be obtained through the interface `get_transfer_config`
+
+- Upload automatically obtain the transmission line and customize the network provider.
+
+  `RayvisionUpload(api, automatic_line=True, internet_provider="移动")`
+
+- Automatically obtain the transmission line and customize the network provider when downloading.
+
+  `RayvisionDownload(api, automatic_line=True, internet_provider="移动")`
+
+### Select transmission mode: tcp or udp
+
+network_mode:  Control network transmission mode parameters
+     0: Automatic selection (default)
+     1:  tcp mode to transmit
+     2:  udp mode to transmit
+
+```
+# Take download as an example::
+download.auto_download([49240085], network_mode=2)
+```
+
+### Customize upload service address and transport engine selection
+
+> Upload service address generally does not need to be modified, if the line is not good also support custom modification.
+
+#####    1. The following upload interface supports custom server addresses and transport engine Settings
+
+> Transport engine support: "aspera" and "raysync"
+
+- upload_asset
+
+  > ```python
+  > UPLOAD.upload_asset(r"D:\test\upload.json", engine_type='aspera', server_ip="45.251.92.16", server_port="12121")
+  > ```
+
+- upload_config
+
+  ```python
+  CONFIG_PATH = [
+      r"C:\workspace\work\tips.json",
+      r"C:\workspace\work\task.json",
+      r"C:\workspace\work\asset.json",
+      r"C:\workspace\work\upload.json",
+  ]
+  UPLOAD.upload_config(task_id="5165465",
+                       config_file_list=config_list,
+                       server_ip="45.251.92.16",
+                       server_port="12121")
+  ```
+
+- upload
+
+  ```python
+  UPLOAD.upload(task_id="41235091",
+                    engine_type='aspera',
+                    server_ip="45.251.92.16",
+                    server_port="12121",
+                    task_json_path=r"C:\workspace\work\task.json",
+                    tips_json_path=r"C:\workspace\work\tips.json",
+                    asset_json_path=r"C:\workspace\work\asset.json",
+                    upload_json_path=r"C:\workspace\work\upload.json")
+  ```
+
+##### 2. Download custom transmission address and custom transmission engine settings
+
+- download
+
+  ```
+  download.download([49240085], server_ip="45.251.92.16", server_port="12121")
+  ```
+
+- auto_download
+
+  ```
+  download.auto_download([49240085], server_ip="45.251.92.16", server_port="12121")
+  ```
+
+- auto_download_after_task_completed
+
+  ```
+  download.auto_download_after_task_completed([49228557], server_ip="45.251.92.16", server_port="12121")
+  ```
+
+  
