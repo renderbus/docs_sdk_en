@@ -30,7 +30,6 @@ Nuke Profile document
 		"ram": "64",
 		"job_stop_time": "259200",
 		"stop_after_test": "1",
-		"multi_node": "0",
 		"project_id": "0",
 		"time_out": "86400",
 		"cg_id": "2015",
@@ -95,6 +94,7 @@ plugins | object | Y | plugin{name, version} | {}
 | task_id            | string | Y               | task id                                                      |          |                                                              |
 | task_stop_time     | string | Y               | Large task timeout stops in unit seconds, "0" means unlimited | "0"      | "86400"                                                      |
 | time_out           | string | Y               | Overtime reminder time, unit: sec                            | “43200”  | "43200"                                                      |
+| concurrent_tasks   | string | N               | The number of tasks in the same period                       | "1"      | "1"                                                          |
 
 **<span id="scene_info_render">scene_info_render Parameter</span>**
 
