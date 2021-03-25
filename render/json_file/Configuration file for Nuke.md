@@ -24,7 +24,6 @@ Nuke Profile document
 		"graphics_cards_num": "2",
 		"tiles": "1",
 		"project_name": "",
-		"concurrent_tasks": "1",
 		"edit_name": "test02",
 		"frames_per_task": "1",
 		"ram": "64",
@@ -65,6 +64,7 @@ Parameter | Type | **Is it necessary** | **Description** | **Example**
 software_config | object | Y | environment(cg software, version and plugins, etc.) | [refer to software_config](#software_config) 
 task_info | object | Y | render settings(priority frames, render range, etc.) | [refer to task_info](#task_info) 
 scene_info_render | object | Y | analysis result(render node, output, etc.) | [refer to scene_info_render](#scene_info_render) 
+concurrent_tasks | string | N | The number of tasks in the same period | "1" 
 
 **<span id="software_config">Software_Config Parameter</span>**
 
