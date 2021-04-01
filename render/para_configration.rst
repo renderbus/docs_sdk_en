@@ -11,3 +11,4 @@ Detailed parameter configuration
    json_file/Configuration file for katana.md
    json_file/Configuration file for Arnold.md
    json_file/Configuration file for Nuke.md
+   json_file/Configuration file for VR Standalone.md
