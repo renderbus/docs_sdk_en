@@ -2431,7 +2431,7 @@ start_task = api.task.start_task(task_param_list=[13798105])
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description**                                              | **备注**                  |
+| **Parameter** | **Type** | Necessary | **Description**                                              | **Memo**                  |
 | ------------- | -------- | --------- | ------------------------------------------------------------ | ------------------------- |
 | task_id       | Integer  | N         | Task number, if it is a hierarchical task, refers to the sub-task number, that is, the task number of each layer. |                           |
 | tree_path     | String   | N         | The path relative to the user storage (output) root.         | The default value is: "/" |
@@ -2478,7 +2478,7 @@ paths = api.transmit.get_output_files(task_id=1484861)
 
 **Interface path**：
 
-**Interface path**：
+**Request parameter**：
 
 | Parameter | **Type**          | Necessary | **Description**                                              |
 | --------- | ----------------- | --------- | ------------------------------------------------------------ |
@@ -2496,5 +2496,104 @@ ids = api.query.get_small_task_id(task_id=1521323)
 
 ```
 [1521325, 1521327, 1521329]
+```
+
+##  Get platform hardware configuration information 
+
+[^2021/4/12]: add new interface in rayvision_api 2.8.0 
+
+**Interface path**：/api/render/hardwareConfig/list
+
+**Request parameter**：
+
+| **Parameter** | **Type**  | Necessary | **Description**                                              |
+| ------------- | --------- | --------- | ------------------------------------------------------------ |
+| task_ids      | List[str] | N         | A collection of task numbers that queries the configuration parameters of the specified task |
+
+**Return parameter[data]**：
+
+| **Parameter**  | **Type**  | **Description**                                              |
+| -------------- | --------- | ------------------------------------------------------------ |
+| id             | int       | Hardware Configuration ID (HardwareConfigID)                 |
+| type           | int       | 1: CPU ;<br>2: GPU                                           |
+| model          | string    | Hardware model, default "default"                            |
+| ram            | String    | memory                                                       |
+| gpuNum         | String    | Number of GPU cards, CPU platform is "null"                  |
+| platform       | int       | Platform number                                              |
+| current        | bool      | When task_ids is not null， the query is the task's current hardware configuration<br>false: is the current task hardware configuration<br>true: Is not the current task hardware configuration. |
+| notSupportCgId | list[int] | Unsupported cgId, (cgid corresponding software can query "General Parameter" -- > "ID mapping of DCC software") |
+| status         | int       | Status,<br>1: Enabled;<br>0: Disabled                        |
+
+**Example of request**：
+
+```json
+hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
+```
+
+**Example of return**：
+
+```json
+[
+    {
+        "id": 301,
+        "type": 1,
+        "model": "Default",
+        "gpuNum": null,
+        "ram": "64GB",
+        "platform": 2,
+        "current": false,
+        "notSupportCgId": [],
+        "status": 1
+    },
+    {
+        "id": 303,
+        "type": 1,
+        "model": "Default",
+        "gpuNum": null,
+        "ram": "128GB",
+        "platform": 2,
+        "current": false,
+        "notSupportCgId": [],
+        "status": 1
+    },
+    {
+        "id": 337,
+        "type": 1,
+        "model": "1080Ti",
+        "gpuNum": null,
+        "ram": "64GB",
+        "platform": 2,
+        "current": true,
+        "notSupportCgId": [
+            2005,
+            2000
+        ],
+        "status": 1
+    },
+    {
+        "id": 339,
+        "type": 1,
+        "model": "2080Ti",
+        "gpuNum": null,
+        "ram": "64GB",
+        "platform": 2,
+        "current": false,
+        "notSupportCgId": [],
+        "status": 1
+    },
+    {
+        "id": 341,
+        "type": 1,
+        "model": "1080Ti",
+        "gpuNum": null,
+        "ram": "128GB",
+        "platform": 2,
+        "current": false,
+        "notSupportCgId": [
+            2005
+        ],
+        "status": 1
+    }
+]
 ```
 
