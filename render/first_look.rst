@@ -61,9 +61,9 @@ Supported software
 Preparation
 -----------------
 
-1. An account of `RENDERBUS <https://task.renderbus.com>`__
+1. An account of `FOXRENDERFARM <https://task.foxrenderfarm.com/>`__
 
-2. Apply to use the render SDK from `RENDERBUS Developer Center <https://task.renderbus.com/user/developer>`__ and get the AccessID and AccessKey
+2. Apply to use the render SDK from `FOXRENDERFARM Developer Center <https://task.foxrenderfarm.com/user/developer>`__ and get the AccessID and AccessKey
 
 .. _header-n26:
 
