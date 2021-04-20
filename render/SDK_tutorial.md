@@ -93,7 +93,24 @@ update_task = {
 update_task_info(update_task, analyze_obj.task_json)
 ```
 
-##### 2. task.json add custom parameters
+##### 2. Specify the hardware configuration
+
+The hardware configuration is controlled by the parameter "hardwareconfigid", which can be obtained through the API interface.("API interfaces use methods" --> "Get platform hardware configuration information")
+
+If "ram" and "hardwareconfigid" are set in "Task_info"
+
+以“hardwareConfigId”为主, 没有则以"ram"设置为主.
+
+```
+from rayvision_api.utils import update_task_info, append_to_task, append_to_upload
+update_task = {
+    "hardwareConfigId": "27"  # 指定硬件配置
+}
+update_task_info(update_task, analyze_obj.task_json)
+```
+
+##### 3. task.json add custom parameters
+
 > The added custom parameters will be integrated into dictionary for key is "additional_info".
  【Warning】：Custom parameters will not take effect immediately. If you have this requirement, please contact our customer service。
 
@@ -106,7 +123,7 @@ custom_info_to_task = {
 append_to_task(custom_info_to_task, analyze_obj.task_json)
 ```
 
-##### 3. user custom upload.json
+##### 4. user custom upload.json
 > Support custom add file path to upload.json, will automatically deduplicate
 `append_to_upload(files_paths, upload_path)`
 
