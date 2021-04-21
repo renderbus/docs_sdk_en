@@ -1,7 +1,7 @@
 Architecture overview
 =======================
 
-This document gives a brief introduction to the RenderBusSDK components.
+This document gives a brief introduction to the Foxrenderbus SDK components.
 
 Component
 -----------

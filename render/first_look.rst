@@ -54,7 +54,7 @@ Supported software
 - VR Standalone
 
 .. note::
-   If the user analyzes the scene by himself, the theory can also support rendering software such as Blender, c4d, Arnold Standalone, and KeyShot.
+   If the user analyzes the scene by yourself, the theory can also support rendering software such as Blender, c4d, Arnold Standalone, and KeyShot.
 
 .. _header-n19:
 
