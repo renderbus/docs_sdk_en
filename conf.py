@@ -33,7 +33,7 @@ all_package_name =[
     "rayvision_houdini",
     "rayvision_sync",
 ] 
-DIR_BASE = '../'
+DIR_BASE = '../../'
 
 for name in all_package_name:
     sys.path.insert(0, os.path.abspath('%s/%s' % (DIR_BASE, name)))
