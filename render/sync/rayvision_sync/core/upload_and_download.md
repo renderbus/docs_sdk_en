@@ -54,7 +54,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 UPLOAD = RayvisionUpload(api)
@@ -89,7 +89,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
                    
 UPLOAD = RayvisionUpload(api)
@@ -122,7 +122,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 CONFIG_PATH = [
@@ -166,7 +166,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 CONFIG_PATH = [
@@ -287,7 +287,7 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 download = RayvisionDownload(api)
@@ -341,7 +341,7 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 download = RayvisionDownload(api)
@@ -395,7 +395,7 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.renderbus.com",
+                   domain="task.foxrenderfarm.com",
                    platform="2")
 
 download = RayvisionDownload(api)
