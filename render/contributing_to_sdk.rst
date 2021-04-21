@@ -1,8 +1,8 @@
-Contribute to the RenderBusSDK
-===============================
+Contribute to the Foxrenderfarm SDK
+====================================
 
 .. important::
-    Please check carefully, you are ``https://renderbus.readthedocs.io/en/latest/index.html`` on reading the latest version of this document.
+    Please check carefully, you are ``https://foxrenderfarm.readthedocs.io/en/latest/`` on reading the latest version of this document.
 
 There are many ways to contribute to the RenderBusSDK, and here are some of them:
 

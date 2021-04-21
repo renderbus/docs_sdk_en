@@ -1,7 +1,7 @@
 .. _header-n0:
 
-RenderBus at a glance
-======================
+Foxrenderfarm SDK at a glance
+===============================
 
 .. _header-n2:
 
@@ -9,7 +9,7 @@ Overview
 ------------
 
    We provide a simple Python rendering SDK to make use of our cloud rendering service easily;
-   This official rendering SDK is developed and maintained by RD and TD groups of RENDERBUS;
+   This official rendering SDK is developed and maintained by RD and TD groups of Foxrenderfarm;
    This rendering SDK has been tested on python2.7 and python3.6;
 
 .. _header-n5:
