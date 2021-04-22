@@ -13,3 +13,4 @@ Detailed parameter configuration
    json_file/Configuration file for Nuke.md
    json_file/Configuration file for VR Standalone.md
    json_file/Configuration file for C4d.md
+   json_file/Configuration file for Blender.md
