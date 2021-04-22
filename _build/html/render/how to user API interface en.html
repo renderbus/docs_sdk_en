@@ -1,0 +1,5323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>} &mdash; FoxRenderFarm SDK latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Log Management" href="log/index.html" />
+    <link rel="prev" title="Connect" href="api/rayvision_api/main/connect.html" />
+    <link href="../_static/style.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> FoxRenderFarm SDK
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="first_look.html">Foxrenderfarm SDK at a glance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#why-to-use-the-rendering-sdk">Why to use the rendering SDK?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#supported-software">Supported software</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#preparation">Preparation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#installation">Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#get-started">Get started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#parameter-setting">Parameter setting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first_look.html#more">More</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="installation_guide.html">Installation Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api/index.html">Rayvision Api</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/task/hand.html">RayvisionTask</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/operators/env.html">RenderEnv</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/operators/query.html">Query</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/operators/tag.html">Tag</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/operators/task.html">Task</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/operators/user.html">User</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/main/core.html">RayvisionAPI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/rayvision_api/main/connect.html">Connect</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id18">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id23">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id28">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id33">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id46">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id51">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id56">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id61">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id66">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id71">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id76">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id81">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id86">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id91">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id96">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id101">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id106">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id111">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id116">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id121">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id126">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id131">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id136">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id141">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id146">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id151">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id164">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id177">}</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#delete-user-render-environment-configuration">Delete user render environment configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id182">}</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#set-up-default-render-environment-configuration">Set up default render environment configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id187">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id192">}</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#task-progress-only-support-max">Task Progress (Only support Max )</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#id197">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id202">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id207">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id212">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id217">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id222">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id227">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id232">}</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id237">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#id242">]</a></li>
+<li class="toctree-l1"><a class="reference internal" href="log/index.html">Log Management</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/first_look.html">Demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/first_look.html#default-path">Default path</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/first_look.html#the-custom-path-is-divided-into-2-setting-methods">The custom path is divided into 2 setting methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/first_look.html#custom-log-file-name">Custom log file name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/first_look.html#custom-log-level">Custom log level</a></li>
+<li class="toctree-l2"><a class="reference internal" href="log/rayvision_log/core/core.html">Log interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api/rayvision_api/task/check.html">Task Information Verification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="maya/rayvision_maya/core/analyze_maya_handle.html">Maya</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clarisse/rayvision_clarisse/core/analyse_clarisse.html">Clarisse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="houdini/rayvision_houdini/core/cg.html">Houdini</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/rayvision_utils/core/analyse_handle.html">RayvisionAnalyse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils/rayvision_utils/core/json_handle.html">JsonHandle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exception.html">Exception management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="para_configration.html">Detailed parameter configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Clarisse.html">Clarisse Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Clarisse.html#id5">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Clarisse.html#id10">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Clarisse.html#id15">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Houdini.html">Houdini Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Houdini.html#id5">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Houdini.html#id10">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Houdini.html#id15">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Maya.html">Maya Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Maya.html#id5">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Maya.html#id10">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Maya.html#id15">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Max.html">Max Profile document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Max.html#id5">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Max.html#id10">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Max.html#id15">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20katana.html">Katana Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20katana.html#id5">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20katana.html#id10">}</a></li>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20katana.html#id15">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Arnold.html">}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Arnold.html#id10">}</a></li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20Nuke.html">Nuke Profile document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20Nuke.html#id5">}</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="json_file/Configuration%20file%20for%20VR%20Standalone.html"><strong>VR Standalone</strong> Profile document</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="json_file/Configuration%20file%20for%20VR%20Standalone.html#id5">}</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#component">Component</a></li>
+<li class="toctree-l2"><a class="reference internal" href="architecture.html#flow-chart">flow chart</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="demo/index.html">Demo</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html">Maya demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html#houdini-demo">Houdini demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html#clarisse-demo">Clarisse demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html#ds-max-demo">3ds Max demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html#katana-demo">Katana demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="demo/demo.html#arnorld-standalone-demo">Arnorld Standalone demo</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="questions.html">FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#what-versions-of-python-does-the-renderbus-sdk-support">1. What versions of Python does the RenderBus SDK support?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#how-to-download-the-sdk-package-with-pycharm">2. How to download the SDK package with pycharm?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#to-download-only-the-first-frame-how-to-set">3. To download only the first frame, how to set?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#after-the-priority-frame-rendered-how-to-set-to-automatically-render-at-full-speed">4. After the priority frame rendered, how to set to automatically render at full speed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#how-to-set-to-download-the-rendering-result-immediately-after-current-rendered-frame-rendered">5. How to set to download the rendering result immediately after current rendered frame rendered?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="questions.html#what-is-the-easiest-way-to-use">6. What is the easiest way to use?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="error_status.html">Exception code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="release_notes.html">Release notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id1">0.1.0 (2019-11-10):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id2">1.1.0 (2020-04-06):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id3">1.2 (2020-05-21):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id4">1.3 (2020-09-10):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id5">1.4 (2020-11-12):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id6">1.5 (2020-11-24):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id7">1.6 (2020-12-16):</a></li>
+<li class="toctree-l2"><a class="reference internal" href="release_notes.html#id8">1.7 (2021-01-25):</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributing_to_sdk.html">Contribute to the Foxrenderfarm SDK</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contributing_to_sdk.html#report-error">Report error</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">FoxRenderFarm SDK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>}</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/render/how to user API interface en.md.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <p>#  API interfaces use methods</p>
+<p>##  The preparatory work</p>
+<blockquote>
+<div><p>All interface calls are made through the rayvision_api module, and an API object must be instantiated before use :</p>
+</div></blockquote>
+<p><a href="#id1"><span class="problematic" id="id2">``</span></a><a href="#id3"><span class="problematic" id="id4">`</span></a>python
+user_info = {</p>
+<blockquote>
+<div><p>“domain_name”: “jop.foxrenderfarm.com”,
+“platform”: “2”,
+“access_id”: “xxxxxxxxxxxxxxxxxxxxxx”,
+“access_key”: “xxxxxxxxxxxxxxxxxxxxx”,</p>
+</div></blockquote>
+<p>}</p>
+<dl class="simple">
+<dt>api = RayvisionAPI(access_id=user_info[‘access_id’],</dt><dd><p>access_key=user_info[‘access_key’],
+domain=user_info[‘domain_name’],
+platform=user_info[‘platform’])</p>
+</dd>
+</dl>
+<p><a href="#id5"><span class="problematic" id="id6">``</span></a><a href="#id7"><span class="problematic" id="id8">`</span></a></p>
+<p><strong>Warning：</strong></p>
+<p>&gt;   1.  the following interface calls will be made directly using the API of the above instance;
+&gt;   2.  In the rayvision_api, the interface actually returns the user only the value of the “data” parameter ;</p>
+<p>## Obtain the platform list</p>
+<p><strong>Interface path</strong>： <em>/api/render/common/queryPlatforms</em></p>
+<p><strong>Request parameters</strong>： No</p>
+<p><strong>Return parameters</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameters&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;platform&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Platform number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Platform number description&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">#</span> <span class="pre">automatically</span> <span class="pre">distinguish</span> <span class="pre">domestic</span> <span class="pre">and</span> <span class="pre">foreign</span> <span class="pre">according</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">&quot;domain&quot;</span> <span class="pre">parameter</span>
+<span class="pre">platform</span> <span class="pre">=</span> <span class="pre">api.query.platforms()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id9"><span class="problematic" id="id10">``</span></a><a href="#id11"><span class="problematic" id="id12">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“platform”: 2,
+“name”: “query_platform_w2”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“serverTime”: 1535949047370</p>
+</div></blockquote>
+<div class="section" id="id13">
+<h1>}<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the user information</p>
+<p><strong>Interface path</strong>：/api/render/setUp/queryUserProfile</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">user_profile</span> <span class="pre">=</span> <span class="pre">api.user.query_user_profile()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id14"><span class="problematic" id="id15">``</span></a><a href="#id16"><span class="problematic" id="id17">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“userId”: 10001136,
+“userName”: “rayvision”,
+“platform”: 2,
+“phone”: “173333333333”,
+“email”: “”,
+“company”: “”,
+“name”: “”,
+“job”: “”,
+“communicationNumber”: “”,
+“softType”: 2000,
+“softStatus”: 1,
+“businessType”: 1,
+“status”: 1,
+“infoStatus”: 0,
+“accountType”: 1,
+“userType”: 1,
+“mainUserId”: 0,
+“level”: 49,
+“pictureLever”: null,
+“zone”: 1,
+“rmbbalance”: 0,
+“usdbalance”: 0,
+“rmbCumulative”: 0,
+“usdCumulative”: 0,
+“credit”: 0,
+“coupon”: 49.93,
+“description”: “”,
+“country”: “中国”,
+“city”: “广东 中山”,
+“address”: “”,
+“cpuPrice”: 0.67,
+“gpuPrice”: 20,
+“shareMainCapital”: 0,
+“subDeleteTask”: 0,
+“useMainBalance”: 0,
+“hideBalance”: 0,
+“hideJobCharge”: 0,
+“useLevelDirectory”: 1,
+“downloadDisable”: 0,
+“displaySubaccount”: 1,
+“subaccountLimits”: 5,
+“houdiniFlag”: 0,
+“c4dFlag”: 0,
+“blenderFlag”: 0,
+“keyshotFlag”: 0,
+“studentEndTime”: null</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535953580730</p>
+</div></blockquote>
+</div>
+<div class="section" id="id18">
+<h1>}<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain user settings</p>
+<p><strong>Interface path</strong>： /api/render/setUp/queryUserSetting</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;infoStatus&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;accountType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;shareMainCapital&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;subDeleteTask&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;useMainBalance&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;singleNodeRenderFrames&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Multiple frames rendered on one machine&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;maxIgnoreMapFlag&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Can choose to ignore the max map error or not&lt;/td&gt;
+&lt;td&gt;0：Do not ignore，1：Ignore&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;autoCommit&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Can choose start scene parameter rendering&lt;/td&gt;
+&lt;td&gt;1：Do not start，2 ：Start&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;separateAccountFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Separate the primary and secondary account settings&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mifileSwitchFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Indicate the switch option of mi Document analysis risk&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;assfileSwitchFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Do not analyze the ass file switch identifier&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;manuallyStartAnalysisFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Manually turn on the analysis switch&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;downloadDisable&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Choose to disable downloading or not&lt;/td&gt;
+&lt;td&gt;1 Disable，0 Do not disable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskOverTime&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Timeout - hour&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">user_setting</span> <span class="pre">=</span> <span class="pre">api.user.query_user_setting()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id19"><span class="problematic" id="id20">``</span></a><a href="#id21"><span class="problematic" id="id22">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“infoStatus”: null,
+“accountType”: null,
+“shareMainCapital”: 0,
+“subDeleteTask”: 0,
+“useMainBalance”: 0,
+“singleNodeRenderFrames”: “1”,
+“maxIgnoreMapFlag”: “1”,
+“autoCommit”: “2”,
+“separateAccountFlag”: 0,
+“mifileSwitchFlag”: 0,
+“assfileSwitchFlag”: 0,
+“manuallyStartAnalysisFlag”: 0,
+“downloadDisable”: 0,</p>
+<blockquote>
+<div><p>“taskOverTime”: 12,
+“taskOverTimeSec”: 3600</p>
+</div></blockquote>
+</div></blockquote>
+<p>},
+“serverTime”: 1535954828406</p>
+</div></blockquote>
+</div>
+<div class="section" id="id23">
+<h1>}<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h1>
+<p>## Update user settings</p>
+<p><strong>Interface path</strong>： /api/render/setUp/updateUserSetting</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_over_time&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Set up of Task timeout situation, unit: second&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter: default</strong></p>
+<p><strong>Example of return</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">update_user_setting</span> <span class="pre">=</span> <span class="pre">api.user.update_user_settings(task_over_time=43200)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id24"><span class="problematic" id="id25">``</span></a><a href="#id26"><span class="problematic" id="id27">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id28">
+<h1>}<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain user transfer BID</p>
+<p><strong>Interface path</strong>：/api/render/transfer/getBid</p>
+<p><strong>Request parameter</strong>：default</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;config_bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Configuration file transfer ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;output_bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Download the transfer file ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;input_bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Asset upload transfer ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;parent_input_bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Input transfer bid for corresponding main account&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sub_user_output_bids&lt;/td&gt;
+&lt;td&gt;Object&lt;/td&gt;
+&lt;td&gt;Subaccount Outputbids: If the accessed user is the main account, there is a subaccount value; otherwise, it is empty&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;ID of subaccount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;output_bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;output_bid for subaccount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：default</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">user_transfer_bid</span> <span class="pre">=</span> <span class="pre">api.user.get_transfer_bid()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id29"><span class="problematic" id="id30">``</span></a><a href="#id31"><span class="problematic" id="id32">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“config_bid”: “30201”,
+“input_bid”: “10201”,
+“output_bid”: “20201”,
+“parent_input_bid”: “10202”,
+“sub_user_output_bids”: [{</p>
+<blockquote>
+<div><p>userId:”119776”,
+outputBid:”10401”</p>
+</div></blockquote>
+<p>}]
+},</p>
+</div></blockquote>
+<p>“serverTime”: 1535957964631</p>
+</div></blockquote>
+</div>
+<div class="section" id="id33">
+<h1>}<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h1>
+<p>## Create task ID</p>
+<p><strong>Interface path</strong>：/api/render/submit/createTask</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;count&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;create the number of task Numbers&lt;/td&gt;
+&lt;td&gt;Not required, Default  1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;out_user_id&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;external user ID&lt;/td&gt;
+&lt;td&gt;Not required，used to distinguish third party access users&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;task_user_level&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;task user level&lt;/td&gt;
+&lt;td&gt;Not required，optional 50 and 60, default is 50&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;labels&lt;/td&gt;
+&lt;td&gt;List&lt;String&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;custom tag&lt;/td&gt;
+&lt;td&gt;Not required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;clone_original_id&lt;/td&gt;
+&lt;td&gt;integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Clone the original task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;artist&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Productor&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;aliasTaskIdList&lt;/td&gt;
+&lt;td&gt;List&amp;lt;String&gt;&lt;/td&gt;
+&lt;td&gt;Task ID alias&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskIdList&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><a href="#id34"><span class="problematic" id="id35">``</span></a><a href="#id36"><span class="problematic" id="id37">`</span></a>python
+create_task_id = api.task.create_task(count=1,</p>
+<blockquote>
+<div><p>task_user_level=50,
+labels=[“label_test1”, “label_test2”])</p>
+</div></blockquote>
+<p><a href="#id38"><span class="problematic" id="id39">``</span></a><a href="#id40"><span class="problematic" id="id41">`</span></a></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id42"><span class="problematic" id="id43">``</span></a><a href="#id44"><span class="problematic" id="id45">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“aliasTaskIdList”: [</dt><dd><p>“2W19097”</p>
+</dd>
+</dl>
+<p>],
+“taskIdList”: [</p>
+<blockquote>
+<div><p>19097</p>
+</div></blockquote>
+<p>],
+“userId”: 10007893</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535959487092</p>
+</div></blockquote>
+</div>
+<div class="section" id="id46">
+<h1>}<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h1>
+<p>## Submit task</p>
+<p><strong>Interface path</strong>：/api/render/submit/task</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;task id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">submit_task</span> <span class="pre">=</span> <span class="pre">api.task.submit_task(task_id=create_task_id[0])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id47"><span class="problematic" id="id48">``</span></a><a href="#id49"><span class="problematic" id="id50">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id51">
+<h1>}<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h1>
+<p>Warning: <em>Before committing, you need to call the transport interface to upload the relevant analysis configuration file .</em></p>
+<p>## Obtain analysis error code</p>
+<p><strong>Interface path</strong>： /api/render/submit/queryAnalyseErrorDetail</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;code&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;error code&lt;/td&gt;
+&lt;td&gt;Codes and codes are either mandatory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;codes&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Error code list&lt;/td&gt;
+&lt;td&gt;Codes and codes are either mandatory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;language&lt;/td&gt;
+&lt;td&gt;0：Chinese（default） 1：English&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：List&lt;CodeInfo&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;code&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;error code&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Type&lt;/td&gt;
+&lt;td&gt;0 Warning-can be ignored，1 Error-can not be ignored&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;languageFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;languageType&lt;/td&gt;
+&lt;td&gt;0：Chinese，1：English&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;desDescriptionCn&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Chinese description&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;desSolutionCn&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Solution&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;solutionPath&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Connect to solution&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isRepair&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Check if repairable or not&lt;/td&gt;
+&lt;td&gt;1：Repairable ，0：Non-repairable&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isOpen&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Check if turn on the intercept of the error or not&lt;/td&gt;
+&lt;td&gt;0：Not turn on the intercept，1：Turn on the intercept&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;updateTime&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;The final update time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">error_detail</span> <span class="pre">=</span> <span class="pre">api.query.error_detail(code=&quot;50001&quot;)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id52"><span class="problematic" id="id53">``</span></a><a href="#id54"><span class="problematic" id="id55">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”: 5,
+“code”: “15000”,
+“type”: 1,
+“languageFlag”: 0,
+“desDescriptionCn”: “启动3ds max卡住或者失败”,
+“desSolutionCn”: “1.检查启用对应版本的3ds max是否有特殊弹窗，有的话手动关闭；n2.检查操作系统是否设置了高级别的权限”,
+“solutionPath”: “<a class="reference external" href="http://note.youdao.com/noteshare?id=d8f1ea0c46dfb524af798f6b1d31cf6f">http://note.youdao.com/noteshare?id=d8f1ea0c46dfb524af798f6b1d31cf6f</a>”,
+“isRepair”: 0,
+“isDelete”: 1,
+“isOpen”: 1,
+“lastModifyAdmin”: “”,
+“updateTime”: 1534387709000</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“serverTime”: 1535962451356</p>
+</div></blockquote>
+</div>
+<div class="section" id="id56">
+<h1>}<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the task list</p>
+<p><strong>Interface path</strong>：/api/render/handle/getTaskList</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;page_num&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Mandatary，number of current page&lt;/td&gt;
+&lt;td&gt;Default: 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;page_size&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Mandatary，quantities of displaying per page&lt;/td&gt;
+&lt;td&gt;Default: 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;status code list，query the status of the task in the list&lt;/td&gt;
+&lt;td&gt;Check task status description for details&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;search_keyword&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Optional, scenario name or job ID&lt;/td&gt;
+&lt;td&gt;Fuzzy search&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;start_time&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Optional, search limit for start time&lt;/td&gt;
+&lt;td&gt;Example:yyyy-MM-dd HH:mm:ss&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;end_time&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Optional, search limit for end time&lt;/td&gt;
+&lt;td&gt;Example:yyyy-MM-dd HH:mm:ss&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Task status description</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Status&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Status code&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;WAITING&lt;/td&gt;
+&lt;td&gt;0&lt;/td&gt;
+&lt;td&gt;Waiting&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RENDERING&lt;/td&gt;
+&lt;td&gt;5&lt;/td&gt;
+&lt;td&gt;Rendering&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;PRE_RENDERING&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;Prepared to be handled&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;STOP&lt;/td&gt;
+&lt;td&gt;10&lt;/td&gt;
+&lt;td&gt;Stop&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ARREARAGE_STOP&lt;/td&gt;
+&lt;td&gt;20&lt;/td&gt;
+&lt;td&gt;Stop due to arrearage&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;TIME_OUT_STOP&lt;/td&gt;
+&lt;td&gt;23&lt;/td&gt;
+&lt;td&gt;Stop due to timing out&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FINISHED&lt;/td&gt;
+&lt;td&gt;25&lt;/td&gt;
+&lt;td&gt;Finished&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FINISHED_HAS_FAILED&lt;/td&gt;
+&lt;td&gt;30&lt;/td&gt;
+&lt;td&gt;Finished with failed frames contained&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ABANDON&lt;/td&gt;
+&lt;td&gt;35&lt;/td&gt;
+&lt;td&gt;Give up&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FINISHED_TEST&lt;/td&gt;
+&lt;td&gt;40&lt;/td&gt;
+&lt;td&gt;Test completed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;FAILED&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;td&gt;Failed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ANALYSE&lt;/td&gt;
+&lt;td&gt;50&lt;/td&gt;
+&lt;td&gt;Analyzing&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：list&lt;Task Info&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sceneName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Scene Name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskAlias&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task Name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskStatus&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Task status&lt;/td&gt;
+&lt;td&gt;0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;statusText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Status Text&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preTaskStatus&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Preprocessi-ng Task Status&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preStatusText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Preprocessi-ng Task Status Text&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;totalFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Total frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;abortFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Abort frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;executingFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Executing frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;doneFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Done frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;failedFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Failed frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;framesRange&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frames range&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;projectName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Project name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderConsume&lt;/td&gt;
+&lt;td&gt;BigDecimal&lt;/td&gt;
+&lt;td&gt;Task render consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskArrears&lt;/td&gt;
+&lt;td&gt;BigDecimal&lt;/td&gt;
+&lt;td&gt;Task arrears&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;submitDate&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Submit Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;startTime&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Start Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;completedDate&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Completed Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderDuration&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Task render duration&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;User name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskLevel&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Task level&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskUserLevel&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task level of user&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskLimit&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task node limit&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskOverTime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Task timeout reminder time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;outputFileName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Output file name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;munuTaskId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Dispatch id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;layerParentId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;About maya task，parent id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task type&lt;/td&gt;
+&lt;td&gt;2001/maya，2000/max&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskKeyValueVo&lt;/td&gt;
+&lt;td&gt;Object&lt;/td&gt;
+&lt;td&gt;Task keyword&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userAccountConsume&lt;/td&gt;
+&lt;td&gt;Bigdecimal&lt;/td&gt;
+&lt;td&gt;User account consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couponConsume&lt;/td&gt;
+&lt;td&gt;Bigdecimal&lt;/td&gt;
+&lt;td&gt;Coupon consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isOpen&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Whether the front-end expansion button is expanded or not&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task type&lt;/td&gt;
+&lt;td&gt;Preprocessing, RenderPhoton, Render&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderCamera&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render camera&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cloneParentId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Clone parent id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cloneOriginalId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Clone original id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;shareMainCapital&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Whether to Share Main Account Assets&lt;/td&gt;
+&lt;td&gt;0：no ,  1：yes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskRam&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task render memory&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;respRenderingTaskList&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;List&amp;lt;TaskInfo&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Child tasks of the open task&lt;/td&gt;
+&lt;td&gt;Structure the same of this object&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;layerName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Layer name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskTypeText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task type text&lt;/td&gt;
+&lt;td&gt;photon/picture&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isDelete&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Whether or not to delete&lt;/td&gt;
+&lt;td&gt;0: deleted, 1: not deleted&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>taskKeyValueVo</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tiles&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Tile number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;allCamera&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;All Cameras&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;RenderableCarema&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render Cameras&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">task_list</span> <span class="pre">=</span> <span class="pre">api.query.get_task_list(page_num=1,</span> <span class="pre">page_size=1)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id57"><span class="problematic" id="id58">``</span></a><a href="#id59"><span class="problematic" id="id60">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“pageCount”: 32,
+“pageNum”: 1,
+“total”: 32,
+“size”: 1,
+“items”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“sceneName”: “衣帽间.max”,
+“id”: 18278,
+“taskAlias”: “P18278”,
+“taskStatus”: 0,
+“statusText”: “render_task_status_0”,
+“preTaskStatus”: 25,
+“preStatusText”: “render_task_status_25”,
+“totalFrames”: 0,
+“abortFrames”: null,
+“executingFrames”: null,
+“doneFrames”: null,
+“failedFrames”: 0,
+“framesRange”: “0”,
+“projectName”: “”,
+“renderConsume”: null,
+“taskArrears”: 0,
+“submitDate”: 1535602289000,
+“startTime”: null,
+“completedDate”: null,
+“renderDuration”: null,
+“userName”: “xiaoguotu_ljian”,
+“producer”: null,
+“taskLevel”: 79,
+“taskUserLevel”: 0,
+“taskLimit”: 200,
+“taskOverTime”: null,
+“userId”: 10001520,
+“outputFileName”: null,
+“munuTaskId”: “”,
+“layerParentId”: 0,
+“cgId”: 2001,
+“taskKeyValueVo”: {</p>
+<blockquote>
+<div><blockquote>
+<div><p>“tiles”: null,
+“allCamera”: null,
+“renderableCamera”: null</p>
+</div></blockquote>
+<p>},</p>
+</div></blockquote>
+<p>“userAccountConsume”: null,
+“couponConsume”: null,
+“isOpen”: 1,
+“taskType”: “”,
+“renderCamera”: “VRayCam003”,
+“cloneParentId”: null,
+“cloneOriginalId”: null,
+“shareMainCapital”: 0,
+“taskRam”: null,
+“respRenderingTaskList”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“sceneName”: “衣帽间.max”,
+“id”: 18280,
+“taskAlias”: “P18280”,
+“taskStatus”: 25,
+“statusText”: “render_task_status_25”,
+“preTaskStatus”: null,
+“preStatusText”: null,
+“totalFrames”: 1,
+“abortFrames”: 0,
+“executingFrames”: 0,
+“doneFrames”: 1,
+“failedFrames”: 0,
+“framesRange”: “0”,
+“projectName”: “”,
+“renderConsume”: 1.57,
+“taskArrears”: 0,
+“submitDate”: 1535602289000,
+“startTime”: 1535602601000,
+“completedDate”: 1535603874000,
+“renderDuration”: 1176,
+“userName”: “xiaoguotu_ljian”,
+“producer”: null,
+“taskLevel”: 79,
+“taskUserLevel”: 0,
+“taskLimit”: 200,
+“taskOverTime”: 86400000,
+“userId”: 10001520,
+“outputFileName”: “18280_衣帽间”,
+“munuTaskId”: “2018083000075”,
+“layerParentId”: 18278,
+“cgId”: 2001,
+“taskKeyValueVo”: {</p>
+<blockquote>
+<div><p>“tiles”: null,
+“allCamera”: null,
+“renderableCamera”: null</p>
+</div></blockquote>
+<p>},
+“userAccountConsume”: 0,
+“couponConsume”: 1.57,
+“isOpen”: 0,
+“taskType”: “RenderPhoton”,
+“renderCamera”: “VRayCam003”,
+“cloneParentId”: 0,
+“cloneOriginalId”: 0,
+“shareMainCapital”: 0,
+“taskRam”: null,
+“respRenderingTaskList”: null,
+“layerName”: null,
+“taskTypeText”: “render_photons_task”,
+“isDelete”: 1</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“sceneName”: “衣帽间.max”,
+“id”: 18281,
+“taskAlias”: “P18281”,
+“taskStatus”: 25,
+“statusText”: “render_task_status_25”,
+“preTaskStatus”: null,
+“preStatusText”: null,
+“totalFrames”: 17,
+“abortFrames”: 0,
+“executingFrames”: 0,
+“doneFrames”: 17,
+“failedFrames”: 0,
+“framesRange”: “0”,
+“projectName”: “”,
+“renderConsume”: 6.7,
+“taskArrears”: 0,
+“submitDate”: 1535602289000,
+“startTime”: 1535603885000,
+“completedDate”: 1535604765000,
+“renderDuration”: 5028,
+“userName”: “xiaoguotu_ljian”,
+“producer”: null,
+“taskLevel”: 79,
+“taskUserLevel”: 0,
+“taskLimit”: 200,
+“taskOverTime”: 86400000,
+“userId”: 10001520,
+“outputFileName”: “18281_衣帽间”,
+“munuTaskId”: “2018083000079”,
+“layerParentId”: 18278,
+“cgId”: 2001,
+“taskKeyValueVo”: {</p>
+<blockquote>
+<div><p>“tiles”: null,
+“allCamera”: null,
+“renderableCamera”: null</p>
+</div></blockquote>
+<p>},
+“userAccountConsume”: 0,
+“couponConsume”: 6.7,
+“isOpen”: 0,
+“taskType”: “Render”,
+“renderCamera”: “VRayCam003”,
+“cloneParentId”: 0,
+“cloneOriginalId”: 0,
+“shareMainCapital”: 0,
+“taskRam”: null,
+“respRenderingTaskList”: null,
+“layerName”: null,
+“taskTypeText”: “render_major_picture_task”,
+“isDelete”: 1</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“layerName”: null,
+“taskTypeText”: null,
+“isDelete”: 1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535964116655</p>
+</div></blockquote>
+</div>
+<div class="section" id="id61">
+<h1>}<a class="headerlink" href="#id61" title="Permalink to this headline">¶</a></h1>
+<p>## Stop task</p>
+<p><strong>Interface path</strong>： /api/render/handle/stopTask</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_param_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Combination of the task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">stop_task</span> <span class="pre">=</span> <span class="pre">api.task.stop_task(task_param_list=[13798105])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id62"><span class="problematic" id="id63">``</span></a><a href="#id64"><span class="problematic" id="id65">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id66">
+<h1>}<a class="headerlink" href="#id66" title="Permalink to this headline">¶</a></h1>
+<p>## Start task</p>
+<p><strong>Interface path</strong>：/api/render/handle/startTask</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_param_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Combination of the task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">start_task</span> <span class="pre">=</span> <span class="pre">api.task.start_task(task_param_list=[13798105])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id67"><span class="problematic" id="id68">``</span></a><a href="#id69"><span class="problematic" id="id70">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id71">
+<h1>}<a class="headerlink" href="#id71" title="Permalink to this headline">¶</a></h1>
+<p>## Abandon task</p>
+<p><strong>Interface path</strong>：/api/render/handle/abandonTask</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_param_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Combination of the task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">abort_task</span> <span class="pre">=</span> <span class="pre">api.task.abort_task(task_param_list=[13798105])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id72"><span class="problematic" id="id73">``</span></a><a href="#id74"><span class="problematic" id="id75">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id76">
+<h1>}<a class="headerlink" href="#id76" title="Permalink to this headline">¶</a></h1>
+<p>## Delete task</p>
+<p><strong>Interface path</strong>：/api/render/handle/deleteTask</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_param_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Task ID list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">delete_task</span> <span class="pre">=</span> <span class="pre">api.task.delete_task(task_param_list=[13798105])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id77"><span class="problematic" id="id78">``</span></a><a href="#id79"><span class="problematic" id="id80">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id81">
+<h1>}<a class="headerlink" href="#id81" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the task rendering frame details</p>
+<p><strong>Interface path:</strong>  /api/render/handle/queryTaskFrames</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;Task ID，Is the unique identifier of the task, mandatary field&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;search_keyword&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Query based on the name of the multiple frames that rendered on one machine&lt;/td&gt;
+&lt;td&gt;Is a string that be queried based on name of the multiple frames that rendered on one machine, optional field&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;page_num&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Current page number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;page_size&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Size of the data that displayed per page&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：List&lt;FrameInfo&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;frame id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userId&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;userID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;framePrice&lt;/td&gt;
+&lt;td&gt;Double&lt;/td&gt;
+&lt;td&gt;Render pricing&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;feeType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Fee charge type&lt;/td&gt;
+&lt;td&gt;0 Quantity-based，1 Machine-bashed，2 Project-based&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;platform&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Platform&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameIndex&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame sequence name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameBlock&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Current frame number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameStatus&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Current frame status&lt;/td&gt;
+&lt;td&gt;0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;feeAmount&lt;/td&gt;
+&lt;td&gt;Double&lt;/td&gt;
+&lt;td&gt;Balance deduction&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couponFee&lt;/td&gt;
+&lt;td&gt;Double&lt;/td&gt;
+&lt;td&gt;Vouchers deduction&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;startTime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Start time (ms)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;endTime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;End time (ms)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameExecuteTime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Rendering frame time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameStatusText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame status description&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;arrearsFee&lt;/td&gt;
+&lt;td&gt;Double&lt;/td&gt;
+&lt;td&gt;Render frame arrears amount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskId&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Frame Type&lt;/td&gt;
+&lt;td&gt;1/Pre-rendering (only one frame, even for multi-camera case), 2/photon frame, 3/combine photon frame, 4/priority frame, 5/main render frame, 6 priority /maya/max composite rendering frame, 7/maya/max rendering main picture composite frame, 8/houdini settlement frame, 9/max channel frame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;recommitFlag&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Recount times&lt;/td&gt;
+&lt;td&gt;Indicate the recount time default is 0,increased as the recount time increase&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskOverTime&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;overtime&lt;/td&gt;
+&lt;td&gt;Overtime details&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gopName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Houdini Settlement node name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameRam&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Memory of the task rendering frame&lt;/td&gt;
+&lt;td&gt;No memory requirement if description does not specified&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">task_frame</span> <span class="pre">=</span> <span class="pre">api.query.task_frames(task_id=13790691,</span> <span class="pre">page_num=1,</span> <span class="pre">page_size=1)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return:</strong></p>
+<p><a href="#id82"><span class="problematic" id="id83">``</span></a><a href="#id84"><span class="problematic" id="id85">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“pageCount”: 9,
+“pageNum”: 1,
+“total”: 17,
+“size”: 2,
+“items”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”: 1546598,
+“userId”: null,
+“framePrice”: null,
+“feeType”: null,
+“platform”: null,
+“frameIndex”: “0-1”,
+“frameStatus”: 4,
+“feeAmount”: 0.44,
+“startTime”: 1535960273000,
+“endTime”: 1535960762000,
+“frameExecuteTime”: 489,
+“frameStatusText”: “task_frame_status_4”,
+“arrearsFee”: null,
+“munuJobId”: “0”,
+“taskId”: 19088,
+“munuTaskId”: “2018090300040”,
+“frameType”: 5,
+“couponFee”: 0,
+“recommitFlag”: 0,
+“isCopy”: null,
+“frameBlock”: “1”,
+“taskOverTime”: 86400000,
+“gopName”: null,
+“frameRam”: null</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“id”: 1546599,
+“userId”: null,
+“framePrice”: null,
+“feeType”: null,
+“platform”: null,
+“frameIndex”: “0-2”,
+“frameStatus”: 4,
+“feeAmount”: 0.43,
+“startTime”: 1535960856000,
+“endTime”: 1535961338000,
+“frameExecuteTime”: 482,
+“frameStatusText”: “task_frame_status_4”,
+“arrearsFee”: null,
+“munuJobId”: “1”,
+“taskId”: 19088,
+“munuTaskId”: “2018090300040”,
+“frameType”: 5,
+“couponFee”: 0,
+“recommitFlag”: 0,
+“isCopy”: null,
+“frameBlock”: “2”,
+“taskOverTime”: 86400000,
+“gopName”: null,
+“frameRam”: null</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535966967143</p>
+</div></blockquote>
+</div>
+<div class="section" id="id86">
+<h1>}<a class="headerlink" href="#id86" title="Permalink to this headline">¶</a></h1>
+<p>## Gets the page frame details for the specified task</p>
+<p>[^api]: Add in v2.4.0</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Is necessary&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;small task id&lt;/td&gt;
+&lt;td&gt;If the job ID is “2W35736251”, task_ID is 35736251&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;start_page&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Query Start Page, default is 1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;end_page&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Query end page, default is 2000&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;page_size&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Specifies the number of frames to display per page, which defaults to a maximum of 100&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">all_frames</span> <span class="pre">=</span> <span class="pre">api.query.get_all_frames(task_id=35736251)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id87"><span class="problematic" id="id88">``</span></a><a href="#id89"><span class="problematic" id="id90">`</span></a>json
+{</p>
+<blockquote>
+<div><dl class="simple">
+<dt>“1”: {</dt><dd><p>“id”: 665078505,
+“userId”: null,
+“framePrice”: null,
+“feeType”: null,
+“platform”: null,
+“frameIndex”: “1”,
+“frameStatus”: 1,
+“feeAmount”: 0.0,
+“startTime”: 0,
+“endTime”: 0,
+“frameExecuteTime”: 33,
+“currentRenderTime”: 0,
+“frameStatusText”: “task_frame_status_1”,
+“arrearsFee”: null,
+“munuJobId”: “0”,
+“taskId”: 37439351,
+“munuTaskId”: “2020092801043”,
+“frameType”: 4,
+“couponFee”: 0.037,
+“recommitFlag”: 0,
+“isCopy”: null,
+“frameBlock”: “”,
+“taskOverTime”: 259200,
+“gopName”: null,
+“frameRam”: 64,
+“averageCpu”: 9,
+“averageMemory”: 2240647168,
+“isOverTime”: 0,
+“overOneMonth”: null,
+“renderRam”: null,
+“nodeId”: “10.60.3.224”,
+“openRenderRam”: null</p>
+</dd>
+</dl>
+<p>},
+“2-4[1]”: {</p>
+<blockquote>
+<div><p>“id”: 665078511,
+“userId”: null,
+“framePrice”: null,
+“feeType”: null,
+“platform”: null,
+“frameIndex”: “2-4[1]”,
+“frameStatus”: 1,
+“feeAmount”: null,
+“startTime”: 0,
+“endTime”: 0,
+“frameExecuteTime”: 0,
+“currentRenderTime”: 0,
+“frameStatusText”: “task_frame_status_1”,
+“arrearsFee”: null,
+“munuJobId”: “0”,
+“taskId”: 37439351,
+“munuTaskId”: “2020092801165”,
+“frameType”: 5,
+“couponFee”: null,
+“recommitFlag”: 0,
+“isCopy”: null,
+“frameBlock”: “”,
+“taskOverTime”: 259200,
+“gopName”: null,
+“frameRam”: 64,
+“averageCpu”: 0,
+“averageMemory”: 0,
+“isOverTime”: 0,
+“overOneMonth”: null,
+“renderRam”: null,
+“nodeId”: “”,
+“openRenderRam”: null</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id91">
+<h1>}<a class="headerlink" href="#id91" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the overview of task rendering frames</p>
+<p><strong>Interface path</strong>： /api/render/handle/queryAllFrameStats</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;executingFramesTotal&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Number of frames in rendering&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;doneFramesTotal&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Number of frames completed&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;failedFramesTotal&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Number of rendered frames failed&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;waitingFramesTotal&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Number of frames in waiting&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;totalFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Number of overall rendered frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">all_frame_status</span> <span class="pre">=</span> <span class="pre">api.query.all_frame_status()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id92"><span class="problematic" id="id93">``</span></a><a href="#id94"><span class="problematic" id="id95">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“executingFramesTotal”: 1,
+“doneFramesTotal”: 308,
+“failedFramesTotal”: 2,
+“waitingFramesTotal”: 153,
+“abandonFramesTotal”: 113,
+“totalFrames”: 577</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535968038725</p>
+</div></blockquote>
+</div>
+<div class="section" id="id96">
+<h1>}<a class="headerlink" href="#id96" title="Permalink to this headline">¶</a></h1>
+<p>## Re-submit the failed frames</p>
+<p><strong>Interface path</strong>：  /api/render/handle/recommitTasks</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_param_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Task ID list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;List&lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;A set of frame task states that are not filled to represent failed frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">restart_failed_frames</span> <span class="pre">=</span> <span class="pre">api.query.restart_failed_frames(task_param_list=[13788981])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id97"><span class="problematic" id="id98">``</span></a><a href="#id99"><span class="problematic" id="id100">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id101">
+<h1>}<a class="headerlink" href="#id101" title="Permalink to this headline">¶</a></h1>
+<p>## Re-submit the specified frames based on the frame number</p>
+<p>[^api]: Add in v2.4.0</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;small task id&lt;/td&gt;
+&lt;td&gt;If the job ID is “2W35736251”, task_ID is 35736251&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;restartframes&lt;/td&gt;
+&lt;td&gt;List[str]&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;List of frame Numbers that need to be replayed&lt;/td&gt;
+&lt;td&gt;example：[“6”, “7-9[1]”]&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">restart_frame</span> <span class="pre">=</span> <span class="pre">api.query.get_custome_frames(task_id=37439351,</span> <span class="pre">restartframes=[&quot;6&quot;,</span> <span class="pre">&quot;7-9[1]&quot;])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：None</p>
+<p>## Re-submit the specified frames</p>
+<p><strong>Interface path</strong>： /api/render/handle/recommitTaskFrames</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ids_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Combine the frame ID&lt;/td&gt;
+&lt;td&gt;Effective if 0 displayed when select_all&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;select_all&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Choose if re-submit all&lt;/td&gt;
+&lt;td&gt;1：All，0：Only the specified frame&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;List&lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;frame status&lt;/td&gt;
+&lt;td&gt;Only pass taskId will take effect&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">restart_frame</span> <span class="pre">=</span> <span class="pre">api.query.restart_frame(task_id=14362099,</span> <span class="pre">select_all=1)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id102"><span class="problematic" id="id103">``</span></a><a href="#id104"><span class="problematic" id="id105">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id106">
+<h1>}<a class="headerlink" href="#id106" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the task details</p>
+<p><strong>Interface path</strong>： /api/render/handle/queryTaskInfo</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_ids_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Combine the shell task ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：List&lt;TaskInfo&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;sceneName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Scene Name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskAlias&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task Name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskStatus&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Task status&lt;/td&gt;
+&lt;td&gt;0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;statusText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Status Text&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preTaskStatus&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Preprocessi-ng Task Status&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;preStatusText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Preprocessi-ng Task Status Text&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;totalFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Total frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;abortFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Abort frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;executingFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Executing frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;doneFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Done frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;failedFrames&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Failed frames&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;framesRange&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frames range&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;projectName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Project name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderConsume&lt;/td&gt;
+&lt;td&gt;BigDecimal&lt;/td&gt;
+&lt;td&gt;Task render consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskArrears&lt;/td&gt;
+&lt;td&gt;BigDecimal&lt;/td&gt;
+&lt;td&gt;Task arrears&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;submitDate&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Submit Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;startTime&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Start Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;completedDate&lt;/td&gt;
+&lt;td&gt;Date&lt;/td&gt;
+&lt;td&gt;Completed Date&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderDuration&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Task render duration&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;User name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;producer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskLevel&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Task level&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskUserLevel&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task level of user&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskLimit&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task node limit&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskOverTime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Task timeout reminder time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;outputFileName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Output file name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;munuTaskId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Dispatch id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;layerParentId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;About maya task，parent id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task type&lt;/td&gt;
+&lt;td&gt;2001/maya，2000/max&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskKeyValueVo&lt;/td&gt;
+&lt;td&gt;Object&lt;/td&gt;
+&lt;td&gt;Task keyword&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userAccountConsume&lt;/td&gt;
+&lt;td&gt;Bigdecimal&lt;/td&gt;
+&lt;td&gt;User account consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couponConsume&lt;/td&gt;
+&lt;td&gt;Bigdecimal&lt;/td&gt;
+&lt;td&gt;Coupon consume&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isOpen&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Whether the front-end expansion button is expanded or not&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task type&lt;/td&gt;
+&lt;td&gt;Preprocessing, Render photon, Render picture&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderCamera&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render camera&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cloneParentId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Clone parent id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cloneOriginalId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Clone original id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;shareMainCapital&lt;/td&gt;
+&lt;td&gt;Byte&lt;/td&gt;
+&lt;td&gt;Whether to Share Main Account Assets&lt;/td&gt;
+&lt;td&gt;(0：no 1：yes)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskRam&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Task render memory&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;respRenderingTaskList&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;List&amp;lt;TaskInfo&gt;&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Child tasks of the open task&lt;/td&gt;
+&lt;td&gt;Structure the same of this object&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;layerName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Layer name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;taskTypeText&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task type text&lt;/td&gt;
+&lt;td&gt;photon/picture&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">task_info</span> <span class="pre">=</span> <span class="pre">api.query.task_info(task_ids_list=[14400249])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id107"><span class="problematic" id="id108">``</span></a><a href="#id109"><span class="problematic" id="id110">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“pageCount”: 1,
+“pageNum”: 1,
+“total”: 1,
+“size”: 100,
+“items”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“sceneName”: “test_no_randerman_175.hip”,
+“id”: 14400249,
+“taskAlias”: “2W14400249”,
+“taskStatus”: 25,
+“statusText”: “render_task_status_25”,
+“preTaskStatus”: null,
+“preStatusText”: null,
+“totalFrames”: 1,
+“abortFrames”: 0,
+“executingFrames”: 0,
+“doneFrames”: 1,
+“failedFrames”: 0,
+“framesRange”: “/out/geometry110-200[1]”,
+“projectName”: “analysis_multi_project_empty_placeholder”,
+“renderConsume”: 0.0,
+“taskArrears”: 0.0,
+“submitDate”: 1577765849000,
+“startTime”: 1577765851000,
+“completedDate”: 1577766104000,
+“renderDuration”: 13,
+“userName”: “ding625yutao”,
+“producer”: “丁玉涛”,
+“taskLevel”: 81,
+“taskUserLevel”: 0,
+“taskLimit”: 1,
+“taskOverTime”: 43200,
+“overTimeStop”: 86400,
+“userId”: 100150764,
+“outputFileName”: “14400249_test_no_randerman_175”,
+“munuTaskId”: “2019123100841”,
+“munuTaskIds”: “2019123100841”,
+“layerParentId”: 0,
+“cgId”: 2004,
+“userAccountConsume”: 0.0,
+“couponConsume”: 0.039,
+“qyCouponConsume”: null,
+“isOpen”: 0,
+“taskType”: “GopRender”,
+“renderCamera”: “”,
+“cloneParentId”: 0,
+“cloneOriginalId”: 0,
+“shareMainCapital”: 0,
+“taskRam”: 64,
+“respRenderingTaskList”: null,
+“layerName”: “”,
+“taskTypeText”: null,
+“locationOutput”: “C:/RenderFarm/Download”,
+“isDelete”: 1,
+“channel”: 1,
+“remark”: “”,
+“labels”: “{}”,
+“isOverTime”: 0,
+“taskKeyValueVo”: {</p>
+<blockquote>
+<div><p>“tiles”: null,
+“allCamera”: null,
+“renderableCamera”: null</p>
+</div></blockquote>
+<p>},
+“waitingCount”: null,
+“stopType”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1578046630345,
+“requestId”: “py6RCN-VGFzay1TZXJ2aWNlMDc-1578046630330”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id111">
+<h1>}<a class="headerlink" href="#id111" title="Permalink to this headline">¶</a></h1>
+<p>## Add a custom label</p>
+<p><strong>Interface path</strong>： /api/render/project/add</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;new_name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Label name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Lable status&lt;/td&gt;
+&lt;td&gt;0: on, 1: off, default is 1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">task_info</span> <span class="pre">=</span> <span class="pre">api.tag.add_label(new_name=&quot;test_tag4&quot;,</span> <span class="pre">status=0)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id112"><span class="problematic" id="id113">``</span></a><a href="#id114"><span class="problematic" id="id115">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id116">
+<h1>}<a class="headerlink" href="#id116" title="Permalink to this headline">¶</a></h1>
+<p>## Delete custom label</p>
+<p><strong>Interface path</strong>： /api/render/project/delete</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;del_name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Label name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">delete_label_name</span> <span class="pre">=</span> <span class="pre">api.tag.delete_label(del_name=&quot;test_tag2&quot;)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id117"><span class="problematic" id="id118">``</span></a><a href="#id119"><span class="problematic" id="id120">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id121">
+<h1>}<a class="headerlink" href="#id121" title="Permalink to this headline">¶</a></h1>
+<p>## Get the project name</p>
+<p><strong>Interface path</strong>： /api/render/project/getList</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;projectNameList&lt;/td&gt;
+&lt;td&gt;List&lt;/td&gt;
+&lt;td&gt;Project name list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Object.projectName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Project name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Object.projectId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Project id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">label_list</span> <span class="pre">=</span> <span class="pre">api.tag.get_label_list()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id122"><span class="problematic" id="id123">``</span></a><a href="#id124"><span class="problematic" id="id125">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><dl>
+<dt>“projectNameList”: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“projectId”: 3671,
+“projectName”: “myLabel”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1546998557770</p>
+</div></blockquote>
+</div>
+<div class="section" id="id126">
+<h1>}<a class="headerlink" href="#id126" title="Permalink to this headline">¶</a></h1>
+<p>## Get the project name(Control by flag)</p>
+<p><strong>Interface path:</strong>   /api/render/project/list</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;Type&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;Description&lt;/th&gt;
+&lt;th&gt;Memo&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;flag&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;0:Check the items under this account;&lt;br&gt;1:Check the items under this account and the main account;&lt;br&gt;2:Query associated with all items (all items under the same main account);&lt;/td&gt;
+&lt;td&gt;default: 0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;projectNameList&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Object&gt;&lt;/td&gt;
+&lt;td&gt;project list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Object.projectName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;project name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Object.projectId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;project id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">new_projects</span> <span class="pre">=</span> <span class="pre">api.tag.get_list(flag=0)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id127"><span class="problematic" id="id128">``</span></a><a href="#id129"><span class="problematic" id="id130">`</span></a>python
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><dl>
+<dt>“projectNameList”: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“projectId”: 3671,
+“projectName”: “myLabel”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1546998557770</p>
+</div></blockquote>
+</div>
+<div class="section" id="id131">
+<h1>}<a class="headerlink" href="#id131" title="Permalink to this headline">¶</a></h1>
+<p>## Add a task label</p>
+<p><strong>Interface path:</strong> /api/render/handle/addTaskLabel</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tag&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;task tag&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;task_ids&lt;/td&gt;
+&lt;td&gt;list[int]&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;task id list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：No</p>
+<p><strong>Example of request</strong>：No</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">tag</span> <span class="pre">=</span> <span class="pre">api.tag.add_task_tag(tag=&quot;test_tag&quot;,</span> <span class="pre">task_ids=[29445045,</span> <span class="pre">29435295])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id132"><span class="problematic" id="id133">``</span></a><a href="#id134"><span class="problematic" id="id135">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 15942751740441</p>
+</div></blockquote>
+</div>
+<div class="section" id="id136">
+<h1>}<a class="headerlink" href="#id136" title="Permalink to this headline">¶</a></h1>
+<p>## Delete task label</p>
+<p><strong>Interface path:</strong> /api/render/task/deleteTaskLabel</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;tag_ids&lt;/td&gt;
+&lt;td&gt;list[int]&lt;/td&gt;
+&lt;td&gt;Delete the task tag ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：No</p>
+<p><strong>Example of request</strong>：No</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">del_tag</span> <span class="pre">=</span> <span class="pre">api.tag.delete_task_tag(tag_ids=[21205])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id137"><span class="problematic" id="id138">``</span></a><a href="#id139"><span class="problematic" id="id140">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 15942760110461</p>
+</div></blockquote>
+</div>
+<div class="section" id="id141">
+<h1>}<a class="headerlink" href="#id141" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain the supported rendering software</p>
+<p><strong>Interface path</strong>：/api/render/plugin/querySoftwareList</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;isAutoCommit&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Choose if submit automatically or not&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderInfoList&lt;/td&gt;
+&lt;td&gt;List&amp;lt;&lt;a href=”#software”&gt;Software&lt;/a&gt;&amp;gt;&lt;/td&gt;
+&lt;td&gt;Renderer version list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;defaultCgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Default renderer ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>&lt;span id=’software’&gt;Software&lt;/span&gt;</strong></p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render software name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render file suffix support&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iconPath&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Rendering software icon address&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isNeedProjectPath&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isNeedAnalyse&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Need to analyze&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isSupportLinux&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Indicates if linux is supported or not&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">support_software</span> <span class="pre">=</span> <span class="pre">api.query.supported_software()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id142"><span class="problematic" id="id143">``</span></a><a href="#id144"><span class="problematic" id="id145">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“isAutoCommit”: 2,
+“renderInfoList”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“cgId”: 2000,
+“cgName”: “Maya”,
+“cgType”: “ma;mb”,
+“iconPath”: “/img/softimage/maya.png”,
+“isNeedProjectPath”: 1,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 1</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2001,
+“cgName”: “3ds Max”,
+“cgType”: “max”,
+“iconPath”: “/img/softimage/max.png”,
+“isNeedProjectPath”: 1,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 0</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2004,
+“cgName”: “Houdini”,
+“cgType”: “hip;hipnc;hiplc”,
+“iconPath”: “/img/softimage/houdini.png”,
+“isNeedProjectPath”: 2,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 1</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2005,
+“cgName”: “Cinema 4D”,
+“cgType”: “c4d”,
+“iconPath”: “/img/softimage/cinema-4D.png”,
+“isNeedProjectPath”: 1,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 0</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2007,
+“cgName”: “Blender”,
+“cgType”: “blend”,
+“iconPath”: “/img/softimage/blender.png”,
+“isNeedProjectPath”: 1,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 0</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2008,
+“cgName”: “VR Standalone”,
+“cgType”: “vrscene”,
+“iconPath”: “/img/softimage/VR-standalone.png”,
+“isNeedProjectPath”: 3,
+“isNeedAnalyse”: 2,
+“isSupportLinux”: 0</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2012,
+“cgName”: “KeyShot”,
+“cgType”: “bip”,
+“iconPath”: “/img/softimage/keyshot.png”,
+“isNeedProjectPath”: 2,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 0</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2013,
+“cgName”: “Clarisse”,
+“cgType”: “project;render”,
+“iconPath”: “/img/softimage/clarisse.png”,
+“isNeedProjectPath”: 3,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 1</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“defaultCgId”: 2001</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1578048938715,
+“requestId”: “W12mkM-VGFzay1TZXJ2aWNlMDc-1578048938685”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id146">
+<h1>}<a class="headerlink" href="#id146" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain supported rendering software plugins</p>
+<p><strong>Interface path</strong>：/api/render/plugin/querySoftwareDetail</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cgPlugin&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Plugin&gt;&lt;/td&gt;
+&lt;td&gt;Supported plugin list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgVersion&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Soft Version&gt;&lt;/td&gt;
+&lt;td&gt;Supported software list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Plugin</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cvId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Rendering software version ID (&lt;strong&gt;Soft Version.id&lt;/strong&gt;)&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Plugin name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginVersions&lt;/td&gt;
+&lt;td&gt;List&amp;lt;&lt;strong&gt;Plugin Version&lt;/strong&gt;&gt;&lt;/td&gt;
+&lt;td&gt;Plugin version list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>PluginVersion</strong></p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Plugin version ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Plugin name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginVersion&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Plugin version&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>SoftVersion</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Render software version ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render software name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgVersion&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render software version&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">support_software_plugin</span> <span class="pre">=</span> <span class="pre">api.query.supported_plugin(name='maya')</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id147"><span class="problematic" id="id148">``</span></a><a href="#id149"><span class="problematic" id="id150">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“isAutoCommit”: 2,
+“renderInfoList”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“cgId”: 2000,
+“cgName”: “Maya”,
+“cgType”: “ma;mb”,
+“iconPath”: “/img/softimage/maya.png”,
+“isNeedProjectPath”: 3,
+“isNeedAnalyse”: 1,
+“isSupportLinux”: 1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“defaultCgId”: 2001</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1535973558961</p>
+</div></blockquote>
+</div>
+<div class="section" id="id151">
+<h1>}<a class="headerlink" href="#id151" title="Permalink to this headline">¶</a></h1>
+<p>## New user rendering environment configuration</p>
+<p><strong>Interface path</strong>：/api/render/plugin/addUserPluginConfig</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=”#render_env”&gt;render_env&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Dict&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render environment configuration&lt;/td&gt;
+&lt;td&gt;Detailed parameters refer to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>&lt;span id=”render_env”&gt;render_env&lt;/span&gt;</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgId&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software name&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgName&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgVersion&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software version&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgVersion&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderLayerType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Maya render Type&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;editName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderSystem&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render system&lt;/td&gt;
+&lt;td&gt;0 linux, 1 windows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginIds&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render plugin list&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Plugin Version.plugin Id&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;projectPath&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Engineering path&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;editName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><a href="#id152"><span class="problematic" id="id153">``</span></a><a href="#id154"><span class="problematic" id="id155">`</span></a>python
+env = {</p>
+<blockquote>
+<div><p>“cgId”: 2000,
+“cgName”: “Maya”,
+“cgVersion”: “2020”,
+“renderLayerType”: 0,
+“editName”: “testRenderEnv”,
+“renderSystem”: “0”,
+“pluginIds”: [1166]</p>
+</div></blockquote>
+<p>}
+add_user_env = api.env.add_render_env(render_env=env)
+<a href="#id156"><span class="problematic" id="id157">``</span></a><a href="#id158"><span class="problematic" id="id159">`</span></a></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id160"><span class="problematic" id="id161">``</span></a><a href="#id162"><span class="problematic" id="id163">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><blockquote>
+<div><p>“editName”: “testRenderEnv”</p>
+</div></blockquote>
+<p>},</p>
+</div></blockquote>
+<p>“serverTime”: 1535957894211</p>
+</div></blockquote>
+</div>
+<div class="section" id="id164">
+<h1>}<a class="headerlink" href="#id164" title="Permalink to this headline">¶</a></h1>
+<p>## Adjust user render environment configuration</p>
+<p><strong>Interface path</strong>：/api/render/plugin/editUserPluginConfig</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=”#render_env”&gt;render_env&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;Dict&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render environment configuration&lt;/td&gt;
+&lt;td&gt;Detailed parameters refer to&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>&lt;span id=”render_env”&gt;render_env&lt;/span&gt;</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgId&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software name&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgName&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgVersion&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render software version&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Soft Version.cgVersion&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderLayerType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Maya render Type&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;editName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderSystem&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Render system&lt;/td&gt;
+&lt;td&gt;0 linux, 1 windows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pluginIds&lt;/td&gt;
+&lt;td&gt;List&lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render plugin list&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;Plugin Version.plugin Id&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;projectPath&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Engineering path&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><a href="#id165"><span class="problematic" id="id166">``</span></a><a href="#id167"><span class="problematic" id="id168">`</span></a>python
+update_env = {</p>
+<blockquote>
+<div><p>“cgId”: 2000,
+“cgName”: “Maya”,
+“cgVersion”: “2020”,
+“renderLayerType”: 0,
+“editName”: “testRenderEnv”,
+“renderSystem”: “0”,
+“pluginIds”: []</p>
+</div></blockquote>
+<p>}
+update_user_env = api.env.update_render_env(render_env=update_env)
+<a href="#id169"><span class="problematic" id="id170">``</span></a><a href="#id171"><span class="problematic" id="id172">`</span></a></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id173"><span class="problematic" id="id174">``</span></a><a href="#id175"><span class="problematic" id="id176">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1536027063801</p>
+</div></blockquote>
+</div>
+<div class="section" id="id177">
+<h1>}<a class="headerlink" href="#id177" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="delete-user-render-environment-configuration">
+<h2>Delete user render environment configuration<a class="headerlink" href="#delete-user-render-environment-configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Interface path:</strong>  /api/render/plugin/deleteUserPluginConfig</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;edit_name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">delete_user_env</span> <span class="pre">=</span> <span class="pre">api.env.delete_render_env(edit_name=&quot;testRenderEnv&quot;)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id178"><span class="problematic" id="id179">``</span></a><a href="#id180"><span class="problematic" id="id181">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1536027063801</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id182">
+<h1>}<a class="headerlink" href="#id182" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="set-up-default-render-environment-configuration">
+<h2>Set up default render environment configuration<a class="headerlink" href="#set-up-default-render-environment-configuration" title="Permalink to this headline">¶</a></h2>
+<p><strong>Interface path</strong>：/api/render/plugin/setDefaultUserPluginConfig</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;edit_name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：default</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">set_default_user_env</span> <span class="pre">=</span> <span class="pre">api.env.set_default_render_env(edit_name=&quot;testRenderEnv&quot;)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id183"><span class="problematic" id="id184">``</span></a><a href="#id185"><span class="problematic" id="id186">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1536027063801</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id187">
+<h1>}<a class="headerlink" href="#id187" title="Permalink to this headline">¶</a></h1>
+<p>## Obtain user render environment configuration</p>
+<p><strong>Interface path</strong>：/api/render/plugin/getUserPluginConfig</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Rendering software name&lt;/td&gt;
+&lt;td&gt;cg_names and name must fill in one&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cg_names&lt;/td&gt;
+&lt;td&gt;List&lt;string&gt;&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;渲染软件名列表&lt;/td&gt;
+&lt;td&gt;cg_names and name must fill in one&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;os_name&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;选择操作系统&lt;/td&gt;
+&lt;td&gt;0:Linux，1:windows,默认1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>: List&lt;RenderEnv&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;cgId&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Render software ID&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;editName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;render environment custom name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render software name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cgVersion&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Render software version&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;osName&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;render environment system&lt;/td&gt;
+&lt;td&gt;0：Linux，1：windows&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderLayerType&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isDefault&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Check if it is the default configuration&lt;/td&gt;
+&lt;td&gt;0 Not default configuration 1 Is default configuration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;respUserPluginInfoVos&lt;/td&gt;
+&lt;td&gt;List&amp;lt;&lt;strong&gt;Plugin Version&lt;/strong&gt;&gt;&lt;/td&gt;
+&lt;td&gt;render environment plugin list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">user_render_config</span> <span class="pre">=</span> <span class="pre">api.env.get_render_env(name='houdini')</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id188"><span class="problematic" id="id189">``</span></a><a href="#id190"><span class="problematic" id="id191">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><p>“cgId”: 2004,
+“editName”: “175”,
+“cgName”: “Houdini”,
+“cgVersion”: “17.5”,
+“osName”: 1,
+“renderLayerType”: 0,
+“isDefault”: 0,
+“projectPath”: “”,
+“isMainUserId”: 1,
+“respUserPluginInfoVos”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“pluginId”: 5304,
+“pluginName”: “renderman”,
+“pluginVersion”: “renderman 22.6”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2004,
+“editName”: “pianwan”,
+“cgName”: “Houdini”,
+“cgVersion”: “17.5”,
+“osName”: 1,
+“renderLayerType”: 0,
+“isDefault”: 0,
+“projectPath”: “”,
+“isMainUserId”: 1,
+“respUserPluginInfoVos”: []</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2004,
+“editName”: “houdini_test”,
+“cgName”: “Houdini”,
+“cgVersion”: “17.5”,
+“osName”: 0,
+“renderLayerType”: 0,
+“isDefault”: 0,
+“projectPath”: “”,
+“isMainUserId”: 1,
+“respUserPluginInfoVos”: []</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“cgId”: 2004,
+“editName”: “16.5”,
+“cgName”: “Houdini”,
+“cgVersion”: “16.5”,
+“osName”: 1,
+“renderLayerType”: 0,
+“isDefault”: 0,
+“projectPath”: “”,
+“isMainUserId”: 1,
+“respUserPluginInfoVos”: []</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“serverTime”: 1578282315348,
+“requestId”: “23IhQf-VGFzay1TZXJ2aWNlMDQ-1578282315343”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id192">
+<h1>}<a class="headerlink" href="#id192" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="task-progress-only-support-max">
+<h2>Task Progress (Only support Max )<a class="headerlink" href="#task-progress-only-support-max" title="Permalink to this headline">¶</a></h2>
+<p><strong>Interface path</strong>：/api/render/handle/loadTaskProcessImg</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frame_type&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Frame type&lt;/td&gt;
+&lt;td&gt;2：photon，5：picture Without transmission, the background will dynamically return the results according to the stage of the rendering task&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;width&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Image resolution width&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;height&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Image resolution height&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;block&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Block number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isRenderPhoton&lt;/td&gt;
+&lt;td&gt;Boolean&lt;/td&gt;
+&lt;td&gt;Is render photon&lt;/td&gt;
+&lt;td&gt;True:task is render photon&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;currentTaskType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task render stage&lt;/td&gt;
+&lt;td&gt;Render: render picture RenderPhoton: render photon&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sceneName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Scene name+camera name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;startTime&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task start time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;endTime&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Task end time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;a href=”#grabinfo”&gt;grabInfo&lt;/a&gt;&lt;/td&gt;
+&lt;td&gt;List&amp;lt;List&amp;lt;dict&gt;&gt;&lt;/td&gt;
+&lt;td&gt;Block frame info&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p>Block frame info：&lt;span id=”grabinfo”&gt;grabInfo&lt;/span&gt;</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;startTime&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Start time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;endTime&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;End time&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameStatus&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame status&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isMaxPrice&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Is max picture&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;feeAmount&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Fee amount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;couponFee&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Coupon fee&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameIndex&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameBlock&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Block number&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;framePercent&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame render percent&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameUsed&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame render time consumed&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frameEst&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Predicted Remaining Time for Frame Rendering&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;renderInfo&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame Rendering Progress Information&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;grabUrl&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Frame Rendering Schedule Connection Address&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">task_processing_img</span> <span class="pre">=</span> <span class="pre">api.query.get_task_processing_img(task_id=14470635,</span> <span class="pre">frame_type=2)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id193"><span class="problematic" id="id194">``</span></a><a href="#id195"><span class="problematic" id="id196">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“isRenderPhoton”: true,
+“completedTime”: “2020-01-03 10:02:55”,
+“currentTaskType”: “RenderPhoton”,
+“sceneName”: “翻新就沙发.max-Camera001”,
+“grabInfo”: [</p>
+<blockquote>
+<div><dl>
+<dt>[</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“couponFee”: “1.04”,
+“frameIndex”: “0”,
+“renderInfo”: “”,
+“frameBlock”: null,
+“frameEst”: “0”,
+“grabUrl”: “/mnt/output/d2_1/small_pic/100033000/100033433/14470635/RenderPhoton_2020010200306_0_rayvision0000[-]tga.jpg”,
+“feeAmount”: “0.00”,
+“frameUsed”: “174”,
+“frameStatus”: “4”,
+“framePercent”: “100”,
+“isMaxPrice”: “0”,
+“startTime”: “2020-01-03 09:57:18”,
+“endTime”: “2020-01-03 10:00:12”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>]</p>
+</div></blockquote>
+<p>],
+“width”: 700,
+“block”: 1,
+“startTime”: “2020-01-02 09:35:51”,
+“height”: 518</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1578299393862,
+“requestId”: “qELLr0-VGFzay1TZXJ2aWNlMDc-1578299393837”</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id197">
+<h1>}<a class="headerlink" href="#id197" title="Permalink to this headline">¶</a></h1>
+<p>## Task Setting Of  Over Time Stop</p>
+<p><strong>Interface path</strong>： /api/render/handle/setTaskOverTimeStop</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Task ID&lt;/td&gt;
+&lt;td&gt;required&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;overtime&lt;/td&gt;
+&lt;td&gt;Long&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Time of Task stop&lt;/td&gt;
+&lt;td&gt;Required,unit:second&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">set_task_overtime</span> <span class="pre">=</span> <span class="pre">api.task.set_task_overtime_top(task_id_list=[14684405],</span> <span class="pre">overtime=60)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id198"><span class="problematic" id="id199">``</span></a><a href="#id200"><span class="problematic" id="id201">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: “SUCCESS”,
+“serverTime”: 1578308287155,
+“requestId”: “8VNTma-VGFzay1TZXJ2aWNlMDc-1578308286842”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id202">
+<h1>}<a class="headerlink" href="#id202" title="Permalink to this headline">¶</a></h1>
+<p>## Task thumbnail</p>
+<p><strong>Interface path</strong>：/api/render/handle/loadingFrameThumbnail</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;frame_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Frame ID&lt;/td&gt;
+&lt;td&gt;This can be obtained through the “Obtain the task rendering frame details” interface&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;frame_status&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Frame status&lt;/td&gt;
+&lt;td&gt;A value of 4 means complete, only thumbnails are available when completed&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">frame_thumbnall</span> <span class="pre">=</span> <span class="pre">api.query.get_frame_thumbnall(frame_id=230772361)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id203"><span class="problematic" id="id204">``</span></a><a href="#id205"><span class="problematic" id="id206">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: “SUCCESS”,
+“serverTime”: 1578308287155,
+“requestId”: “8VNTma-VGFzay1TZXJ2aWNlMDc-1578308286842”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id207">
+<h1>}<a class="headerlink" href="#id207" title="Permalink to this headline">¶</a></h1>
+<p>## Get Raysync transmission message</p>
+<p><strong>Interface path</strong>： /api/render/transfer/getServerInfo</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">transfer_server_msg</span> <span class="pre">=</span> <span class="pre">api.query.get_transfer_server_msg()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id208"><span class="problematic" id="id209">``</span></a><a href="#id210"><span class="problematic" id="id211">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“clientVersion”: “3.2.8.2”,
+“protocolVersion”: “3.2.8.2”,
+“raysyncTransfer”: {</p>
+<blockquote>
+<div><p>“serverIp”: “127.0.0.1”,
+“serverPort”: 2121,
+“proxyIp”: “42.123.110.38”,
+“proxyPort”: 32001,
+“sslPort”: 2443,
+“port”: 2442</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1565678980735,
+“requestId”: “YenJW9-1565678980088”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id212">
+<h1>}<a class="headerlink" href="#id212" title="Permalink to this headline">¶</a></h1>
+<p>## Get Raysync authentication key</p>
+<p><strong>Interface path</strong>：/api/render/user/getRaySyncUserKey</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">raysync_user_key</span> <span class="pre">=</span> <span class="pre">api.query.get_raysync_user_key()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id213"><span class="problematic" id="id214">``</span></a><a href="#id215"><span class="problematic" id="id216">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“channel”: 2,
+“platform”: 2,
+“signature”: “rayvision2017”,
+“version”: “1.0.0”,
+“userKey”: “5394a44e890557d8d937b92086482dab”,
+“id”: 1868599,
+“userName”: “wsh_12345”,
+“zone”: 1,
+“phone”: “183160224171”,
+“email”: “<a class="reference external" href="mailto:testwangshunhui&#37;&#52;&#48;rayvision">testwangshunhui<span>&#64;</span>rayvision</a>”,
+“loginTime”: 1565682011157,
+“infoStatus”: 0,
+“accountType”: 2,
+“shareMainCapital”: 0,
+“subDeleteTask”: 0,
+“subDeleteCapital”: 1,
+“useMainBalance”: 0,
+“downloadDisable”: 0,
+“raySyncUserKey”: “40d59041f72809ffaa16146a36780595666c681e”</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1565682019430,
+“requestId”: “4lkn0I-1565682010026”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id217">
+<h1>}<a class="headerlink" href="#id217" title="Permalink to this headline">¶</a></h1>
+<p>## Full  Speed Render</p>
+<p><strong>Interface path</strong>： /api/render/handle/fullSpeedRendering</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id_list&lt;/td&gt;
+&lt;td&gt;List&amp;lt;Integer&gt;&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Task id&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">full_speed_render</span> <span class="pre">=</span> <span class="pre">api.task.full_speed(task_id_list=[13652193])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id218"><span class="problematic" id="id219">``</span></a><a href="#id220"><span class="problematic" id="id221">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: “成功”,
+“serverTime”: 1578311448826,
+“requestId”: “X81MN5-VGFzay1TZXJ2aWNlMDQ-1578311448620”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id222">
+<h1>}<a class="headerlink" href="#id222" title="Permalink to this headline">¶</a></h1>
+<p>##  Get transport configuration</p>
+<p><strong>Interface path</strong>：  /api/render/transfer/getConfig</p>
+<p><strong>Request parameter</strong>：No</p>
+<p><strong>Return parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;inputBid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Input bid&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;outputBid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;output bid&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;configBid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;config bid&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;parentInputBid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Input Bid corresponds to the main account&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resqEngines&lt;/td&gt;
+&lt;td&gt;Object[]&lt;/td&gt;
+&lt;td&gt;Engine configuration&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;engineName&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Engine name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;checkServer&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Check server&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;checkPort&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Check port&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;checkEnable&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Check for availability&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;checkExcludType&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Detect exception file type, separate&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;automaticCheck&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;Automatic detection and switching of line 1 is 0: No&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isDefault&lt;/td&gt;
+&lt;td&gt;number&lt;/td&gt;
+&lt;td&gt;1: Yes; 0: No, default 1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;resqEngineAccounts&lt;/td&gt;
+&lt;td&gt;Object[]&lt;/td&gt;
+&lt;td&gt;aspera account&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;aspera input bid&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;aspera username&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;password&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;aspera password&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;respTaskEngineLines&lt;/td&gt;
+&lt;td&gt;Object[]&lt;/td&gt;
+&lt;td&gt;Engine list&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Line name&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;server&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Line server IP&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;port&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Line server port&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isDefault&lt;/td&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;td&gt;1: Yes; 0: No, default 1&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lineId&lt;/td&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;td&gt;ID of line tables&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;Number&lt;/td&gt;
+&lt;td&gt;Line type 1. Special line 0. General line&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;subUserOutputBids&lt;/td&gt;
+&lt;td&gt;Object[]&lt;/td&gt;
+&lt;td&gt;Collection outputbid subaccount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;userId&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;ID of subaccount&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;outputBid&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;outputBid&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">transfer_config</span> <span class="pre">=</span> <span class="pre">api.transmit.get_transfer_config()</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id223"><span class="problematic" id="id224">``</span></a><a href="#id225"><span class="problematic" id="id226">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “1.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: {</p>
+<blockquote>
+<div><p>“inputBid”: “10202”,
+“outputBid”: “20202”,
+“configBid”: “30201”,
+“parentInputBid”: null,
+“resqEngines”: [</p>
+<blockquote>
+<div><dl>
+<dt>{</dt><dd><dl>
+<dt>“resqEngineAccounts”: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“bid”: “20202”,
+“name”: “20202”,
+“password”: “xB9CWAML1qd+k1X9prYHheQUAtZ0hcpmJHxe7mfVw9Q=”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“respTaskEngineLines”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“name”: “Aspera_main”,
+“server”: “10.60.197.79”,
+“port”: “10221”,
+“isDefault”: 1,
+“lineId”: 123,
+“type”:1</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“engineName”: “trtt”,
+“automaticCheck”: 1,
+“checkServer”: “677”,
+“checkPort”: “8888”,
+“checkEnable”: “1”,
+“checkExcludType”: “88”,
+“isDefault”: 0</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“resqEngineAccounts”: null,
+“respTaskEngineLines”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“name”: “raysync_main”,
+“server”: “10.60.197.79”,
+“port”: “10200”,
+“isDefault”: 1,
+“lineId”: 121</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“engineName”: “RaySync”,
+“automaticCheck”: 0,
+“checkServer”: “10.60.196.151”,
+“checkPort”: “10100”,
+“checkEnable”: “0”,
+“checkExcludType”: “tx”,
+“isDefault”: 1</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><dl>
+<dt>“resqEngineAccounts”: [</dt><dd><dl class="simple">
+<dt>{</dt><dd><p>“bid”: “30201”,
+“name”: “30201”,
+“password”: “ACz/0lNMCgyq/7WjR0QGpaXmR0/Xb0//6UaMn/s8QN4=”</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>],
+“respTaskEngineLines”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“name”: “Aspera_main”,
+“server”: “10.60.197.79”,
+“port”: “10221”,
+“isDefault”: 1,
+“lineId”: 123</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>],
+“engineName”: “Aspera”,
+“automaticCheck”: 0,
+“checkServer”: “test2.raysync.cn”,
+“checkPort”: “8888”,
+“checkEnable”: “0”,
+“checkExcludType”: “tx”,
+“isDefault”: 0</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+<p>],
+“subUserOutputBids”: [</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“userId”: “119784”,
+“outputBid”: “10202”</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+<p>]</p>
+</div></blockquote>
+<p>},
+“serverTime”: 1587380763325,
+“requestId”: “K7wW6L-QmV5b25kTGVlZGVNYWNCb29rLVByby5sb2NhbA-1587380762156”</p>
+</div></blockquote>
+</div>
+<div class="section" id="id227">
+<h1>}<a class="headerlink" href="#id227" title="Permalink to this headline">¶</a></h1>
+<p>##  Upload the task profile</p>
+<p><strong>Interface path</strong>：  /api/render/submit/taskJsonFile</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;task id&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;content&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;File values in jsonformat&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;file_name&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;file name&lt;/td&gt;
+&lt;td&gt;default“task.json”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter</strong>：No</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`Python</span>
+<span class="pre">start_task</span> <span class="pre">=</span> <span class="pre">api.task.start_task(task_param_list=[13798105])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id228"><span class="problematic" id="id229">``</span></a><a href="#id230"><span class="problematic" id="id231">`</span></a>json
+{</p>
+<blockquote>
+<div><p>“version”: “2.0.0”,
+“result”: true,
+“message”: “success”,
+“code”: 200,
+“data”: null,
+“serverTime”: 1589532607599,
+“requestId”: null</p>
+</div></blockquote>
+</div>
+<div class="section" id="id232">
+<h1>}<a class="headerlink" href="#id232" title="Permalink to this headline">¶</a></h1>
+<p>##  Gets the user storage file structure</p>
+<p>[^2021/1/18]: Add New Interface</p>
+<p><strong>Interface path</strong>：  /api/render/file/operate/getOutputUserDirFile</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Memo&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;Task number, if it is a hierarchical task, refers to the sub-task number, that is, the task number of each layer.&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tree_path&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;The path relative to the user storage (output) root.&lt;/td&gt;
+&lt;td&gt;The default value is: “/”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter[data]</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;fileName&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Current file name or folder name&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fileSize&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;File size, or “null” if it is a folder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;iconPath&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Chart path (this parameter can be ignored)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;lastModify&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;File or folder update date&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fileType&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;File suffix, or “null” if it is a folder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;filePath&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;The relative path of the file or folder to the user storage output root&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;directory&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;Whether it is a folder, “true”: is a folder, “false”: not a folder&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;isArrears&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Whether you are in arrears, 0: Not in arrears, 1: In arrears&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">paths</span> <span class="pre">=</span> <span class="pre">api.transmit.get_output_files(task_id=1484861)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id233"><span class="problematic" id="id234">``</span></a><a href="#id235"><span class="problematic" id="id236">`</span></a>json
+[</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“fileName”: “1484861_muti_layer_test”,
+“fileSize”: null,
+“iconPath”: null,
+“lastModify”: “2021-01-15 12:11:59”,
+“fileType”: null,
+“filePath”: “/1484861_muti_layer_test”,
+“directory”: true,
+“isArrears”: 0</p>
+</dd>
+</dl>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id237">
+<h1>]<a class="headerlink" href="#id237" title="Permalink to this headline">¶</a></h1>
+<p>##  Get all subtask numbers of the task</p>
+<p>[^2021/1/18]: Add New Interface</p>
+<p><strong>Interface path</strong>：</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Parameter&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_id&lt;/td&gt;
+&lt;td&gt;Integer or string&lt;/td&gt;
+&lt;td&gt;Y&lt;/td&gt;
+&lt;td&gt;Get all sub-accounts under the main account, if there is no sub-account, return the current account ID.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter[data]</strong>：</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`python</span>
+<span class="pre">ids</span> <span class="pre">=</span> <span class="pre">api.query.get_small_task_id(task_id=1521323)</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">[1521325,</span> <span class="pre">1521327,</span> <span class="pre">1521329]</span>
+<span class="pre">`</span></code></p>
+<p>##  Get platform hardware configuration information</p>
+<p>[^2021/4/12]: add new interface in rayvision_api 2.8.0</p>
+<p><strong>Interface path</strong>：/api/render/hardwareConfig/list</p>
+<p><strong>Request parameter</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;Necessary&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;task_ids&lt;/td&gt;
+&lt;td&gt;List[str]&lt;/td&gt;
+&lt;td&gt;N&lt;/td&gt;
+&lt;td&gt;A collection of task numbers that queries the configuration parameters of the specified task&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Return parameter[data]</strong>：</p>
+<p>&lt;table border=”1” class=”docutils”&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;&lt;strong&gt;Parameter&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Type&lt;/strong&gt;&lt;/th&gt;
+&lt;th&gt;&lt;strong&gt;Description&lt;/strong&gt;&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;id&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Hardware Configuration ID (HardwareConfigID)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;type&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;1: CPU ;&lt;br&gt;2: GPU&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;model&lt;/td&gt;
+&lt;td&gt;string&lt;/td&gt;
+&lt;td&gt;Hardware model, default “default”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ram&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;memory&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;gpuNum&lt;/td&gt;
+&lt;td&gt;String&lt;/td&gt;
+&lt;td&gt;Number of GPU cards, CPU platform is “null”&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;platform&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Platform number&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;current&lt;/td&gt;
+&lt;td&gt;bool&lt;/td&gt;
+&lt;td&gt;When task_ids is not null， the query is the task’s current hardware configuration&lt;br&gt;false: is the current task hardware configuration&lt;br&gt;true: Is not the current task hardware configuration.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;notSupportCgId&lt;/td&gt;
+&lt;td&gt;list[int]&lt;/td&gt;
+&lt;td&gt;Unsupported cgId, (cgid corresponding software can query “General Parameter” – &amp;gt; “ID mapping of DCC software”)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;status&lt;/td&gt;
+&lt;td&gt;int&lt;/td&gt;
+&lt;td&gt;Status,&lt;br&gt;1: Enabled;&lt;br&gt;0: Disabled&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</p>
+<p><strong>Example of request</strong>：</p>
+<p><code class="docutils literal notranslate"><span class="pre">`json</span>
+<span class="pre">hardware_config</span> <span class="pre">=</span> <span class="pre">api.user.get_hardware_config(task_ids=[&quot;6306543&quot;])</span>
+<span class="pre">`</span></code></p>
+<p><strong>Example of return</strong>：</p>
+<p><a href="#id238"><span class="problematic" id="id239">``</span></a><a href="#id240"><span class="problematic" id="id241">`</span></a>json
+[</p>
+<blockquote>
+<div><dl class="simple">
+<dt>{</dt><dd><p>“id”: 301,
+“type”: 1,
+“model”: “Default”,
+“gpuNum”: null,
+“ram”: “64GB”,
+“platform”: 2,
+“current”: false,
+“notSupportCgId”: [],
+“status”: 1</p>
+</dd>
+</dl>
+<p>},
+{</p>
+<blockquote>
+<div><p>“id”: 303,
+“type”: 1,
+“model”: “Default”,
+“gpuNum”: null,
+“ram”: “128GB”,
+“platform”: 2,
+“current”: false,
+“notSupportCgId”: [],
+“status”: 1</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“id”: 337,
+“type”: 1,
+“model”: “1080Ti”,
+“gpuNum”: null,
+“ram”: “64GB”,
+“platform”: 2,
+“current”: true,
+“notSupportCgId”: [</p>
+<blockquote>
+<div><p>2005,
+2000</p>
+</div></blockquote>
+<p>],
+“status”: 1</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“id”: 339,
+“type”: 1,
+“model”: “2080Ti”,
+“gpuNum”: null,
+“ram”: “64GB”,
+“platform”: 2,
+“current”: false,
+“notSupportCgId”: [],
+“status”: 1</p>
+</div></blockquote>
+<p>},
+{</p>
+<blockquote>
+<div><p>“id”: 341,
+“type”: 1,
+“model”: “1080Ti”,
+“gpuNum”: null,
+“ram”: “128GB”,
+“platform”: 2,
+“current”: false,
+“notSupportCgId”: [</p>
+<blockquote>
+<div><p>2005</p>
+</div></blockquote>
+<p>],
+“status”: 1</p>
+</div></blockquote>
+<p>}</p>
+</div></blockquote>
+</div>
+<div class="section" id="id242">
+<h1>]<a class="headerlink" href="#id242" title="Permalink to this headline">¶</a></h1>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="log/index.html" class="btn btn-neutral float-right" title="Log Management" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/rayvision_api/main/connect.html" class="btn btn-neutral float-left" title="Connect" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2019 Rayvision Core Dev Team.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
