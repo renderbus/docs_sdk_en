@@ -39,6 +39,8 @@ Why to use the rendering SDK?
 Supported software
 ---------------------
 
+Support analysis function:
+
 - Maya
 
 - Houdini
@@ -49,14 +51,18 @@ Supported software
 
 - Katana
 
+- C4D
+
+- Blender
+
+Unsupport analysis function:
+
 - Arnorld Standalone
 
 - VR Standalone
 
-- C4D
-
 .. note::
-   If the user analyzes the scene by yourself, the theory can also support rendering software such as Blender, Arnold Standalone, and KeyShot.
+   If the customer analyzes the scene themselves, it could theoretically support all of the rendering software supported by the Ruiyun platform client and web side.
 
 .. _header-n19:
 
