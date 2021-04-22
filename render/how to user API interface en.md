@@ -457,7 +457,7 @@ error_detail = api.query.error_detail(code="50001")
 | sceneName             | String               | Scene Name                                                |                                                              |
 | id                    | Integer              | Task id                                                   |                                                              |
 | taskAlias             | String               | Task Name                                                 |                                                              |
-| taskStatus            | Byte                 | Task status                                               | 1/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed |
+| taskStatus            | Byte                 | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
 | statusText            | String               | Status Text                                               |                                                              |
 | preTaskStatus         | Byte                 | Preprocessi-ng Task Status                                |                                                              |
 | preStatusText         | String               | Preprocessi-ng Task Status Text                           |                                                              |
@@ -835,7 +835,7 @@ delete_task = api.task.delete_task(task_param_list=[13798105])
 | platform         | Integer  | Platform                           |                                                              |
 | frameIndex       | String   | Frame sequence name                |                                                              |
 | frameBlock       | String   | Current frame number               |                                                              |
-| frameStatus      | Integer  | Current frame status               | 1/Waiting,2/Processing,3/Stopped,4/Complete,5/Failed,6/Waiting for the pre-handeling,7/Waiting for photonic frame rendering completed,8/Waiting for the priority rendering completed,9/ Wait for the photon job to finish rendering,10/Waiting for the settlement job rendering completed,11/Task timing out |
+| frameStatus      | Integer  | Current frame status               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
 | feeAmount        | Double   | Balance deduction                  |                                                              |
 | couponFee        | Double   | Vouchers deduction                 |                                                              |
 | startTime        | Long     | Start time (ms)                    |                                                              |
@@ -1166,7 +1166,7 @@ restart_frame = api.query.restart_frame(task_id=14362099, select_all=1)
 | sceneName             | String               | Scene Name                                                |                                                              |
 | id                    | Integer              | Task id                                                   |                                                              |
 | taskAlias             | String               | Task Name                                                 |                                                              |
-| taskStatus            | Byte                 | Task status                                               | 1/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed |
+| taskStatus            | Byte                 | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
 | statusText            | String               | Status Text                                               |                                                              |
 | preTaskStatus         | Byte                 | Preprocessi-ng Task Status                                |                                                              |
 | preStatusText         | String               | Preprocessi-ng Task Status Text                           |                                                              |
