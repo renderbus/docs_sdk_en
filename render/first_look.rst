@@ -59,7 +59,7 @@ Unsupport analysis function:
 
 - Arnorld Standalone
 
-- VR Standalone
+- V-Ray Standalone
 
 - Nuke
 
