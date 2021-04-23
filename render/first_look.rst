@@ -61,6 +61,8 @@ Unsupport analysis function:
 
 - VR Standalone
 
+- Nuke
+
 .. note::
    If the customer analyzes the scene themselves, it could theoretically support all of the rendering software supported by the Ruiyun platform client and web side.
 
