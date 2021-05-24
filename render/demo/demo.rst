@@ -749,7 +749,7 @@ Arnorld Standalone demo
 -------------------------
 
 .. warning::
-   Arnold Standalone没有自动资产分析功能，并要求客户自行分析资产文件。
+   Arnold Standalone has no automatic asset analysis function and requires customers to analyze asset files by themselves.
 
 ---------------
 
