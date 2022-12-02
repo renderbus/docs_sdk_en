@@ -37,6 +37,10 @@ api = RayvisionAPI(access_id=user_info['access_id'],
 |----------------|-----------|-----------------------------|-----------|
 | platform       | Integer   | Platform number             |           |
 | name           | String    | Platform number description |           |
+| type     | Integer   | Platform type |0:GPU,1:CPU,2:pic|
+| status     | Integer   | Platform status |0:Not activated,1:normal,2:busy,3:full |
+| taskPrefix     | String   | Platform prefix for task numbers |    "W"      |
+| isShow     | Integer   | Whether to display | 1:show,0:Do not show   |
 
 **Example of request**：
 
@@ -55,8 +59,12 @@ platform = api.query.platforms()
     "code": 200,
     "data": [
         {
-            "platform": 2,
-            "name": "query_platform_w2"
+            "platform": 6,
+            "name": "query_platform_w6",
+            "type": 1,
+            "status": 1,
+            "taskPrefix": "W",
+            "isShow": 1
         }
     ],
     "serverTime": 1535949047370
