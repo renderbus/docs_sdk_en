@@ -37,10 +37,10 @@ api = RayvisionAPI(access_id=user_info['access_id'],
 |----------------|-----------|-----------------------------|-----------|
 | platform       | Integer   | Platform number             |           |
 | name           | String    | Platform number description |           |
-| type     | Integer   | Platform type |0:GPU,1:CPU,2:pic|
-| status     | Integer   | Platform status |0:Not activated,1:normal,2:busy,3:full |
+| type           | Integer   | Platform type |0:GPU,1:CPU,2:pic|
+| status         | Integer   | Platform status |0:Not activated,1:normal,2:busy,3:full |
 | taskPrefix     | String   | Platform prefix for task numbers |    "W"      |
-| isShow     | Integer   | Whether to display | 1:show,0:Do not show   |
+| isShow         | Integer   | Whether to display | 1:show,0:Do not show   |
 
 **Example of request**：
 
