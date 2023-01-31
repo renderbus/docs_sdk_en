@@ -73,6 +73,7 @@ upload.json and tips.json.
         "cg_id":"2013",
         "input_cg_file":"E:/copy/DHGB_sc05_zhuta_610-1570_v0102.project",
         "os_name":"1",
+        "hardwareConfigId": ""
     },
     "scene_info":{
         "image_node": [

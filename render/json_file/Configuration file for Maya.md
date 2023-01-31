@@ -102,7 +102,8 @@ Maya Configuration
         "task_id": "439800", 
         "task_stop_time": "86400", 
         "time_out": "12",
-        "graphics_cards_num": "2"
+        "graphics_cards_num": "2",
+        "hardwareConfigId": ""
     }, 
     "software_config": {
         "cg_version": "2016", 
