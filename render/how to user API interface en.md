@@ -440,6 +440,7 @@ error_detail = api.query.error_detail(code="50001")
 | search_keyword | String          | N         | Optional, scenario name or job ID                          | Fuzzy search                              |
 | start_time     | String          | N         | Optional, search limit for start time                      | Example:yyyy-MM-dd HH:mm:ss               |
 | end_time       | String          | N         | Optional, search limit for end time                        | Example:yyyy-MM-dd HH:mm:ss               |
+| recycle_flag       | Integer          | N         | Whether to query deleted tasks                        | 1              |
 
 **Task status description**：
 
