@@ -43,4 +43,4 @@ Provides analysis functionality for clarisse resource files
 flow chart
 -----------
 
-.. image:: ../_static/image/SDK基本使用流程.png
+.. image:: ../_static/image/SDK Basic User Manual.png
