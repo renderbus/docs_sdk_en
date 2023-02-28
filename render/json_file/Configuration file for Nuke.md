@@ -33,7 +33,8 @@ Nuke Profile document
 		"time_out": "86400",
 		"cg_id": "2015",
 		"input_cg_file": "D:/Myx/nuke_project/test_new_pipeline.nk",
-		"pre_frames": "100"
+		"pre_frames": "100",
+        "hardwareConfigId": ""
 	},
 	"scene_info": {
 		"write_nodes": [

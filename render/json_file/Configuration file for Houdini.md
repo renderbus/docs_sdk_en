@@ -64,7 +64,8 @@ Houdini Configuration
         "task_id": "440149", 
         "task_stop_time": "86400", 
         "time_out": "12",
-        "graphics_cards_num": "2"
+        "graphics_cards_num": "2",
+        "hardwareConfigId": ""
     },  
     "software_config": {
         "cg_version": "16.5.268", 
