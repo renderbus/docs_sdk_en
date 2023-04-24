@@ -49,8 +49,6 @@ Support analysis function:
 
 - 3ds Max
 
-- Katana
-
 - C4D
 
 - Blender
@@ -60,8 +58,6 @@ Unsupport analysis function:
 - Arnorld Standalone
 
 - V-Ray Standalone
-
-- Nuke
 
 .. note::
    If the customer analyzes the scene themselves, it could theoretically support all of the rendering software supported by the Ruiyun platform client and web side.

@@ -200,7 +200,7 @@ custom_info_to_upload = [
     r"D:\houdini\CG file\F"
 ]
 # 2.You can also receive a single string
-# custom_info_to_upload = r"D:\houdini\CG file\katana_file"
+# custom_info_to_upload = r"D:\houdini\CG file\houdini_file"
 
 # Need to specify an existing upload.json path
 append_to_upload(custom_info_to_upload, r"D:\test\upload.json")

@@ -26,7 +26,6 @@ Major update:
 --------------------
    - The fix section describes the error.
    - Update the API interface to API2.0.
-   - Add katana-related documentation.
 
 1.4 (2020-11-12):
 -----------------------

@@ -19,7 +19,7 @@ SDK usage
            "local_os": 'windows',
 
            "workspace": "c:/workspace",  # local root directory(Automatically generated), must be in english
-           "render_software": "Houdini",  # CG software（Maya, Houdini, Katana, Clarisse）
+           "render_software": "Houdini",  # CG software（Maya, Houdini, Clarisse）
            "software_version": "17.5.293",  # CG software version
            "project_name": "Project1",
 
