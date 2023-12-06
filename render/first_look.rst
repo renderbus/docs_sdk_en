@@ -17,7 +17,7 @@ Overview
 Why to use the rendering SDK?
 ------------------------------
 
-   1. Automation. The SDK automates the process of using the cloud rendering service (analysing scens, uploading assets, rendering, downloading, etc). Users can integrate the modules to there own workflow(such as DeadLine, Qube, etc).
+   1. Automation. The SDK automates the process of using the cloud rendering service (analysing scenes, uploading assets, rendering, downloading, etc). Users can integrate the modules to there own workflow(such as DeadLine, Qube, etc).
 
    2. Open source. Users can customize the codes or submit development suggestions.
 
