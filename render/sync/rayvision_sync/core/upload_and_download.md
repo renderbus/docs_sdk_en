@@ -223,7 +223,7 @@ UPLOAD.upload_asset(r"D:\test\upload.json")
 
   > The content of the "upload_json_path" file (json file) specified by this upload mode must follow a fixed format, and only files can be uploaded.
 
-  例如:
+  For Example:
 
   ```json
   // upload.json
