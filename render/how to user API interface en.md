@@ -1489,16 +1489,17 @@ tag = api.tag.add_task_tag(tag="test_tag", task_ids=[29445045, 29435295])
 
 **Request parameter**：
 
-| **Parameter** | **Type**  | **Description**        | **Memo** |
-| ------------- | --------- | ---------------------- | -------- |
-| tag_ids       | list[int] | Delete the task tag ID |          |
+| **Parameter** | **Type**      | **Description**        | **Memo** |
+| --------- |---------------| ---------------------- | -------- |
+| taskIds   | List[integer] | Subtask id |          |
+| labelNames | list[string]     | Delete the task tag ID |          |
 
 **Return parameter**：No
 
 **Example of request**：No
 
 ```python
-del_tag = api.tag.delete_task_tag(tag_ids=[21205])
+del_tag = api.tag.delete_task_tag(taskIds=[183222], labelNames=["test labels"])
 ```
 
 **Example of return**：
