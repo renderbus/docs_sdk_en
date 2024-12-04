@@ -226,7 +226,6 @@ UPLOAD.upload_asset(r"D:\test\upload.json")
   For Example:
 
   ```json
-  // upload.json
   {
     "asset": [
       {
