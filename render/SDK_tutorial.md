@@ -5,7 +5,7 @@
 ```
 render_para = {
     "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
-    "platform": "2",
+    "platform": "62",
     "access_id": "xxxx",
     "access_key": "xxxx",
 }
@@ -23,7 +23,7 @@ RayvisionAPI Parameters:
 | Parameters       | Type   | Required | Default             | Description                                                         |
 | ---------- | ------ | --------| ------------------ | ------------------------------------------------------------ |
 | domain     | string | Y       | task.renderbus.com | China user：task.renderbus.com，Foreign user：jop.foxrenderfarm.com |
-| platform   | string | Y       | 2                  | platform ID，example: W2:"2", W6/qingyun:"6", GPU Region 1:"21"              |
+| platform   | string | Y       | 2                  | platform ID，example: W3:"62", W6/qingyun:"6", GPU Region 1:"21"              |
 | access_id  | string | Y       |                    | user authorization id                                |
 | access_key | string | Y       |                    | user authorization key         |
 
