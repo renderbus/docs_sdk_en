@@ -13,7 +13,7 @@ SDK usage
    render_para = {
 
            "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
-           "platform": "2",  # platform id
+           "platform": "62",  # platform id
            "access_id": "K2lbvJSlPScStv72niHGXZtbQYc5Fp6d",  # user's access_id(required)
            "access_key": "6b4b6eab841772113113b61c79dbe40e",  # user's access_key(required)
            "local_os": 'windows',
@@ -34,7 +34,7 @@ SDK usage
 parameter        type   required   value                    description
 ================ ===== ========== ====================== ============================================================================================================
 domain           str     Y         jop.foxrenderfarm.com    domain name：jop.foxrenderfarm.com, no "http", "https"
-platform         str     Y         2                        platform ID, like "2"
+platform         str     Y         62                        platform ID, like "2"
 access_id        str     Y         xxx                      user authorization id
 access_key       str     Y         xxx                      user authorization key
 workspace        str     Y         c:/workspace             SDK working directory(to save configration, log etc. Default is the 'workspace' folder of SDK programe)
