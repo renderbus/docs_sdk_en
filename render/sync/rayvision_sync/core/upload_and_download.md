@@ -4,7 +4,6 @@
 
 > Some upload.json files may have up to hundreds of thousands of resources, at this time you may need to cut the upload file。
 
-
 ```
 def cutting_upload(upload_path, max_resources_number=None, after_cutting_position=None):
     """Cut upload.json according to the number of custom files.
@@ -22,6 +21,7 @@ def cutting_upload(upload_path, max_resources_number=None, after_cutting_positio
 
     """
 ```
+
 > Use example:
 
 ```
@@ -33,7 +33,6 @@ upload_pool = cutting_upload(r"D:\test\test_upload\1586250829\upload.json", max_
 
 > Thread pool can also be used for concurrent uploads
 
-
 ```
 def thread_pool_upload(self, upload_pool, pool_size=10, **kwargs)::
     """Thread pool upload.
@@ -43,7 +42,7 @@ def thread_pool_upload(self, upload_pool, pool_size=10, **kwargs)::
         pool_size (int): thread pool size, default is 10 threads.
 
     """
-    
+  
 ```
 
 > Use example：
@@ -54,7 +53,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 UPLOAD = RayvisionUpload(api)
@@ -89,9 +88,9 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
-                   
+             
 UPLOAD = RayvisionUpload(api)
 UPLOAD.upload_asset(r"D:\test\test_upload\1586250829\upload.json")
 ```
@@ -122,7 +121,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 CONFIG_PATH = [
@@ -166,7 +165,7 @@ from rayvision_sync.upload import RayvisionUpload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 CONFIG_PATH = [
@@ -189,7 +188,7 @@ from rayvision_api.utils import append_to_upload
 
 api = RayvisionAPI(access_id="xxxxx",
                    access_key="xxxxx",
-                   domain="jop.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 UPLOAD = RayvisionUpload(api)
 
@@ -214,14 +213,15 @@ UPLOAD.upload_asset(r"D:\test\upload.json")
 - 1. upload_list
 
   > The content of the "upload_json_path" file specified by this upload mode (support txt and json files) can be a file absolute path or folder absolute path for each line. If it is a folder, all files in the folder will be uploaded.
+  >
 
   For Example:
 
   ![](https://blog-tao625.oss-cn-shenzhen.aliyuncs.com/izone/blog/20201116160335.png)
-
 - 2. upload_json
 
   > The content of the "upload_json_path" file (json file) specified by this upload mode must follow a fixed format, and only files can be uploaded.
+  >
 
   For Example:
 
@@ -291,7 +291,7 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 download = RayvisionDownload(api)
@@ -345,14 +345,14 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 download = RayvisionDownload(api)
 download.auto_download_after_task_completed([18164087], download_filename_format="false")
 ```
 
-####  3. User-defined download server directory structure download (task id is not required)
+#### 3. User-defined download server directory structure download (task id is not required)
 
 ```python
     def download(self, task_id_list=None,
@@ -399,7 +399,7 @@ from rayvision_sync.download import RayvisionDownload
 
 api = RayvisionAPI(access_id="xxx",
                    access_key="xxx",
-                   domain="task.foxrenderfarm.com",
+                   domain="task.renderbus.com",
                    platform="2")
 
 download = RayvisionDownload(api)
@@ -413,7 +413,6 @@ download.download(download_filename_format="true", server_path="18164087_muti_la
 - Automatically obtain the transmission line when uploading:
 
   `RayvisionUpload(api, automatic_line=True)`
-
 - Download the transmission line automatically:
 
   `RayvisionDownload(api, automatic_line=True)`
@@ -425,7 +424,6 @@ The network business name can be obtained through the interface `get_transfer_co
 - Upload automatically obtain the transmission line and customize the network provider.
 
   `RayvisionUpload(api, automatic_line=True, internet_provider="移动")`
-
 - Automatically obtain the transmission line and customize the network provider when downloading.
 
   `RayvisionDownload(api, automatic_line=True, internet_provider="移动")`
@@ -446,7 +444,7 @@ download.auto_download([49240085], network_mode=2)
 
 > Upload service address generally does not need to be modified, if the line is not good also support custom modification.
 
-#####    1. The following upload interface supports custom server addresses and transport engine Settings
+##### 1. The following upload interface supports custom server addresses and transport engine Settings
 
 > Transport engine support: "aspera" and "raysync"
 
@@ -455,7 +453,7 @@ download.auto_download([49240085], network_mode=2)
   > ```python
   > UPLOAD.upload_asset(r"D:\test\upload.json", engine_type='aspera', server_ip="45.251.92.16", server_port="12121")
   > ```
-
+  >
 - upload_config
 
   ```python
@@ -470,7 +468,6 @@ download.auto_download([49240085], network_mode=2)
                        server_ip="45.251.92.16",
                        server_port="12121")
   ```
-
 - upload
 
   ```python
@@ -491,21 +488,19 @@ download.auto_download([49240085], network_mode=2)
   ```
   download.download([49240085], server_ip="45.251.92.16", server_port="12121")
   ```
-
 - auto_download
 
   ```
   download.auto_download([49240085], server_ip="45.251.92.16", server_port="12121")
   ```
-
 - auto_download_after_task_completed
 
   ```
   download.auto_download_after_task_completed([49228557], server_ip="45.251.92.16", server_port="12121")
   ```
 
-  
 ##### 3. select raysyncweb engine create a transfer task
+
 ```python
     def start_transfer(self, server_ip, server_port, local_path, server_path, storage_id, 
                        task_type=None, task_id=None, file_type="normal", 
@@ -537,6 +532,7 @@ download.auto_download([49240085], network_mode=2)
               100,101,102,500.....: failed
         """
 ```
+
 fro example:
 
 ```python

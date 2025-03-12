@@ -57,7 +57,7 @@ common method package:
 
 Download source code directly from GitHub(example for maya):
 
-   ``git clone https://github.com/foxrenderfarm/rayvision_maya.git``
+   ``git clone https://github.com/renderbus/rayvision_maya.git``
 
 
 *other modules are installed similarly to the secondary installation method*

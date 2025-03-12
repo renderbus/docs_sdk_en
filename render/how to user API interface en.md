@@ -1,14 +1,12 @@
+# API interfaces use methods
 
-
-#  API interfaces use methods 
-
-##  The preparatory work 
+## The preparatory work
 
  All interface calls are made through the rayvision_api module, and an API object must be instantiated before use :
 
 ```python
 user_info = {
-    "domain_name": "jop.foxrenderfarm.com",
+    "domain_name": "task.renderbus.com",
     "platform": "2",
     "access_id": "xxxxxxxxxxxxxxxxxxxxxx",
     "access_key": "xxxxxxxxxxxxxxxxxxxxx",
@@ -20,10 +18,14 @@ api = RayvisionAPI(access_id=user_info['access_id'],
                    platform=user_info['platform'])
 ```
 
+[]:  in v2.4.0
+
+[]:  New Interface
+
 **Warning：**
 
->   1.  the following interface calls will be made directly using the API of the above instance;
->   2.  In the rayvision_api, the interface actually returns the user only the value of the "data" parameter ;
+> 1. the following interface calls will be made directly using the API of the above instance;
+> 2. In the rayvision_api, the interface actually returns the user only the value of the "data" parameter ;
 
 ## Obtain the platform list
 
@@ -33,14 +35,14 @@ api = RayvisionAPI(access_id=user_info['access_id'],
 
 **Return parameters**：
 
-| **Parameters** | **Type**  | **Description**             | **Memo**  |
-|----------------|-----------|-----------------------------|-----------|
-| platform       | Integer   | Platform number             |           |
-| name           | String    | Platform number description |           |
-| type           | Integer   | Platform type |0:GPU,1:CPU,2:pic|
-| status         | Integer   | Platform status |0:Not activated,1:normal,2:busy,3:full |
-| taskPrefix     | String   | Platform prefix for task numbers |    "W"      |
-| isShow         | Integer   | Whether to display | 1:show,0:Do not show   |
+| **Parameters** | **Type** | **Description**            | **Memo**                         |
+| -------------------- | -------------- | -------------------------------- | -------------------------------------- |
+| platform             | Integer        | Platform number                  |                                        |
+| name                 | String         | Platform number description      |                                        |
+| type                 | Integer        | Platform type                    | 0:GPU,1:CPU,2:pic                      |
+| status               | Integer        | Platform status                  | 0:Not activated,1:normal,2:busy,3:full |
+| taskPrefix           | String         | Platform prefix for task numbers | "W"                                    |
+| isShow               | Integer        | Whether to display               | 1:show,0:Do not show                   |
 
 **Example of request**：
 
@@ -151,22 +153,22 @@ user_profile = api.user.query_user_profile()
 
 **Return parameter**：
 
-| **Parameter**             | **Type** | **Description**                                         | **Memo**                    |
-| ------------------------- | -------- | ------------------------------------------------------- | --------------------------- |
-| infoStatus                | Integer  |                                                         |                             |
-| accountType               | Integer  |                                                         |                             |
-| shareMainCapital          |          |                                                         |                             |
-| subDeleteTask             |          |                                                         |                             |
-| useMainBalance            |          |                                                         |                             |
-| singleNodeRenderFrames    | String   | Multiple frames rendered on one machine                 |                             |
-| maxIgnoreMapFlag          | String   | Can choose to ignore the max map error or not           | 0：Do not ignore，1：Ignore |
-| autoCommit                | String   | Can choose start scene parameter rendering              | 1：Do not start，2 ：Start  |
-| separateAccountFlag       | Integer  | Separate the primary and secondary account settings     |                             |
-| mifileSwitchFlag          | Integer  | Indicate the switch option of mi Document analysis risk |                             |
-| assfileSwitchFlag         | Integer  | Do not analyze the ass file switch identifier           |                             |
-| manuallyStartAnalysisFlag | Integer  | Manually turn on the analysis switch                    |                             |
-| downloadDisable           | Integer  | Choose to disable downloading or not                    | 1 Disable，0 Do not disable |
-| taskOverTime              | Integer  | Timeout - hour                                          |                             |
+| **Parameter**       | **Type** | **Description**                                   | **Memo**              |
+| ------------------------- | -------------- | ------------------------------------------------------- | --------------------------- |
+| infoStatus                | Integer        |                                                         |                             |
+| accountType               | Integer        |                                                         |                             |
+| shareMainCapital          |                |                                                         |                             |
+| subDeleteTask             |                |                                                         |                             |
+| useMainBalance            |                |                                                         |                             |
+| singleNodeRenderFrames    | String         | Multiple frames rendered on one machine                 |                             |
+| maxIgnoreMapFlag          | String         | Can choose to ignore the max map error or not           | 0：Do not ignore，1：Ignore |
+| autoCommit                | String         | Can choose start scene parameter rendering              | 1：Do not start，2 ：Start  |
+| separateAccountFlag       | Integer        | Separate the primary and secondary account settings     |                             |
+| mifileSwitchFlag          | Integer        | Indicate the switch option of mi Document analysis risk |                             |
+| assfileSwitchFlag         | Integer        | Do not analyze the ass file switch identifier           |                             |
+| manuallyStartAnalysisFlag | Integer        | Manually turn on the analysis switch                    |                             |
+| downloadDisable           | Integer        | Choose to disable downloading or not                    | 1 Disable，0 Do not disable |
+| taskOverTime              | Integer        | Timeout - hour                                          |                             |
 
 **Example of request**：
 
@@ -209,9 +211,9 @@ user_setting = api.user.query_user_setting()
 
 **Request parameter**：
 
-| **Parameter**  | **Type** | Necessary | **Description**                                | **Memo** |
-| -------------- | -------- | --------- | ---------------------------------------------- | -------- |
-| task_over_time | Integer  | Y         | Set up of Task timeout situation, unit: second |          |
+| **Parameter** | **Type** | Necessary | **Description**                          | **Memo** |
+| ------------------- | -------------- | --------- | ---------------------------------------------- | -------------- |
+| task_over_time      | Integer        | Y         | Set up of Task timeout situation, unit: second |                |
 
 **Return parameter: default**
 
@@ -242,15 +244,15 @@ update_user_setting = api.user.update_user_settings(task_over_time=43200)
 
 **Return parameter**：
 
-| **Parameter**        | **Type** | **Description**                                              | **Memo** |
-| -------------------- | -------- | ------------------------------------------------------------ | -------- |
-| config_bid           | String   | Configuration file transfer ID                               |          |
-| output_bid           | String   | Download the transfer file ID                                |          |
-| input_bid            | String   | Asset upload transfer ID                                     |          |
-| parent_input_bid     | String   | Input transfer bid for corresponding main account            |          |
-| sub_user_output_bids | Object   | Subaccount Outputbids: If the accessed user is the main account, there is a subaccount value; otherwise, it is empty |          |
-| userId               | String   | ID of subaccount                                             |          |
-| output_bid           | String   | output_bid for subaccount                                    |          |
+| **Parameter**  | **Type** | **Description**                                                                                                | **Memo** |
+| -------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------- | -------------- |
+| config_bid           | String         | Configuration file transfer ID                                                                                       |                |
+| output_bid           | String         | Download the transfer file ID                                                                                        |                |
+| input_bid            | String         | Asset upload transfer ID                                                                                             |                |
+| parent_input_bid     | String         | Input transfer bid for corresponding main account                                                                    |                |
+| sub_user_output_bids | Object         | Subaccount Outputbids: If the accessed user is the main account, there is a subaccount value; otherwise, it is empty |                |
+| userId               | String         | ID of subaccount                                                                                                     |                |
+| output_bid           | String         | output_bid for subaccount                                                                                            |                |
 
 **Example of request**：default
 
@@ -286,21 +288,21 @@ user_transfer_bid = api.user.get_transfer_bid()
 
 **Request parameter**：
 
-| **parameter**     | **Type**     | Necessary | **Description**                   | **Memo**                                                   |
-| ----------------- | ------------ | --------- | --------------------------------- | ---------------------------------------------------------- |
-| count             | Integer      | N         | create the number of task Numbers | Not required, Default  1                                   |
-| out_user_id       | Long         | N         | external user ID                  | Not required，used to distinguish third party access users |
-| task_user_level   | Integer      | N         | task user level                   | Not required，optional 50 and 60, default is 50            |
-| labels            | List<String> | N         | custom tag                        | Not required                                               |
-| clone_original_id | integer      | N         | Clone the original task ID        |                                                            |
-| artist            | String       | N         | Productor                         |                                                            |
+| **parameter** | **Type**   | Necessary | **Description**             | **Memo**                                             |
+| ------------------- | ---------------- | --------- | --------------------------------- | ---------------------------------------------------------- |
+| count               | Integer          | N         | create the number of task Numbers | Not required, Default  1                                   |
+| out_user_id         | Long             | N         | external user ID                  | Not required，used to distinguish third party access users |
+| task_user_level     | Integer          | N         | task user level                   | Not required，optional 50 and 60, default is 50            |
+| labels              | List`<String>` | N         | custom tag                        | Not required                                               |
+| clone_original_id   | integer          | N         | Clone the original task ID        |                                                            |
+| artist              | String           | N         | Productor                         |                                                            |
 
 **Return parameter**：
 
-| **Parameter**   | **Type**        | **Description** | **Memo** |
-| --------------- | --------------- | --------------- | -------- |
-| aliasTaskIdList | List\<String\>  | Task ID alias   |          |
-| taskIdList      | List\<Integer\> | Task ID         |          |
+| **Parameter** | **Type**  | **Description** | **Memo** |
+| ------------------- | --------------- | --------------------- | -------------- |
+| aliasTaskIdList     | List\<String\>  | Task ID alias         |                |
+| taskIdList          | List\<Integer\> | Task ID               |                |
 
 **Example of request**：
 
@@ -338,9 +340,9 @@ create_task_id = api.task.create_task(count=1,
 **Request parameter**：
 
 | **Parameter** | **Type** | Necessary | **Description** | **Memo** |
-| ------------- | -------- | --------- | --------------- | -------- |
-| task_id       | Integer  | Y         | task id         |          |
-| producer      | String   | N         | producer        |          |
+| ------------------- | -------------- | --------- | --------------------- | -------------- |
+| task_id             | Integer        | Y         | task id               |                |
+| producer            | String         | N         | producer              |                |
 
 **Return parameter**：default
 
@@ -371,26 +373,26 @@ Warning: *Before committing, you need to call the transport interface to upload 
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description** | **Memo**                             |
-| ------------- | -------- | --------- | --------------- | ------------------------------------ |
-| code          | String   | N         | error code      | Codes and codes are either mandatory |
-| codes         | String   | N         | Error code list | Codes and codes are either mandatory |
-| language      | String   | N         | language        | 0：Chinese（default） 1：English     |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                       |
+| ------------------- | -------------- | --------- | --------------------- | ------------------------------------ |
+| code                | String         | N         | error code            | Codes and codes are either mandatory |
+| codes               | String         | N         | Error code list       | Codes and codes are either mandatory |
+| language            | String         | N         | language              | 0：Chinese（default） 1：English     |
 
 **Return parameter**：List\<CodeInfo\>
 
-| **Parameter**    | **Type** | **Description**                                    | **Memo**                                               |
-| ---------------- | -------- | -------------------------------------------------- | ------------------------------------------------------ |
-| id               |          |                                                    |                                                        |
-| code             | Integer  | error code                                         |                                                        |
-| type             | Integer  | Type                                               | 0 Warning-can be ignored，1 Error-can not be ignored   |
-| languageFlag     | Integer  | languageType                                       | 0：Chinese，1：English                                 |
-| desDescriptionCn | String   | Chinese description                                |                                                        |
-| desSolutionCn    | String   | Solution                                           |                                                        |
-| solutionPath     | String   | Connect to solution                                |                                                        |
-| isRepair         | Integer  | Check if repairable or not                         | 1：Repairable ，0：Non-repairable                      |
-| isOpen           | Integer  | Check if turn on the intercept of the error or not | 0：Not turn on the intercept，1：Turn on the intercept |
-| updateTime       | Date     | The final update time                              |                                                        |
+| **Parameter** | **Type** | **Description**                              | **Memo**                                         |
+| ------------------- | -------------- | -------------------------------------------------- | ------------------------------------------------------ |
+| id                  |                |                                                    |                                                        |
+| code                | Integer        | error code                                         |                                                        |
+| type                | Integer        | Type                                               | 0 Warning-can be ignored，1 Error-can not be ignored   |
+| languageFlag        | Integer        | languageType                                       | 0：Chinese，1：English                                 |
+| desDescriptionCn    | String         | Chinese description                                |                                                        |
+| desSolutionCn       | String         | Solution                                           |                                                        |
+| solutionPath        | String         | Connect to solution                                |                                                        |
+| isRepair            | Integer        | Check if repairable or not                         | 1：Repairable ，0：Non-repairable                      |
+| isOpen              | Integer        | Check if turn on the intercept of the error or not | 0：Not turn on the intercept，1：Turn on the intercept |
+| updateTime          | Date           | The final update time                              |                                                        |
 
 **Example of request**：
 
@@ -432,89 +434,89 @@ error_detail = api.query.error_detail(code="50001")
 
 **Request parameter**：
 
-| **Parameter**  | **Type**        | Necessary | **Description**                                            | **Memo**                                  |
-| -------------- | --------------- | --------- | ---------------------------------------------------------- | ----------------------------------------- |
-| page_num       | Integer         | N         | Mandatary，number of current page                          | Default: 1                                |
-| page_size      | Integer         | N         | Mandatary，quantities of displaying per page               | Default: 1                                |
-| status_list    | List\<Integer\> | N         | status code list，query the status of the task in the list | Check task status description for details |
-| search_keyword | String          | N         | Optional, scenario name or job ID                          | Fuzzy search                              |
-| start_time     | String          | N         | Optional, search limit for start time                      | Example:yyyy-MM-dd HH:mm:ss               |
-| end_time       | String          | N         | Optional, search limit for end time                        | Example:yyyy-MM-dd HH:mm:ss               |
-| recycle_flag       | Integer          | N         | Whether to query deleted tasks                        | 1              |
+| **Parameter** | **Type**  | Necessary | **Description**                                      | **Memo**                            |
+| ------------------- | --------------- | --------- | ---------------------------------------------------------- | ----------------------------------------- |
+| page_num            | Integer         | N         | Mandatary，number of current page                          | Default: 1                                |
+| page_size           | Integer         | N         | Mandatary，quantities of displaying per page               | Default: 1                                |
+| status_list         | List\<Integer\> | N         | status code list，query the status of the task in the list | Check task status description for details |
+| search_keyword      | String          | N         | Optional, scenario name or job ID                          | Fuzzy search                              |
+| start_time          | String          | N         | Optional, search limit for start time                      | Example:yyyy-MM-dd HH:mm:ss               |
+| end_time            | String          | N         | Optional, search limit for end time                        | Example:yyyy-MM-dd HH:mm:ss               |
+| recycle_flag        | Integer         | N         | Whether to query deleted tasks                             | 1                                         |
 
 **Task status description**：
 
-| **Status**          | **Status code** | **Description**                       |
-|---------------------|-----------------|---------------------------------------|
-| WAITING             | 0               | Waiting                               |
-| RENDERING           | 5               | Rendering                             |
-| PRE_RENDERING       | 8               | Prepared to be handled                |
-| STOP                | 10              | Stop                                  |
-| ARREARAGE_STOP      | 20              | Stop due to arrearage                 |
-| TIME_OUT_STOP       | 23              | Stop due to timing out                |
-| FINISHED            | 25              | Finished                              |
-| FINISHED_HAS_FAILED | 30              | Finished with failed frames contained |
-| ABANDON             | 35              | Give up                               |
-| FINISHED_TEST       | 40              | Test completed                        |
-| FAILED              | 45              | Failed                                |
-| ANALYSE             | 50              | Analyzing                             |
+| **Status**    | **Status code** | **Description**                 |
+| ------------------- | --------------------- | ------------------------------------- |
+| WAITING             | 0                     | Waiting                               |
+| RENDERING           | 5                     | Rendering                             |
+| PRE_RENDERING       | 8                     | Prepared to be handled                |
+| STOP                | 10                    | Stop                                  |
+| ARREARAGE_STOP      | 20                    | Stop due to arrearage                 |
+| TIME_OUT_STOP       | 23                    | Stop due to timing out                |
+| FINISHED            | 25                    | Finished                              |
+| FINISHED_HAS_FAILED | 30                    | Finished with failed frames contained |
+| ABANDON             | 35                    | Give up                               |
+| FINISHED_TEST       | 40                    | Test completed                        |
+| FAILED              | 45                    | Failed                                |
+| ANALYSE             | 50                    | Analyzing                             |
 
 **Return parameter**：list\<Task Info\>
 
-| **Parameter**         | **Type**             | **Description**                                           | **Memo**                                                     |
-| --------------------- | -------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
-| sceneName             | String               | Scene Name                                                |                                                              |
-| id                    | Integer              | Task id                                                   |                                                              |
-| taskAlias             | String               | Task Name                                                 |                                                              |
-| taskStatus            | Byte                 | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
-| statusText            | String               | Status Text                                               |                                                              |
-| preTaskStatus         | Byte                 | Preprocessi-ng Task Status                                |                                                              |
-| preStatusText         | String               | Preprocessi-ng Task Status Text                           |                                                              |
-| totalFrames           | Integer              | Total frames                                              |                                                              |
-| abortFrames           | Integer              | Abort frames                                              |                                                              |
-| executingFrames       | Integer              | Executing frames                                          |                                                              |
-| doneFrames            | Integer              | Done frames                                               |                                                              |
-| failedFrames          | Integer              | Failed frames                                             |                                                              |
-| framesRange           | String               | Frames range                                              |                                                              |
-| projectName           | String               | Project name                                              |                                                              |
-| renderConsume         | BigDecimal           | Task render consume                                       |                                                              |
-| taskArrears           | BigDecimal           | Task arrears                                              |                                                              |
-| submitDate            | Date                 | Submit Date                                               |                                                              |
-| startTime             | Date                 | Start Date                                                |                                                              |
-| completedDate         | Date                 | Completed Date                                            |                                                              |
-| renderDuration        | Long                 | Task render duration                                      |                                                              |
-| userName              | String               | User name                                                 |                                                              |
-| producer              | String               | producer                                                  |                                                              |
-| taskLevel             | Byte                 | Task level                                                |                                                              |
-| taskUserLevel         | Integer              | Task level of user                                        |                                                              |
-| taskLimit             | Integer              | Task node limit                                           |                                                              |
-| taskOverTime          | Long                 | Task timeout reminder time                                |                                                              |
-| outputFileName        | String               | Output file name                                          |                                                              |
-| munuTaskId            | String               | Dispatch id                                               |                                                              |
-| layerParentId         | String               | About maya task，parent id                                |                                                              |
-| cgId                  | Integer              | Task type                                                 | 2001/maya，2000/max                                          |
-| taskKeyValueVo        | Object               | Task keyword                                              |                                                              |
-| userAccountConsume    | Bigdecimal           | User account consume                                      |                                                              |
-| couponConsume         | Bigdecimal           | Coupon consume                                            |                                                              |
-| isOpen                | Byte                 | Whether the front-end expansion button is expanded or not |                                                              |
-| taskType              | String               | Task type                                                 | Preprocessing, RenderPhoton, Render                          |
-| renderCamera          | String               | Render camera                                             |                                                              |
-| cloneParentId         | Integer              | Clone parent id                                           |                                                              |
-| cloneOriginalId       | Integer              | Clone original id                                         |                                                              |
-| shareMainCapital      | Byte                 | Whether to Share Main Account Assets                      | 0：no ,  1：yes                                              |
-| taskRam               | Integer              | Task render memory                                        |                                                              |
-| respRenderingTaskList | **List\<TaskInfo\>** | Child tasks of the open task                              | Structure the same of this object                            |
-| layerName             | String               | Layer name                                                |                                                              |
-| taskTypeText          | String               | Task type text                                            | photon/picture                                               |
-| isDelete              | Byte                 | Whether or not to delete                                  | 0: deleted, 1: not deleted                                   |
+| **Parameter**   | **Type**             | **Description**                                     | **Memo**                                                                                                                                                                                     |
+| --------------------- | -------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sceneName             | String                     | Scene Name                                                |                                                                                                                                                                                                    |
+| id                    | Integer                    | Task id                                                   |                                                                                                                                                                                                    |
+| taskAlias             | String                     | Task Name                                                 |                                                                                                                                                                                                    |
+| taskStatus            | Byte                       | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
+| statusText            | String                     | Status Text                                               |                                                                                                                                                                                                    |
+| preTaskStatus         | Byte                       | Preprocessi-ng Task Status                                |                                                                                                                                                                                                    |
+| preStatusText         | String                     | Preprocessi-ng Task Status Text                           |                                                                                                                                                                                                    |
+| totalFrames           | Integer                    | Total frames                                              |                                                                                                                                                                                                    |
+| abortFrames           | Integer                    | Abort frames                                              |                                                                                                                                                                                                    |
+| executingFrames       | Integer                    | Executing frames                                          |                                                                                                                                                                                                    |
+| doneFrames            | Integer                    | Done frames                                               |                                                                                                                                                                                                    |
+| failedFrames          | Integer                    | Failed frames                                             |                                                                                                                                                                                                    |
+| framesRange           | String                     | Frames range                                              |                                                                                                                                                                                                    |
+| projectName           | String                     | Project name                                              |                                                                                                                                                                                                    |
+| renderConsume         | BigDecimal                 | Task render consume                                       |                                                                                                                                                                                                    |
+| taskArrears           | BigDecimal                 | Task arrears                                              |                                                                                                                                                                                                    |
+| submitDate            | Date                       | Submit Date                                               |                                                                                                                                                                                                    |
+| startTime             | Date                       | Start Date                                                |                                                                                                                                                                                                    |
+| completedDate         | Date                       | Completed Date                                            |                                                                                                                                                                                                    |
+| renderDuration        | Long                       | Task render duration                                      |                                                                                                                                                                                                    |
+| userName              | String                     | User name                                                 |                                                                                                                                                                                                    |
+| producer              | String                     | producer                                                  |                                                                                                                                                                                                    |
+| taskLevel             | Byte                       | Task level                                                |                                                                                                                                                                                                    |
+| taskUserLevel         | Integer                    | Task level of user                                        |                                                                                                                                                                                                    |
+| taskLimit             | Integer                    | Task node limit                                           |                                                                                                                                                                                                    |
+| taskOverTime          | Long                       | Task timeout reminder time                                |                                                                                                                                                                                                    |
+| outputFileName        | String                     | Output file name                                          |                                                                                                                                                                                                    |
+| munuTaskId            | String                     | Dispatch id                                               |                                                                                                                                                                                                    |
+| layerParentId         | String                     | About maya task，parent id                                |                                                                                                                                                                                                    |
+| cgId                  | Integer                    | Task type                                                 | 2001/maya，2000/max                                                                                                                                                                                |
+| taskKeyValueVo        | Object                     | Task keyword                                              |                                                                                                                                                                                                    |
+| userAccountConsume    | Bigdecimal                 | User account consume                                      |                                                                                                                                                                                                    |
+| couponConsume         | Bigdecimal                 | Coupon consume                                            |                                                                                                                                                                                                    |
+| isOpen                | Byte                       | Whether the front-end expansion button is expanded or not |                                                                                                                                                                                                    |
+| taskType              | String                     | Task type                                                 | Preprocessing, RenderPhoton, Render                                                                                                                                                                |
+| renderCamera          | String                     | Render camera                                             |                                                                                                                                                                                                    |
+| cloneParentId         | Integer                    | Clone parent id                                           |                                                                                                                                                                                                    |
+| cloneOriginalId       | Integer                    | Clone original id                                         |                                                                                                                                                                                                    |
+| shareMainCapital      | Byte                       | Whether to Share Main Account Assets                      | 0：no ,  1：yes                                                                                                                                                                                    |
+| taskRam               | Integer                    | Task render memory                                        |                                                                                                                                                                                                    |
+| respRenderingTaskList | **List\<TaskInfo\>** | Child tasks of the open task                              | Structure the same of this object                                                                                                                                                                  |
+| layerName             | String                     | Layer name                                                |                                                                                                                                                                                                    |
+| taskTypeText          | String                     | Task type text                                            | photon/picture                                                                                                                                                                                     |
+| isDelete              | Byte                       | Whether or not to delete                                  | 0: deleted, 1: not deleted                                                                                                                                                                         |
 
 **taskKeyValueVo**：
 
-| **parameter**    | **Type** | **Description** | **Memo** |
-|------------------|----------|-----------------|----------|
-| tiles            | String   | Tile number     |          |
-| allCamera        | String   | All Cameras     |          |
-| RenderableCarema | String   | Render Cameras  |          |
+| **parameter** | **Type** | **Description** | **Memo** |
+| ------------------- | -------------- | --------------------- | -------------- |
+| tiles               | String         | Tile number           |                |
+| allCamera           | String         | All Cameras           |                |
+| RenderableCarema    | String         | Render Cameras        |                |
 
 **Example of request**：
 
@@ -702,9 +704,9 @@ task_list = api.query.get_task_list(page_num=1, page_size=1)
 
 **Request parameter**：
 
-| **parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
-| --------------- | --------------- | --------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
+| **parameter** | **Type**  | Necessary | **Description**      | **Memo** |
+| ------------------- | --------------- | --------- | -------------------------- | -------------- |
+| task_param_list     | List\<Integer\> | Y         | Combination of the task ID |                |
 
 **Return parameter**：default
 
@@ -733,9 +735,9 @@ stop_task = api.task.stop_task(task_param_list=[13798105])
 
 **Request parameter**：
 
-| **parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
-| --------------- | --------------- | --------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
+| **parameter** | **Type**  | Necessary | **Description**      | **Memo** |
+| ------------------- | --------------- | --------- | -------------------------- | -------------- |
+| task_param_list     | List\<Integer\> | Y         | Combination of the task ID |                |
 
 **Return parameter**：default
 
@@ -764,9 +766,9 @@ start_task = api.task.start_task(task_param_list=[13798105])
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | Necessary | **Description**            | **Memo** |
-| --------------- | --------------- | --------- | -------------------------- | -------- |
-| task_param_list | List\<Integer\> | Y         | Combination of the task ID |          |
+| **Parameter** | **Type**  | Necessary | **Description**      | **Memo** |
+| ------------------- | --------------- | --------- | -------------------------- | -------------- |
+| task_param_list     | List\<Integer\> | Y         | Combination of the task ID |                |
 
 **Return parameter**：default
 
@@ -795,9 +797,9 @@ abort_task = api.task.abort_task(task_param_list=[13798105])
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | Necessary | **Description** | **Memo** |
-| --------------- | --------------- | --------- | --------------- | -------- |
-| task_param_list | List\<Integer\> | Y         | Task ID list    |          |
+| **Parameter** | **Type**  | Necessary | **Description** | **Memo** |
+| ------------------- | --------------- | --------- | --------------------- | -------------- |
+| task_param_list     | List\<Integer\> | Y         | Task ID list          |                |
 
 **Return parameter**：default
 
@@ -822,42 +824,42 @@ delete_task = api.task.delete_task(task_param_list=[13798105])
 
 ## Obtain the task rendering frame details
 
-**Interface path:**  /api/render/handle/queryTaskFrames 
+**Interface path:**  /api/render/handle/queryTaskFrames
 
 **Request parameter**：
 
-| **Parameter**  | **Type** | Necessary | **Description**                                              | **Memo**                                                     |
-| -------------- | -------- | --------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| task_id        | Integer  | Y         | Task ID                                                      | Task ID，Is the unique identifier of the task, mandatary field |
-| search_keyword | String   | N         | Query based on the name of the multiple frames that rendered on one machine | Is a string that be queried based on name of the multiple frames that rendered on one machine, optional field |
-| page_num       | Integer  | N         | Current page number                                          |                                                              |
-| page_size      | Integer  | N         | Size of the data that displayed per page                     |                                                              |
+| **Parameter** | **Type** | Necessary | **Description**                                                       | **Memo**                                                                                                |
+| ------------------- | -------------- | --------- | --------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| task_id             | Integer        | Y         | Task ID                                                                     | Task ID，Is the unique identifier of the task, mandatary field                                                |
+| search_keyword      | String         | N         | Query based on the name of the multiple frames that rendered on one machine | Is a string that be queried based on name of the multiple frames that rendered on one machine, optional field |
+| page_num            | Integer        | N         | Current page number                                                         |                                                                                                               |
+| page_size           | Integer        | N         | Size of the data that displayed per page                                    |                                                                                                               |
 
 **Return parameter**：List\<FrameInfo\>
 
-| **Parameter**    | **Type** | **Description**                    | **Memo**                                                     |
-| ---------------- | -------- | ---------------------------------- | ------------------------------------------------------------ |
-| id               | Integer  | frame id                           |                                                              |
-| userId           | Long     | userID                             |                                                              |
-| framePrice       | Double   | Render pricing                     |                                                              |
-| feeType          | Integer  | Fee charge type                    | 0 Quantity-based，1 Machine-bashed，2 Project-based          |
-| platform         | Integer  | Platform                           |                                                              |
-| frameIndex       | String   | Frame sequence name                |                                                              |
-| frameBlock       | String   | Current frame number               |                                                              |
-| frameStatus      | Integer  | Current frame status               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
-| feeAmount        | Double   | Balance deduction                  |                                                              |
-| couponFee        | Double   | Vouchers deduction                 |                                                              |
-| startTime        | Long     | Start time (ms)                    |                                                              |
-| endTime          | Long     | End time (ms)                      |                                                              |
-| frameExecuteTime | Long     | Rendering frame time               |                                                              |
-| frameStatusText  | String   | Frame status description           |                                                              |
-| arrearsFee       | Double   | Render frame arrears amount        |                                                              |
-| taskId           | Long     | Task ID                            |                                                              |
-| frameType        | Integer  | Frame Type                         | 1/Pre-rendering (only one frame, even for multi-camera case), 2/photon frame, 3/combine photon frame, 4/priority frame, 5/main render frame, 6 priority /maya/max composite rendering frame, 7/maya/max rendering main picture composite frame, 8/houdini settlement frame, 9/max channel frame |
-| recommitFlag     | Integer  | Recount times                      | Indicate the recount time default is 0,increased as the recount time increase |
-| taskOverTime     | Integer  | overtime                           | Overtime details                                             |
-| gopName          | String   | Houdini Settlement node name       |                                                              |
-| frameRam         | Integer  | Memory of the task rendering frame | No memory requirement if description does not specified      |
+| **Parameter** | **Type** | **Description**              | **Memo**                                                                                                                                                                                                                                                                                  |
+| ------------------- | -------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                  | Integer        | frame id                           |                                                                                                                                                                                                                                                                                                 |
+| userId              | Long           | userID                             |                                                                                                                                                                                                                                                                                                 |
+| framePrice          | Double         | Render pricing                     |                                                                                                                                                                                                                                                                                                 |
+| feeType             | Integer        | Fee charge type                    | 0 Quantity-based，1 Machine-bashed，2 Project-based                                                                                                                                                                                                                                             |
+| platform            | Integer        | Platform                           |                                                                                                                                                                                                                                                                                                 |
+| frameIndex          | String         | Frame sequence name                |                                                                                                                                                                                                                                                                                                 |
+| frameBlock          | String         | Current frame number               |                                                                                                                                                                                                                                                                                                 |
+| frameStatus         | Integer        | Current frame status               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating                                                                                              |
+| feeAmount           | Double         | Balance deduction                  |                                                                                                                                                                                                                                                                                                 |
+| couponFee           | Double         | Vouchers deduction                 |                                                                                                                                                                                                                                                                                                 |
+| startTime           | Long           | Start time (ms)                    |                                                                                                                                                                                                                                                                                                 |
+| endTime             | Long           | End time (ms)                      |                                                                                                                                                                                                                                                                                                 |
+| frameExecuteTime    | Long           | Rendering frame time               |                                                                                                                                                                                                                                                                                                 |
+| frameStatusText     | String         | Frame status description           |                                                                                                                                                                                                                                                                                                 |
+| arrearsFee          | Double         | Render frame arrears amount        |                                                                                                                                                                                                                                                                                                 |
+| taskId              | Long           | Task ID                            |                                                                                                                                                                                                                                                                                                 |
+| frameType           | Integer        | Frame Type                         | 1/Pre-rendering (only one frame, even for multi-camera case), 2/photon frame, 3/combine photon frame, 4/priority frame, 5/main render frame, 6 priority /maya/max composite rendering frame, 7/maya/max rendering main picture composite frame, 8/houdini settlement frame, 9/max channel frame |
+| recommitFlag        | Integer        | Recount times                      | Indicate the recount time default is 0,increased as the recount time increase                                                                                                                                                                                                                   |
+| taskOverTime        | Integer        | overtime                           | Overtime details                                                                                                                                                                                                                                                                                |
+| gopName             | String         | Houdini Settlement node name       |                                                                                                                                                                                                                                                                                                 |
+| frameRam            | Integer        | Memory of the task rendering frame | No memory requirement if description does not specified                                                                                                                                                                                                                                         |
 
 **Example of request:**
 
@@ -939,16 +941,14 @@ task_frame = api.query.task_frames(task_id=13790691, page_num=1, page_size=1)
 
 ## Gets the page frame details for the specified task
 
-[^api]: Add in v2.4.0
-
 **Request parameter**：
 
-| **Parameter** | **Type** | **Is necessary** | **Description**                                              | **Memo**                                           |
-| ------------- | -------- | ---------------- | ------------------------------------------------------------ | -------------------------------------------------- |
-| task_id       | Integer  | Y                | small task id                                                | If the job ID is "2W35736251", task_ID is 35736251 |
-| start_page    | Integer  | N                | Query Start Page, default is 1                               |                                                    |
-| end_page      | Integer  | N                | Query end page, default is 2000                              |                                                    |
-| page_size     | Integer  | N                | Specifies the number of frames to display per page, which defaults to a maximum of 100 |                                                    |
+| **Parameter** | **Type** | **Is necessary** | **Description**                                                                  | **Memo**                                     |
+| ------------------- | -------------- | ---------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------- |
+| task_id             | Integer        | Y                      | small task id                                                                          | If the job ID is "2W35736251", task_ID is 35736251 |
+| start_page          | Integer        | N                      | Query Start Page, default is 1                                                         |                                                    |
+| end_page            | Integer        | N                      | Query end page, default is 2000                                                        |                                                    |
+| page_size           | Integer        | N                      | Specifies the number of frames to display per page, which defaults to a maximum of 100 |                                                    |
 
 **Example of request**：
 
@@ -1039,13 +1039,13 @@ all_frames = api.query.get_all_frames(task_id=35736251)
 
 **Return parameter**：
 
-| **parameter**        | **Type** | **Description**                   | **Memo** |
-|----------------------|----------|-----------------------------------|----------|
-| executingFramesTotal | Integer  | Number of frames in rendering     |          |
-| doneFramesTotal      | Integer  | Number of frames completed        |          |
-| failedFramesTotal    | Integer  | Number of rendered frames failed  |          |
-| waitingFramesTotal   | Integer  | Number of frames in waiting       |          |
-| totalFrames          | Integer  | Number of overall rendered frames |          |
+| **parameter**  | **Type** | **Description**             | **Memo** |
+| -------------------- | -------------- | --------------------------------- | -------------- |
+| executingFramesTotal | Integer        | Number of frames in rendering     |                |
+| doneFramesTotal      | Integer        | Number of frames completed        |                |
+| failedFramesTotal    | Integer        | Number of rendered frames failed  |                |
+| waitingFramesTotal   | Integer        | Number of frames in waiting       |                |
+| totalFrames          | Integer        | Number of overall rendered frames |                |
 
 **Example of request**：
 
@@ -1079,10 +1079,10 @@ all_frame_status = api.query.all_frame_status()
 
 **Request parameter**：
 
-| **Parameter**   | **Type**        | Necessary | **Description**                                              | **Memo** |
-| --------------- | --------------- | --------- | ------------------------------------------------------------ | -------- |
-| task_param_list | List\<Integer\> | Y         | Task ID list                                                 |          |
-| status          | List\<Integer>  | N         | A set of frame task states that are not filled to represent failed frames |          |
+| **Parameter** | **Type**  | Necessary | **Description**                                                     | **Memo** |
+| ------------------- | --------------- | --------- | ------------------------------------------------------------------------- | -------------- |
+| task_param_list     | List\<Integer\> | Y         | Task ID list                                                              |                |
+| status              | List\<Integer>  | N         | A set of frame task states that are not filled to represent failed frames |                |
 
 **Return parameter**：default
 
@@ -1107,14 +1107,12 @@ restart_failed_frames = api.query.restart_failed_frames(task_param_list=[1378898
 
 ## Re-submit the specified frames based on the frame number
 
-[^api]: Add in v2.4.0 
-
 **Request parameter**：
 
-| **Parameter** | **Type**  | Necessary | **Description**                                | **Memo**                                           |
-| ------------- | --------- | --------- | ---------------------------------------------- | -------------------------------------------------- |
-| task_id       | Integer   | Y         | small task id                                  | If the job ID is "2W35736251", task_ID is 35736251 |
-| restartframes | List[str] | Y         | List of frame Numbers that need to be replayed | example：["6", "7-9[1]"]                           |
+| **Parameter** | **Type** | Necessary | **Description**                          | **Memo**                                     |
+| ------------------- | -------------- | --------- | ---------------------------------------------- | -------------------------------------------------- |
+| task_id             | Integer        | Y         | small task id                                  | If the job ID is "2W35736251", task_ID is 35736251 |
+| restartframes       | List[str]      | Y         | List of frame Numbers that need to be replayed | example：["6", "7-9[1]"]                           |
 
 **Example of request**：
 
@@ -1130,12 +1128,12 @@ restart_frame = api.query.get_custome_frames(task_id=37439351, restartframes=["6
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | Necessary | **Description**         | **Memo**                                 |
-| ------------- | --------------- | --------- | ----------------------- | ---------------------------------------- |
-| task_id       | Integer         | N         | Task ID                 |                                          |
-| ids_list      | List\<Integer\> | N         | Combine the frame ID    | Effective if 0 displayed when select_all |
-| select_all    | Integer         | N         | Choose if re-submit all | 1：All，0：Only the specified frame      |
-| status        | List\<Integer>  | N         | frame status            | Only pass taskId will take effect        |
+| **Parameter** | **Type**  | Necessary | **Description**   | **Memo**                           |
+| ------------------- | --------------- | --------- | ----------------------- | ---------------------------------------- |
+| task_id             | Integer         | N         | Task ID                 |                                          |
+| ids_list            | List\<Integer\> | N         | Combine the frame ID    | Effective if 0 displayed when select_all |
+| select_all          | Integer         | N         | Choose if re-submit all | 1：All，0：Only the specified frame      |
+| status              | List\<Integer>  | N         | frame status            | Only pass taskId will take effect        |
 
 **Return parameter**：default
 
@@ -1164,57 +1162,57 @@ restart_frame = api.query.restart_frame(task_id=14362099, select_all=1)
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | Necessary | **Description**           | **Memo** |
-| ------------- | --------------- | --------- | ------------------------- | -------- |
-| task_ids_list | List\<Integer\> | N         | Combine the shell task ID |          |
+| **Parameter** | **Type**  | Necessary | **Description**     | **Memo** |
+| ------------------- | --------------- | --------- | ------------------------- | -------------- |
+| task_ids_list       | List\<Integer\> | N         | Combine the shell task ID |                |
 
 **Return parameter**：List\<TaskInfo\>
 
-| **Parameter**         | **Type**             | **Description**                                           | **Memo**                                                     |
-| --------------------- | -------------------- | --------------------------------------------------------- | ------------------------------------------------------------ |
-| sceneName             | String               | Scene Name                                                |                                                              |
-| id                    | Integer              | Task id                                                   |                                                              |
-| taskAlias             | String               | Task Name                                                 |                                                              |
-| taskStatus            | Byte                 | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
-| statusText            | String               | Status Text                                               |                                                              |
-| preTaskStatus         | Byte                 | Preprocessi-ng Task Status                                |                                                              |
-| preStatusText         | String               | Preprocessi-ng Task Status Text                           |                                                              |
-| totalFrames           | Integer              | Total frames                                              |                                                              |
-| abortFrames           | Integer              | Abort frames                                              |                                                              |
-| executingFrames       | Integer              | Executing frames                                          |                                                              |
-| doneFrames            | Integer              | Done frames                                               |                                                              |
-| failedFrames          | Integer              | Failed frames                                             |                                                              |
-| framesRange           | String               | Frames range                                              |                                                              |
-| projectName           | String               | Project name                                              |                                                              |
-| renderConsume         | BigDecimal           | Task render consume                                       |                                                              |
-| taskArrears           | BigDecimal           | Task arrears                                              |                                                              |
-| submitDate            | Date                 | Submit Date                                               |                                                              |
-| startTime             | Date                 | Start Date                                                |                                                              |
-| completedDate         | Date                 | Completed Date                                            |                                                              |
-| renderDuration        | Long                 | Task render duration                                      |                                                              |
-| userName              | String               | User name                                                 |                                                              |
-| producer              | String               | producer                                                  |                                                              |
-| taskLevel             | Byte                 | Task level                                                |                                                              |
-| taskUserLevel         | Integer              | Task level of user                                        |                                                              |
-| taskLimit             | Integer              | Task node limit                                           |                                                              |
-| taskOverTime          | Long                 | Task timeout reminder time                                |                                                              |
-| outputFileName        | String               | Output file name                                          |                                                              |
-| munuTaskId            | String               | Dispatch id                                               |                                                              |
-| layerParentId         | String               | About maya task，parent id                                |                                                              |
-| cgId                  | Integer              | Task type                                                 | 2001/maya，2000/max                                          |
-| taskKeyValueVo        | Object               | Task keyword                                              |                                                              |
-| userAccountConsume    | Bigdecimal           | User account consume                                      |                                                              |
-| couponConsume         | Bigdecimal           | Coupon consume                                            |                                                              |
-| isOpen                | Byte                 | Whether the front-end expansion button is expanded or not |                                                              |
-| taskType              | String               | Task type                                                 | Preprocessing, Render photon, Render picture                 |
-| renderCamera          | String               | Render camera                                             |                                                              |
-| cloneParentId         | Integer              | Clone parent id                                           |                                                              |
-| cloneOriginalId       | Integer              | Clone original id                                         |                                                              |
-| shareMainCapital      | Byte                 | Whether to Share Main Account Assets                      | (0：no 1：yes)                                               |
-| taskRam               | Integer              | Task render memory                                        |                                                              |
-| respRenderingTaskList | **List\<TaskInfo\>** | Child tasks of the open task                              | Structure the same of this object                            |
-| layerName             | String               | Layer name                                                |                                                              |
-| taskTypeText          | String               | Task type text                                            | photon/picture                                               |
+| **Parameter**   | **Type**             | **Description**                                     | **Memo**                                                                                                                                                                                     |
+| --------------------- | -------------------------- | --------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| sceneName             | String                     | Scene Name                                                |                                                                                                                                                                                                    |
+| id                    | Integer                    | Task id                                                   |                                                                                                                                                                                                    |
+| taskAlias             | String                     | Task Name                                                 |                                                                                                                                                                                                    |
+| taskStatus            | Byte                       | Task status                                               | 0/Waiting, 5/Rendering, 10/Stop, 15/User Stop, 20/Stop due to arrearage, 25/Finished, 30/Finished with failed frames contained, 35/Give up, 40/Test completed, 45/Failed, 50/Analyse, 100/Updating |
+| statusText            | String                     | Status Text                                               |                                                                                                                                                                                                    |
+| preTaskStatus         | Byte                       | Preprocessi-ng Task Status                                |                                                                                                                                                                                                    |
+| preStatusText         | String                     | Preprocessi-ng Task Status Text                           |                                                                                                                                                                                                    |
+| totalFrames           | Integer                    | Total frames                                              |                                                                                                                                                                                                    |
+| abortFrames           | Integer                    | Abort frames                                              |                                                                                                                                                                                                    |
+| executingFrames       | Integer                    | Executing frames                                          |                                                                                                                                                                                                    |
+| doneFrames            | Integer                    | Done frames                                               |                                                                                                                                                                                                    |
+| failedFrames          | Integer                    | Failed frames                                             |                                                                                                                                                                                                    |
+| framesRange           | String                     | Frames range                                              |                                                                                                                                                                                                    |
+| projectName           | String                     | Project name                                              |                                                                                                                                                                                                    |
+| renderConsume         | BigDecimal                 | Task render consume                                       |                                                                                                                                                                                                    |
+| taskArrears           | BigDecimal                 | Task arrears                                              |                                                                                                                                                                                                    |
+| submitDate            | Date                       | Submit Date                                               |                                                                                                                                                                                                    |
+| startTime             | Date                       | Start Date                                                |                                                                                                                                                                                                    |
+| completedDate         | Date                       | Completed Date                                            |                                                                                                                                                                                                    |
+| renderDuration        | Long                       | Task render duration                                      |                                                                                                                                                                                                    |
+| userName              | String                     | User name                                                 |                                                                                                                                                                                                    |
+| producer              | String                     | producer                                                  |                                                                                                                                                                                                    |
+| taskLevel             | Byte                       | Task level                                                |                                                                                                                                                                                                    |
+| taskUserLevel         | Integer                    | Task level of user                                        |                                                                                                                                                                                                    |
+| taskLimit             | Integer                    | Task node limit                                           |                                                                                                                                                                                                    |
+| taskOverTime          | Long                       | Task timeout reminder time                                |                                                                                                                                                                                                    |
+| outputFileName        | String                     | Output file name                                          |                                                                                                                                                                                                    |
+| munuTaskId            | String                     | Dispatch id                                               |                                                                                                                                                                                                    |
+| layerParentId         | String                     | About maya task，parent id                                |                                                                                                                                                                                                    |
+| cgId                  | Integer                    | Task type                                                 | 2001/maya，2000/max                                                                                                                                                                                |
+| taskKeyValueVo        | Object                     | Task keyword                                              |                                                                                                                                                                                                    |
+| userAccountConsume    | Bigdecimal                 | User account consume                                      |                                                                                                                                                                                                    |
+| couponConsume         | Bigdecimal                 | Coupon consume                                            |                                                                                                                                                                                                    |
+| isOpen                | Byte                       | Whether the front-end expansion button is expanded or not |                                                                                                                                                                                                    |
+| taskType              | String                     | Task type                                                 | Preprocessing, Render photon, Render picture                                                                                                                                                       |
+| renderCamera          | String                     | Render camera                                             |                                                                                                                                                                                                    |
+| cloneParentId         | Integer                    | Clone parent id                                           |                                                                                                                                                                                                    |
+| cloneOriginalId       | Integer                    | Clone original id                                         |                                                                                                                                                                                                    |
+| shareMainCapital      | Byte                       | Whether to Share Main Account Assets                      | (0：no 1：yes)                                                                                                                                                                                     |
+| taskRam               | Integer                    | Task render memory                                        |                                                                                                                                                                                                    |
+| respRenderingTaskList | **List\<TaskInfo\>** | Child tasks of the open task                              | Structure the same of this object                                                                                                                                                                  |
+| layerName             | String                     | Layer name                                                |                                                                                                                                                                                                    |
+| taskTypeText          | String                     | Task type text                                            | photon/picture                                                                                                                                                                                     |
 
 **Example of request**：
 
@@ -1310,10 +1308,10 @@ task_info = api.query.task_info(task_ids_list=[14400249])
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description** | **Memo**                    |
-| ------------- | -------- | --------- | --------------- | --------------------------- |
-| new_name      | String   | N         | Label name      |                             |
-| status        | Integer  | N         | Lable status    | 0: on, 1: off, default is 1 |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**              |
+| ------------------- | -------------- | --------- | --------------------- | --------------------------- |
+| new_name            | String         | N         | Label name            |                             |
+| status              | Integer        | N         | Lable status          | 0: on, 1: off, default is 1 |
 
 **Return parameter**：default
 
@@ -1343,8 +1341,8 @@ task_info = api.tag.add_label(new_name="test_tag4", status=0)
 **Request parameter**：
 
 | **Parameter** | **Type** | **Description** | **Memo** |
-| ------------- | -------- | --------------- | -------- |
-| del_name      | String   | Label name      |          |
+| ------------------- | -------------- | --------------------- | -------------- |
+| del_name            | String         | Label name            |                |
 
 **Return parameter**：default
 
@@ -1375,11 +1373,11 @@ delete_label_name = api.tag.delete_label(del_name="test_tag2")
 
 **Return parameter**：
 
-| **Parameter**      | **Type** | **Description**   | **Memo** |
-| ------------------ | -------- | ----------------- | -------- |
-| projectNameList    | List     | Project name list |          |
-| Object.projectName | String   | Project name      |          |
-| Object.projectId   | Integer  | Project id        |          |
+| **Parameter** | **Type** | **Description** | **Memo** |
+| ------------------- | -------------- | --------------------- | -------------- |
+| projectNameList     | List           | Project name list     |                |
+| Object.projectName  | String         | Project name          |                |
+| Object.projectId    | Integer        | Project id            |                |
 
 **Example of request**：
 
@@ -1413,17 +1411,17 @@ label_list = api.tag.get_label_list()
 
 **Request parameter**：
 
-| Parameter | Type | Necessary | Description                                                  | Memo       |
-| --------- | ---- | --------- | ------------------------------------------------------------ | ---------- |
-| flag      | int  | N         | 0:Check the items under this account;<br>1:Check the items under this account and the main account;<br>2:Query associated with all items (all items under the same main account); | default: 0 |
+| Parameter | Type | Necessary | Description                                                                                                                                                                               | Memo       |
+| --------- | ---- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| flag      | int  | N         | 0:Check the items under this account;`<br>`1:Check the items under this account and the main account;`<br>`2:Query associated with all items (all items under the same main account); | default: 0 |
 
 **Return parameter**：
 
-| **Parameter**      | **Type**       | **Description** | **Memo** |
-| ------------------ | -------------- | --------------- | -------- |
-| projectNameList    | List\<Object\> | project list    |          |
-| Object.projectName | String         | project name    |          |
-| Object.projectId   | Integer        | project id      |          |
+| **Parameter** | **Type** | **Description** | **Memo** |
+| ------------------- | -------------- | --------------------- | -------------- |
+| projectNameList     | List\<Object\> | project list          |                |
+| Object.projectName  | String         | project name          |                |
+| Object.projectId    | Integer        | project id            |                |
 
 **Example of request**：
 
@@ -1457,10 +1455,10 @@ new_projects = api.tag.get_list(flag=0)
 
 **Request parameter**：
 
-| **Parameter** | **Type**  | Necessary | **Description**     | **Memo** |
-| -------- | --------- | ------------ | -------- | -------- |
-| tag      | string    | Y  | task tag    |          |
-| task_ids | list[int] | Y | task id list |          |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo** |
+| ------------------- | -------------- | --------- | --------------------- | -------------- |
+| tag                 | string         | Y         | task tag              |                |
+| task_ids            | list[int]      | Y         | task id list          |                |
 
 **Return parameter**：No
 
@@ -1489,10 +1487,10 @@ tag = api.tag.add_task_tag(tag="test_tag", task_ids=[29445045, 29435295])
 
 **Request parameter**：
 
-| **Parameter**  | **Type**         | **Description**        | **Memo** |
-|----------------|------------------|------------------------| -------- |
-| taskIds        | List[Integer]    | Subtask id             |          |
-| labelNames     | List[String]     | Delete the task tag ID |          |
+| **Parameter** | **Type** | **Description**  | **Memo** |
+| ------------------- | -------------- | ---------------------- | -------------- |
+| taskIds             | List[Integer]  | Subtask id             |                |
+| labelNames          | List[String]   | Delete the task tag ID |                |
 
 **Return parameter**：No
 
@@ -1523,23 +1521,23 @@ del_tag = api.tag.delete_task_tag(taskIds=[183222], labelNames=["test labels"])
 
 **Return parameter**：
 
-| **Parameter**  | **Type**                     | **Description**                       | **Memo** |
-| -------------- | ---------------------------- | ------------------------------------- | -------- |
-| isAutoCommit   | Integer                      | Choose if submit automatically or not |          |
-| renderInfoList | List\<[Software](#software)> | Renderer version list                 |          |
-| defaultCgId    | Integer                      | Default renderer ID                   |          |
+| **Parameter** | **Type**            | **Description**                 | **Memo** |
+| ------------------- | ------------------------- | ------------------------------------- | -------------- |
+| isAutoCommit        | Integer                   | Choose if submit automatically or not |                |
+| renderInfoList      | List\<[Software](#software)> | Renderer version list                 |                |
+| defaultCgId         | Integer                   | Default renderer ID                   |                |
 
-**<span id='software'>Software</span>**
+**`<span id='software'>`Software**
 
-| **Parameter**     | **Type** | **Description**                        | **Memo** |
-| ----------------- | -------- | -------------------------------------- | -------- |
-| cgId              | Integer  | Render software ID                     |          |
-| cgName            | String   | Render software name                   |          |
-| cgType            | String   | Render file suffix support             |          |
-| iconPath          | String   | Rendering software icon address        |          |
-| isNeedProjectPath | Integer  |                                        |          |
-| isNeedAnalyse     | Integer  | Need to analyze                        |          |
-| isSupportLinux    | Integer  | Indicates if linux is supported or not |          |
+| **Parameter** | **Type** | **Description**                  | **Memo** |
+| ------------------- | -------------- | -------------------------------------- | -------------- |
+| cgId                | Integer        | Render software ID                     |                |
+| cgName              | String         | Render software name                   |                |
+| cgType              | String         | Render file suffix support             |                |
+| iconPath            | String         | Rendering software icon address        |                |
+| isNeedProjectPath   | Integer        |                                        |                |
+| isNeedAnalyse       | Integer        | Need to analyze                        |                |
+| isSupportLinux      | Integer        | Indicates if linux is supported or not |                |
 
 **Example of request**：
 
@@ -1644,41 +1642,41 @@ support_software = api.query.supported_software()
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description**    | **Memo** |
-| ------------- | -------- | --------- | ------------------ | -------- |
-| name          | String   | Y         | Render software ID |          |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo** |
+| ------------------- | -------------- | --------- | --------------------- | -------------- |
+| name                | String         | Y         | Render software ID    |                |
 
 **Return parameter**：
 
-| **Parameter** | **Type**             | **Description**         | **Memo** |
-| ------------- | -------------------- | ----------------------- | -------- |
-| cgPlugin      | List\<Plugin\>       | Supported plugin list   |          |
-| cgVersion     | List\<Soft Version\> | Supported software list |          |
+| **Parameter** | **Type**       | **Description**   | **Memo** |
+| ------------------- | -------------------- | ----------------------- | -------------- |
+| cgPlugin            | List\<Plugin\>       | Supported plugin list   |                |
+| cgVersion           | List\<Soft Version\> | Supported software list |                |
 
 **Plugin**：
 
-| **Parameter**  | **Type**                   | **Description**                                     | **Memo** |
-| -------------- | -------------------------- | --------------------------------------------------- | -------- |
-| cvId           | Integer                    | Rendering software version ID (**Soft Version.id**) |          |
-| pluginName     | String                     | Plugin name                                         |          |
-| pluginVersions | List\<**Plugin Version**\> | Plugin version list                                 |          |
+| **Parameter** | **Type**                   | **Description**                                     | **Memo** |
+| ------------------- | -------------------------------- | --------------------------------------------------------- | -------------- |
+| cvId                | Integer                          | Rendering software version ID (**Soft Version.id**) |                |
+| pluginName          | String                           | Plugin name                                               |                |
+| pluginVersions      | List\<**Plugin Version**\> | Plugin version list                                       |                |
 
 **PluginVersion**
 
-| **Parameter** | **Type** | **Description**   | **Memo** |
-| ------------- | -------- | ----------------- | -------- |
-| pluginId      | Integer  | Plugin version ID |          |
-| pluginName    | String   | Plugin name       |          |
-| pluginVersion | String   | Plugin version    |          |
+| **Parameter** | **Type** | **Description** | **Memo** |
+| ------------------- | -------------- | --------------------- | -------------- |
+| pluginId            | Integer        | Plugin version ID     |                |
+| pluginName          | String         | Plugin name           |                |
+| pluginVersion       | String         | Plugin version        |                |
 
 **SoftVersion**：
 
-| **Parameter** | **Type** | **Description**            | **Memo** |
-| ------------- | -------- | -------------------------- | -------- |
-| id            | Integer  | Render software version ID |          |
-| cgId          | Integer  | Render software ID         |          |
-| cgName        | String   | Render software name       |          |
-| cgVersion     | String   | Render software version    |          |
+| **Parameter** | **Type** | **Description**      | **Memo** |
+| ------------------- | -------------- | -------------------------- | -------------- |
+| id                  | Integer        | Render software version ID |                |
+| cgId                | Integer        | Render software ID         |                |
+| cgName              | String         | Render software name       |                |
+| cgVersion           | String         | Render software version    |                |
 
 **Example of request**：
 
@@ -1719,28 +1717,28 @@ support_software_plugin = api.query.supported_plugin(name='maya')
 
 **Request parameter**：
 
-| **Parameter**             | **Type** | Necessary | **Description**                  | **Memo**                     |
-| ------------------------- | -------- | --------- | -------------------------------- | ---------------------------- |
-| [render_env](#render_env) | Dict     | Y         | Render environment configuration | Detailed parameters refer to |
+| **Parameter**    | **Type** | Necessary | **Description**            | **Memo**               |
+| ---------------------- | -------------- | --------- | -------------------------------- | ---------------------------- |
+| [render_env](#render_env) | Dict           | Y         | Render environment configuration | Detailed parameters refer to |
 
-**<span id="render_env">render_env</span>**：
+**`<span id="render_env">`render_env**：
 
-| **Parameter**   | **Type**        | Necessary | **Description**                | **Memo**                     |
-| --------------- | --------------- | --------- | ------------------------------ | ---------------------------- |
-| cgId            | Integer         | Y         | Render software ID             | **Soft Version.cgId**        |
-| cgName          | String          | Y         | Render software name           | **Soft Version.cgName**      |
-| cgVersion       | String          | Y         | Render software version        | **Soft Version.cgVersion**   |
-| renderLayerType | Integer         | N         | Maya render Type               |                              |
-| editName        | String          | Y         | render environment custom name |                              |
-| renderSystem    | Integer         | Y         | Render system                  | 0 linux, 1 windows           |
-| pluginIds       | List\<Integer\> | Y         | render plugin list             | **Plugin Version.plugin Id** |
-| projectPath     | String          | N         | Engineering path               |                              |
+| **Parameter** | **Type**  | Necessary | **Description**          | **Memo**                     |
+| ------------------- | --------------- | --------- | ------------------------------ | ---------------------------------- |
+| cgId                | Integer         | Y         | Render software ID             | **Soft Version.cgId**        |
+| cgName              | String          | Y         | Render software name           | **Soft Version.cgName**      |
+| cgVersion           | String          | Y         | Render software version        | **Soft Version.cgVersion**   |
+| renderLayerType     | Integer         | N         | Maya render Type               |                                    |
+| editName            | String          | Y         | render environment custom name |                                    |
+| renderSystem        | Integer         | Y         | Render system                  | 0 linux, 1 windows                 |
+| pluginIds           | List\<Integer\> | Y         | render plugin list             | **Plugin Version.plugin Id** |
+| projectPath         | String          | N         | Engineering path               |                                    |
 
 **Return parameter**：
 
-| **Parameter** | **Type** | **Description**                | **Memo** |
-| ------------- | -------- | ------------------------------ | -------- |
-| editName      | String   | render environment custom name |          |
+| **Parameter** | **Type** | **Description**          | **Memo** |
+| ------------------- | -------------- | ------------------------------ | -------------- |
+| editName            | String         | render environment custom name |                |
 
 **Example of request**：
 
@@ -1778,22 +1776,22 @@ add_user_env = api.env.add_render_env(render_env=env)
 
 **Request parameter**：
 
-| **Parameter**             | **Type** |      | **Description**                  | **Memo**                     |
-| ------------------------- | -------- | ---- | -------------------------------- | ---------------------------- |
-| [render_env](#render_env) | Dict     | Y    | Render environment configuration | Detailed parameters refer to |
+| **Parameter**    | **Type** |   | **Description**            | **Memo**               |
+| ---------------------- | -------------- | - | -------------------------------- | ---------------------------- |
+| [render_env](#render_env) | Dict           | Y | Render environment configuration | Detailed parameters refer to |
 
-**<span id="render_env">render_env</span>**：
+**`<span id="render_env">`render_env**：
 
-| **Parameter**   | **Type**      | Necessary | **Description**                | **Memo**                     |
-| --------------- | ------------- | --------- | ------------------------------ | ---------------------------- |
-| cgId            | Integer       | Y         | Render software ID             | **Soft Version.cgId**        |
-| cgName          | String        | Y         | Render software name           | **Soft Version.cgName**      |
-| cgVersion       | String        | Y         | Render software version        | **Soft Version.cgVersion**   |
-| renderLayerType | Integer       | N         | Maya render Type               |                              |
-| editName        | String        | Y         | render environment custom name |                              |
-| renderSystem    | Integer       | Y         | Render system                  | 0 linux, 1 windows           |
-| pluginIds       | List<Integer> | Y         | render plugin list             | **Plugin Version.plugin Id** |
-| projectPath     | String        | N         | Engineering path               |                              |
+| **Parameter** | **Type**    | Necessary | **Description**          | **Memo**                     |
+| ------------------- | ----------------- | --------- | ------------------------------ | ---------------------------------- |
+| cgId                | Integer           | Y         | Render software ID             | **Soft Version.cgId**        |
+| cgName              | String            | Y         | Render software name           | **Soft Version.cgName**      |
+| cgVersion           | String            | Y         | Render software version        | **Soft Version.cgVersion**   |
+| renderLayerType     | Integer           | N         | Maya render Type               |                                    |
+| editName            | String            | Y         | render environment custom name |                                    |
+| renderSystem        | Integer           | Y         | Render system                  | 0 linux, 1 windows                 |
+| pluginIds           | List`<Integer>` | Y         | render plugin list             | **Plugin Version.plugin Id** |
+| projectPath         | String            | N         | Engineering path               |                                    |
 
 **Return parameter**：default
 
@@ -1825,17 +1823,16 @@ update_user_env = api.env.update_render_env(render_env=update_env)
 }
 ```
 
-
-Delete user render environment configuration 
----------------------------------------------
+Delete user render environment configuration
+--------------------------------------------
 
 **Interface path:**  /api/render/plugin/deleteUserPluginConfig
 
 **Request parameter**：
 
-| **parameter** | **Type** | Necessary | **Description**                | **Memo** |
-| ------------- | -------- | --------- | ------------------------------ | -------- |
-| edit_name     | String   | Y         | render environment custom name |          |
+| **parameter** | **Type** | Necessary | **Description**          | **Memo** |
+| ------------------- | -------------- | --------- | ------------------------------ | -------------- |
+| edit_name           | String         | Y         | render environment custom name |                |
 
 **Return parameter**：default
 
@@ -1858,7 +1855,6 @@ delete_user_env = api.env.delete_render_env(edit_name="testRenderEnv")
 } 
 ```
 
-
 Set up default render environment configuration
 -----------------------------------------------
 
@@ -1866,9 +1862,9 @@ Set up default render environment configuration
 
 **Request parameter**：
 
-| **parameter** | **Type** | Necessary | **Description**                | **Memo** |
-| ------------- | -------- | --------- | ------------------------------ | -------- |
-| edit_name     | String   | Y         | render environment custom name |          |
+| **parameter** | **Type** | Necessary | **Description**          | **Memo** |
+| ------------------- | -------------- | --------- | ------------------------------ | -------------- |
+| edit_name           | String         | Y         | render environment custom name |                |
 
 **Return parameter**：default
 
@@ -1897,23 +1893,23 @@ set_default_user_env = api.env.set_default_render_env(edit_name="testRenderEnv")
 
 **Request parameter**：
 
-| **Parameter** | **Type**      |      | **Description**         | **Memo**                           |
-| ------------- | ------------- | ---- | ----------------------- | ---------------------------------- |
-| name          | String        | N    | Rendering software name | cg_names and name must fill in one |
-| cg_names      | List\<string> | N    | 渲染软件名列表          | cg_names and name must fill in one |
-| os_name       | Integer       | N    | 选择操作系统            | 0:Linux，1:windows,默认1           |
+| **Parameter** | **Type** |   | **Description**   | **Memo**                     |
+| ------------------- | -------------- | - | ----------------------- | ---------------------------------- |
+| name                | String         | N | Rendering software name | cg_names and name must fill in one |
+| cg_names            | List\<string>  | N | 渲染软件名列表          | cg_names and name must fill in one |
+| os_name             | Integer        | N | 选择操作系统            | 0:Linux，1:windows,默认1           |
 
 **Return parameter**: List\<RenderEnv\>
 
-| **Parameter**         | **Type**                   | **Description**                          | **Memo**                                               |
-| --------------------- | -------------------------- | ---------------------------------------- | ------------------------------------------------------ |
-| cgId                  | Integer                    | Render software ID                       |                                                        |
-| editName              | String                     | render environment custom name           |                                                        |
-| cgName                | String                     | Render software name                     |                                                        |
-| cgVersion             | String                     | Render software version                  |                                                        |
-| osName                | Integer                    | render environment system                | 0：Linux，1：windows                                   |
-| renderLayerType       | Integer                    |                                          |                                                        |
-| isDefault             | Integer                    | Check if it is the default configuration | 0 Not default configuration 1 Is default configuration |
+| **Parameter**   | **Type**                   | **Description**                    | **Memo**                                         |
+| --------------------- | -------------------------------- | ---------------------------------------- | ------------------------------------------------------ |
+| cgId                  | Integer                          | Render software ID                       |                                                        |
+| editName              | String                           | render environment custom name           |                                                        |
+| cgName                | String                           | Render software name                     |                                                        |
+| cgVersion             | String                           | Render software version                  |                                                        |
+| osName                | Integer                          | render environment system                | 0：Linux，1：windows                                   |
+| renderLayerType       | Integer                          |                                          |                                                        |
+| isDefault             | Integer                          | Check if it is the default configuration | 0 Not default configuration 1 Is default configuration |
 | respUserPluginInfoVos | List\<**Plugin Version**\> | render environment plugin list           |                                                        |
 
 **Example of request**：
@@ -1991,50 +1987,49 @@ user_render_config = api.env.get_render_env(name='houdini')
 }
 ```
 
-
 Task Progress (Only support Max )
--------------
+---------------------------------
 
 **Interface path**：/api/render/handle/loadTaskProcessImg
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                     |
-| ------------- | -------- | --------- | --------------- | ------------------------------------------------------------ |
-| task_id       | Integer  | Y         | Task ID         | required                                                     |
-| frame_type    | Integer  | N         | Frame type      | 2：photon，5：picture Without transmission, the background will dynamically return the results according to the stage of the rendering task |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                                                                                              |
+| ------------------- | -------------- | --------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------- |
+| task_id             | Integer        | Y         | Task ID               | required                                                                                                                                    |
+| frame_type          | Integer        | N         | Frame type            | 2：photon，5：picture Without transmission, the background will dynamically return the results according to the stage of the rendering task |
 
 **Return parameter**：
 
-| **Parameter**         | **Type**             | **Description**         | **Memo**                                           |
-| --------------------- | -------------------- | ----------------------- | -------------------------------------------------- |
-| width                 | Integer              | Image resolution width  |                                                    |
-| height                | Integer              | Image resolution height |                                                    |
-| block                 | Integer              | Block number            |                                                    |
-| isRenderPhoton        | Boolean              | Is render photon        | True:task is render photon                         |
-| currentTaskType       | String               | Task render stage       | Render: render picture RenderPhoton: render photon |
-| sceneName             | String               | Scene name+camera name  |                                                    |
-| startTime             | String               | Task start time         |                                                    |
-| endTime               | String               | Task end time           |                                                    |
-| [grabInfo](#grabinfo) | List\<List\<dict\>\> | Block frame info        |                                                    |
+| **Parameter** | **Type**       | **Description**   | **Memo**                                     |
+| ------------------- | -------------------- | ----------------------- | -------------------------------------------------- |
+| width               | Integer              | Image resolution width  |                                                    |
+| height              | Integer              | Image resolution height |                                                    |
+| block               | Integer              | Block number            |                                                    |
+| isRenderPhoton      | Boolean              | Is render photon        | True:task is render photon                         |
+| currentTaskType     | String               | Task render stage       | Render: render picture RenderPhoton: render photon |
+| sceneName           | String               | Scene name+camera name  |                                                    |
+| startTime           | String               | Task start time         |                                                    |
+| endTime             | String               | Task end time           |                                                    |
+| [grabInfo](#grabinfo)  | List\<List\<dict\>\> | Block frame info        |                                                    |
 
-Block frame info：<span id="grabinfo">grabInfo</span>
+Block frame info：`<span id="grabinfo">`grabInfo
 
-| **Parameter** | **Type** | **Description**                              | **Memo** |
-| ------------- | -------- | -------------------------------------------- | -------- |
-| startTime     | String   | Start time                                   |          |
-| endTime       | String   | End time                                     |          |
-| frameStatus   | String   | Frame status                                 |          |
-| isMaxPrice    | String   | Is max picture                               |          |
-| feeAmount     | String   | Fee amount                                   |          |
-| couponFee     | String   | Coupon fee                                   |          |
-| frameIndex    | String   | Frame number                                 |          |
-| frameBlock    | String   | Block number                                 |          |
-| framePercent  | String   | Frame render percent                         |          |
-| frameUsed     | String   | Frame render time consumed                   |          |
-| frameEst      | String   | Predicted Remaining Time for Frame Rendering |          |
-| renderInfo    | String   | Frame Rendering Progress Information         |          |
-| grabUrl       | String   | Frame Rendering Schedule Connection Address  |          |
+| **Parameter** | **Type** | **Description**                        | **Memo** |
+| ------------------- | -------------- | -------------------------------------------- | -------------- |
+| startTime           | String         | Start time                                   |                |
+| endTime             | String         | End time                                     |                |
+| frameStatus         | String         | Frame status                                 |                |
+| isMaxPrice          | String         | Is max picture                               |                |
+| feeAmount           | String         | Fee amount                                   |                |
+| couponFee           | String         | Coupon fee                                   |                |
+| frameIndex          | String         | Frame number                                 |                |
+| frameBlock          | String         | Block number                                 |                |
+| framePercent        | String         | Frame render percent                         |                |
+| frameUsed           | String         | Frame render time consumed                   |                |
+| frameEst            | String         | Predicted Remaining Time for Frame Rendering |                |
+| renderInfo          | String         | Frame Rendering Progress Information         |                |
+| grabUrl             | String         | Frame Rendering Schedule Connection Address  |                |
 
 **Example of request**：
 
@@ -2090,10 +2085,10 @@ task_processing_img = api.query.get_task_processing_img(task_id=14470635, frame_
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | Necessary | **Description**   | **Memo**             |
-| ------------- | --------------- | --------- | ----------------- | -------------------- |
-| task_id_list  | List\<Integer\> | Y         | Task ID           | required             |
-| overtime      | Long            | Y         | Time of Task stop | Required,unit:second |
+| **Parameter** | **Type**  | Necessary | **Description** | **Memo**       |
+| ------------------- | --------------- | --------- | --------------------- | -------------------- |
+| task_id_list        | List\<Integer\> | Y         | Task ID               | required             |
+| overtime            | Long            | Y         | Time of Task stop     | Required,unit:second |
 
 **Example of request**：
 
@@ -2121,10 +2116,10 @@ set_task_overtime = api.task.set_task_overtime_top(task_id_list=[14684405], over
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                     |
-| ------------- | -------- | --------- | --------------- | ------------------------------------------------------------ |
-| frame_id      | Integer  | Y         | Frame ID        | This can be obtained through the "Obtain the task rendering frame details" interface |
-| frame_status  | Integer  | N         | Frame status    | A value of 4 means complete, only thumbnails are available when completed |
+| **Parameter** | **Type** | Necessary | **Description** | **Memo**                                                                       |
+| ------------------- | -------------- | --------- | --------------------- | ------------------------------------------------------------------------------------ |
+| frame_id            | Integer        | Y         | Frame ID              | This can be obtained through the "Obtain the task rendering frame details" interface |
+| frame_status        | Integer        | N         | Frame status          | A value of 4 means complete, only thumbnails are available when completed            |
 
 **Example of request**：
 
@@ -2235,9 +2230,9 @@ raysync_user_key = api.query.get_raysync_user_key()
 
 **Request parameter**：
 
-| **Parameter** | **Type**        | Necessary | **Description** | **Memo** |
-| ------------- | --------------- | --------- | --------------- | -------- |
-| task_id_list  | List\<Integer\> | Y         | Yes             | Task id  |
+| **Parameter** | **Type**  | Necessary | **Description** | **Memo** |
+| ------------------- | --------------- | --------- | --------------------- | -------------- |
+| task_id_list        | List\<Integer\> | Y         | Yes                   | Task id        |
 
 **Example of request**：
 
@@ -2259,7 +2254,7 @@ full_speed_render = api.task.full_speed(task_id_list=[13652193])
 }
 ```
 
-##  Get transport configuration 
+## Get transport configuration
 
 **Interface path**：  /api/render/transfer/getConfig
 
@@ -2267,34 +2262,34 @@ full_speed_render = api.task.full_speed(task_id_list=[13652193])
 
 **Return parameter**：
 
-| Parameter           | **Type** | **Description**                                      | **Memo** |
-| ------------------- | -------- | ---------------------------------------------------- | -------- |
-| inputBid            | String   | Input bid                                            |          |
-| outputBid           | String   | output bid                                           |          |
-| configBid           | String   | config bid                                           |          |
-| parentInputBid      | String   | Input Bid corresponds to the main account            |          |
-| resqEngines         | Object[] | Engine configuration                                 |          |
-| engineName          | String   | Engine name                                          |          |
-| checkServer         | String   | Check server                                         |          |
-| checkPort           | String   | Check port                                           |          |
-| checkEnable         | String   | Check for availability                               |          |
-| checkExcludType     | String   | Detect exception file type, separate                 |          |
-| automaticCheck      | number   | Automatic detection and switching of line 1 is 0: No |          |
-| isDefault           | number   | 1: Yes; 0: No, default 1                             |          |
-| resqEngineAccounts  | Object[] | aspera account                                       |          |
-| bid                 | String   | aspera input bid                                     |          |
-| name                | String   | aspera username                                      |          |
-| password            | String   | aspera password                                      |          |
-| respTaskEngineLines | Object[] | Engine list                                          |          |
-| name                | String   | Line name                                            |          |
-| server              | String   | Line server IP                                       |          |
-| port                | String   | Line server port                                     |          |
-| isDefault           | Number   | 1: Yes; 0: No, default 1                             |          |
-| lineId              | Number   | ID of line tables                                    |          |
-| type                | Number   | Line type 1. Special line 0. General line            |          |
-| subUserOutputBids   | Object[] | Collection outputbid subaccount                      |          |
-| userId              | String   | ID of subaccount                                     |          |
-| outputBid           | String   | outputBid                                            |          |
+| Parameter           | **Type** | **Description**                                | **Memo** |
+| ------------------- | -------------- | ---------------------------------------------------- | -------------- |
+| inputBid            | String         | Input bid                                            |                |
+| outputBid           | String         | output bid                                           |                |
+| configBid           | String         | config bid                                           |                |
+| parentInputBid      | String         | Input Bid corresponds to the main account            |                |
+| resqEngines         | Object[]       | Engine configuration                                 |                |
+| engineName          | String         | Engine name                                          |                |
+| checkServer         | String         | Check server                                         |                |
+| checkPort           | String         | Check port                                           |                |
+| checkEnable         | String         | Check for availability                               |                |
+| checkExcludType     | String         | Detect exception file type, separate                 |                |
+| automaticCheck      | number         | Automatic detection and switching of line 1 is 0: No |                |
+| isDefault           | number         | 1: Yes; 0: No, default 1                             |                |
+| resqEngineAccounts  | Object[]       | aspera account                                       |                |
+| bid                 | String         | aspera input bid                                     |                |
+| name                | String         | aspera username                                      |                |
+| password            | String         | aspera password                                      |                |
+| respTaskEngineLines | Object[]       | Engine list                                          |                |
+| name                | String         | Line name                                            |                |
+| server              | String         | Line server IP                                       |                |
+| port                | String         | Line server port                                     |                |
+| isDefault           | Number         | 1: Yes; 0: No, default 1                             |                |
+| lineId              | Number         | ID of line tables                                    |                |
+| type                | Number         | Line type 1. Special line 0. General line            |                |
+| subUserOutputBids   | Object[]       | Collection outputbid subaccount                      |                |
+| userId              | String         | ID of subaccount                                     |                |
+| outputBid           | String         | outputBid                                            |                |
 
 **Example of request**：
 
@@ -2399,17 +2394,17 @@ transfer_config = api.transmit.get_transfer_config()
 }
 ```
 
-##  Upload the task profile 
+## Upload the task profile
 
-**Interface path**：  /api/render/submit/taskJsonFile 
+**Interface path**：  /api/render/submit/taskJsonFile
 
 **Request parameter**：
 
-| Parameter | **Type** | Necessary | **Description**           | **Memo**           |
-| --------- | -------- | --------- | ------------------------- | ------------------ |
-| task_id   | Integer  | Y         | task id                   |                    |
-| content   | String   | Y         | File values in jsonformat |                    |
-| file_name | String   | N         | file name                 | default“task.json” |
+| Parameter | **Type** | Necessary | **Description**     | **Memo**       |
+| --------- | -------------- | --------- | ------------------------- | -------------------- |
+| task_id   | Integer        | Y         | task id                   |                      |
+| content   | String         | Y         | File values in jsonformat |                      |
+| file_name | String         | N         | file name                 | default“task.json” |
 
 **Return parameter**：No
 
@@ -2433,31 +2428,29 @@ start_task = api.task.start_task(task_param_list=[13798105])
 }
 ```
 
-##  Gets the user storage file structure 
+## Gets the user storage file structure
 
-[^2021/1/18]: Add New Interface
-
-**Interface path**：  /api/render/file/operate/getOutputUserDirFile 
+**Interface path**：  /api/render/file/operate/getOutputUserDirFile
 
 **Request parameter**：
 
-| **Parameter** | **Type** | Necessary | **Description**                                              | **Memo**                  |
-| ------------- | -------- | --------- | ------------------------------------------------------------ | ------------------------- |
-| task_id       | Integer  | N         | Task number, if it is a hierarchical task, refers to the sub-task number, that is, the task number of each layer. |                           |
-| tree_path     | String   | N         | The path relative to the user storage (output) root.         | The default value is: "/" |
+| **Parameter** | **Type** | Necessary | **Description**                                                                                             | **Memo**            |
+| ------------------- | -------------- | --------- | ----------------------------------------------------------------------------------------------------------------- | ------------------------- |
+| task_id             | Integer        | N         | Task number, if it is a hierarchical task, refers to the sub-task number, that is, the task number of each layer. |                           |
+| tree_path           | String         | N         | The path relative to the user storage (output) root.                                                              | The default value is: "/" |
 
 **Return parameter[data]**：
 
-| Parameter  | **Type** | **Description**                                              |
-| ---------- | -------- | ------------------------------------------------------------ |
-| fileName   | string   | Current file name or folder name                             |
-| fileSize   | int      | File size, or "null" if it is a folder                       |
-| iconPath   | string   | Chart path (this parameter can be ignored)                   |
-| lastModify | string   | File or folder update date                                   |
-| fileType   | string   | File suffix, or "null" if it is a folder                     |
-| filePath   | string   | The relative path of the file or folder to the user storage output root |
-| directory  | bool     | Whether it is a folder, "true": is a folder, "false": not a folder |
-| isArrears  | int      | Whether you are in arrears, 0: Not in arrears, 1: In arrears |
+| Parameter  | **Type** | **Description**                                                   |
+| ---------- | -------------- | ----------------------------------------------------------------------- |
+| fileName   | string         | Current file name or folder name                                        |
+| fileSize   | int            | File size, or "null" if it is a folder                                  |
+| iconPath   | string         | Chart path (this parameter can be ignored)                              |
+| lastModify | string         | File or folder update date                                              |
+| fileType   | string         | File suffix, or "null" if it is a folder                                |
+| filePath   | string         | The relative path of the file or folder to the user storage output root |
+| directory  | bool           | Whether it is a folder, "true": is a folder, "false": not a folder      |
+| isArrears  | int            | Whether you are in arrears, 0: Not in arrears, 1: In arrears            |
 
 **Example of request**：
 
@@ -2482,16 +2475,14 @@ paths = api.transmit.get_output_files(task_id=1484861)
 ]
 ```
 
-##  Get all subtask numbers of the task 
-
-[^2021/1/18]: Add New Interface
+## Get all subtask numbers of the task
 
 **Interface path**：
 
 **Request parameter**：
 
-| Parameter | **Type**          | Necessary | **Description**                                              |
-| --------- | ----------------- | --------- | ------------------------------------------------------------ |
+| Parameter | **Type**    | Necessary | **Description**                                                                                   |
+| --------- | ----------------- | --------- | ------------------------------------------------------------------------------------------------------- |
 | task_id   | Integer or string | Y         | Get all sub-accounts under the main account, if there is no sub-account, return the current account ID. |
 
 **Return parameter[data]**：
@@ -2508,31 +2499,29 @@ ids = api.query.get_small_task_id(task_id=1521323)
 [1521325, 1521327, 1521329]
 ```
 
-##  Get platform hardware configuration information 
-
-[^2021/4/12]: add new interface in rayvision_api 2.8.0 
+## Get platform hardware configuration information
 
 **Interface path**：/api/render/hardwareConfig/list
 
 **Request parameter**：
 
-| **Parameter** | **Type**  | Necessary | **Description**                                              |
-| ------------- | --------- | --------- | ------------------------------------------------------------ |
-| task_ids      | List[str] | N         | A collection of task numbers that queries the configuration parameters of the specified task |
+| **Parameter** | **Type** | Necessary | **Description**                                                                        |
+| ------------------- | -------------- | --------- | -------------------------------------------------------------------------------------------- |
+| task_ids            | List[str]      | N         | A collection of task numbers that queries the configuration parameters of the specified task |
 
 **Return parameter[data]**：
 
-| **Parameter**  | **Type**  | **Description**                                              |
-| -------------- | --------- | ------------------------------------------------------------ |
-| id             | int       | Hardware Configuration ID (HardwareConfigID)                 |
-| type           | int       | 1: CPU ;<br>2: GPU                                           |
-| model          | string    | Hardware model, default "default"                            |
-| ram            | String    | memory                                                       |
-| gpuNum         | String    | Number of GPU cards, CPU platform is "null"                  |
-| platform       | int       | Platform number                                              |
-| current        | bool      | When task_ids is not null， the query is the task's current hardware configuration<br>false: is the current task hardware configuration<br>true: Is not the current task hardware configuration. |
-| notSupportCgId | list[int] | Unsupported cgId, (cgid corresponding software can query "General Parameter" -- > "ID mapping of DCC software") |
-| status         | int       | Status,<br>1: Enabled;<br>0: Disabled                        |
+| **Parameter** | **Type** | **Description**                                                                                                                                                                                    |
+| ------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| id                  | int            | Hardware Configuration ID (HardwareConfigID)                                                                                                                                                             |
+| type                | int            | 1: CPU ;`<br>`2: GPU                                                                                                                                                                                   |
+| model               | string         | Hardware model, default "default"                                                                                                                                                                        |
+| ram                 | String         | memory                                                                                                                                                                                                   |
+| gpuNum              | String         | Number of GPU cards, CPU platform is "null"                                                                                                                                                              |
+| platform            | int            | Platform number                                                                                                                                                                                          |
+| current             | bool           | When task_ids is not null， the query is the task's current hardware configuration`<br>`false: is the current task hardware configuration`<br>`true: Is not the current task hardware configuration. |
+| notSupportCgId      | list[int]      | Unsupported cgId, (cgid corresponding software can query "General Parameter" -- > "ID mapping of DCC software")                                                                                          |
+| status              | int            | Status,`<br>`1: Enabled;`<br>`0: Disabled                                                                                                                                                            |
 
 **Example of request**：
 
@@ -2607,3 +2596,6 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 ]
 ```
 
+[^api]: Add in v2.4.0
+    
+[^2021/1/18]: Add New Interface

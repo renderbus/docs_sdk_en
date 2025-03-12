@@ -12,7 +12,7 @@ SDK usage
 
    render_para = {
 
-           "domain": "jop.foxrenderfarm.com",  # If it doesn't work, you can use "task.foxrenderfarm.com"
+           "domain": "task.renderbus.com", 
            "platform": "62",  # platform id
            "access_id": "K2lbvJSlPScStv72niHGXZtbQYc5Fp6d",  # user's access_id(required)
            "access_key": "6b4b6eab841772113113b61c79dbe40e",  # user's access_key(required)
@@ -33,7 +33,7 @@ SDK usage
 ================ ===== ========== ====================== ============================================================================================================
 parameter        type   required   value                    description
 ================ ===== ========== ====================== ============================================================================================================
-domain           str     Y         jop.foxrenderfarm.com    domain name：jop.foxrenderfarm.com, no "http", "https"
+domain           str     Y         task.renderbus.com    domain name：task.renderbus.com, no "http", "https"
 platform         str     Y         62                        platform ID, like "2"
 access_id        str     Y         xxx                      user authorization id
 access_key       str     Y         xxx                      user authorization key

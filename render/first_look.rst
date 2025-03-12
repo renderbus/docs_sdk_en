@@ -1,6 +1,6 @@
 .. _header-n0:
 
-Foxrenderfarm SDK at a glance
+初窥SDK
 ===============================
 
 .. _header-n2:
@@ -9,7 +9,7 @@ Overview
 ------------
 
    We provide a simple Python rendering SDK to make use of our cloud rendering service easily;
-   This official rendering SDK is developed and maintained by RD and TD groups of Foxrenderfarm;
+   This official rendering SDK is developed and maintained by RD and TD groups of RenderBus;
    This rendering SDK has been tested on python2.7 and python3.6;
 
 .. _header-n5:
@@ -67,9 +67,9 @@ Unsupport analysis function:
 Preparation
 -----------------
 
-1. An account of `FOXRENDERFARM <https://task.foxrenderfarm.com/>`__
+1. An account of `RenderBus <https://task.renderbus.com/>`__
 
-2. Apply to use the render SDK from `FOXRENDERFARM Developer Center <https://task.foxrenderfarm.com/user/developer>`__ and get the AccessID and AccessKey
+2. Apply to use the render SDK from `RenderBus Developer Center <https://task.renderbus.com/user/developer>`__ and get the AccessID and AccessKey
 
 .. _header-n26:
 
