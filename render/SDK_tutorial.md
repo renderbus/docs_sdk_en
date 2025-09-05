@@ -84,6 +84,7 @@ from rayvision_api.utils import update_task_info, append_to_task, append_to_uplo
 update_task = {
     "pre_frames": "100",  # Sets the priority to render the first frame
     "stop_after_test": "1"  # Stop rendering after rendering the priority frame
+    "pack_node_id": "623"  # pack node id.If you have render farm machines booked, you can query through the interface.
 }
 update_task_info(update_task, analyze_obj.task_json)
 ```
