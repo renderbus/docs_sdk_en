@@ -2604,7 +2604,7 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 
 | **Parameter**    | **Type**  | Necessary  | **Description**                                                                           |
 |------------------|-----------|------------|-------------------------------------------------------------------------------------------|
-| task_ids         | List[str] | Y          | A collection of task numbers that edit the configuration parameters of the specified task |
+| taskIds          | List[str] | Y          | A collection of task numbers that edit the configuration parameters of the specified task |
 | hardwareConfigId | int       | Y          | hardware config id                                                                        |
 | model            | String    | Y          | hardware config model                                                                     |
 | gpuNum           | String    | Y          | Number of GPU card                                                                        |
