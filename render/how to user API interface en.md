@@ -2602,13 +2602,13 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 
 **Request parameter**：
 
-| **Parameter**    | **Type**  | Necessary  | **Description**                                                                              |
-|------------------|-----------|------------|----------------------------------------------------------------------------------------------|
-| task_ids         | List[str] | Y          | A collection of task numbers that queries the configuration parameters of the specified task |
-| hardwareConfigId | int       | Y          | hardware config id                                                                           |
-| model            | String    | Y          | hardware config model                                                                        |
-| ram              | String    | Y          | Number of GPU card                                                                           |
-| gpuNum           | String    | Y          | Memory size                                                                                  |
+| **Parameter**    | **Type**  | Necessary  | **Description**                                                                           |
+|------------------|-----------|------------|-------------------------------------------------------------------------------------------|
+| task_ids         | List[str] | Y          | A collection of task numbers that edit the configuration parameters of the specified task |
+| hardwareConfigId | int       | Y          | hardware config id                                                                        |
+| model            | String    | Y          | hardware config model                                                                     |
+| gpuNum           | String    | Y          | Number of GPU card                                                                        |
+| ram              | String    | Y          | Memory size                                                                               |
 
 **Return parameter**：No
 
@@ -2616,6 +2616,19 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 
 ```python
 edit_hardware_config = api.task.edit_task_hardware_config([2191725], 496, '28C', '', '64GB')
+```
+
+**Example of return**：
+
+```json
+{
+    "version": "1.0.0",
+    "result": true,
+    "message": "success",
+    "code": 200,
+    "data": null,
+    "serverTime": 1536027063801
+}
 ```
 
 ##  Get Pack Node Info
