@@ -2665,3 +2665,126 @@ pack_node_info = api.query.get_pack_node_info()
 ]
 ```
 
+##  Get task operation log
+
+**Interface path**：/api/render/handle/operate/sdk/taskRecord
+
+**Request parameter**：
+
+| **Parameter** | **Type** | Necessary    | **Description** |
+|---------------|----------|--------------|----------|
+| platform      | int      | Y            | Platform Number         |
+| pageNum       | int      | Y            | page number      |
+| pageSize      | int      | Y            |  Number of items per page    |
+| startDate     | String   | Y            | Start time     |
+| endDate       | String   | Y            | End time       |
+
+**Example of request**：
+
+```Python
+task_record_info = api.user.task_record()
+```
+
+**Return parameter[data]**：
+
+| **Parameter**                       | **Type**         | **Necessary**                                                                                         | **Description** |
+|------------------------------|----------------|-------------------------------------------------------------------------------------------------------|-----|
+| data                         | Object\        | data                                                                                                  |     |
+| Object.items                 | List\<Object\> | Data Items                                                                                            |     |
+| Object.items.userName        | String         | username                                                                                              |     |
+| Object.items.taskType        | String         | Module                                                                                                |     |
+| Object.items.buttonName      | String         | Operation Items                                                                                       |     |
+| Object.items.taskIds         | String         | task id                                                                                               |     |
+| Object.items.channel         | String         | User terminal                                                                                         |     |
+| Object.items.createTime      | String         | Operation Date                                                                                        |     |
+| Object.items.details         | String         | Details                                                                                               |     |
+| Object.items.operateSource   | int            | Operation source: (1. Main account 2. Sub-account 3. Temporary authorization 4. DingTalk sub-account) |     |
+
+**Example of return**：
+
+```json
+{
+    "pageCount": 3018,
+    "pageNum": 1,
+    "total": 30180,
+    "size": 1,
+    "items": [
+        {
+            "userName": "halley",
+            "taskType": "render",
+            "buttonName": "btn_restart",
+            "taskIds": "[\"2W1732707\",\"2W1732709\"]",
+            "channel": "2",
+            "createTime": "2021-02-07 11:32:08",
+            "details": "Resubmitting the erroneous (failed) assignment",
+            "operateSource": 1,
+            "userId": "10001775",
+            "requestIp": "121.201.121.142",
+            "requestURI": "/api/rendering/task/renderingTask/recommitFailFrame",
+            "requestParam": "[{\"status\":[5],\"taskIds\":[1732707,1732709]}]"
+        }
+    ]
+}
+```
+
+## Get login logs
+
+**Interface path**：/api/render/handle/operate/sdk/loginRecord
+
+**Request parameter**：
+
+| **Parameter** | **Type** | Necessary    | **Description** |
+|---------------|----------|--------------|-----------------|
+| pageNum       | int      | Y            | page number              |
+| pageSize      | int      | Y            | Number of items per page              |
+| startDate     | String   | Y            | Start time           |
+| endDate       | String   | Y            | End time              |
+
+**Example of request**：
+
+```Python
+login_record_info = api.user.login_record()
+```
+
+**Return parameter[data]**：
+
+| **Parameter**                    | **Type**         | **Necessary**    | **Description** |
+|---------------------------|----------------|------------------|-----|
+| data                      | Object\        | data             |     |
+| Object.items              | List\<Object\> | data items       |     |
+| Object.items.id           | String         | id               |     |
+| Object.items.userId       | String         | User ID             |     |
+| Object.items.userName     | String         | username              |     |
+| Object.items.userUa       | String         | User ua             |     |
+| Object.items.traceId      | String         | Session ID             |     |
+| Object.items.loginType    | String         | Login type             |     |
+| Object.items.loginStatus  | int            | Login status: 200 Success (not 200 Failure) |     |
+| Object.items.loginStaDesc | int            | Login status description           |     |
+| Object.items.loginTime    | String         | Login time             |     |
+| Object.items.loginIp      | String         | Login IP             |     |
+
+**Example of return**：
+
+```json
+{
+    "pageCount": 3018,
+    "pageNum": 1,
+    "total": 30180,
+    "size": 1,
+    "items": [
+        {
+            "id": 3,
+            "userId": 100200997,
+            "userName": "fgfvfhfg",
+            "userUa": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36",
+            "traceId": "qQgSu2-ZHVhbmZhbmdjaGFv-1726051637974",
+            "loginType": "Username and password login",
+            "loginStatus": "804",
+            "loginStaDesc": "The account has been disabled.",
+            "moduleType": "Log in",
+            "ip": "127.0.0.1",
+            "loginTime": 1725120000000
+        }
+    ]
+}
+```
