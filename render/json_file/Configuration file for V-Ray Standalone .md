@@ -43,20 +43,20 @@
 **task.json**
 
 
- Parameter       | Type   | **Is it necessary** | **Description**                                      | **Example**                                  
----|---|---|---|---
-software_config | object | Y | environment(cg software, version and plugins, etc.) | [refer to software_config](#software_config) 
-task_info | object | Y | render settings(priority frames, render range, etc.) | [refer to task_info](#task_info) 
-scene_info | object | Y | analysis result(render node, output, etc.) |  
+| Parameter       | Type   | **Is it necessary**   | **Description**                                      | **Example**|                                  
+|-----------------|--------|-----------------------|---|---|
+| software_config | object | Y                     | environment(cg software, version and plugins, etc.) | [refer to software_config](#software_config) |
+| task_info       | object | Y                     | render settings(priority frames, render range, etc.) | [refer to task_info](#task_info) |
+| scene_info      | object | Y                     | analysis result(render node, output, etc.) |  
 
 **<span id="software_config">software_config</span>**
 
 
- Parameter  | Type   | Is it necessary | Description           | Example                  
----|---|---|---|---
-cg_name | string | Y | software | "VR Standalone" 
-cg_version | string | Y | software version | "standalone_vray5.00.05" 
-plugins | object | N | plugin{name, version} | {}
+ | Parameter   | Type    | Is it necessary   | Description           | Example                  |                  
+|-------------|---------|-------------------|-----------------------|--------------------------|
+| cg_name     | string  | Y                 | software              | "VR Standalone"          |
+| cg_version  | string  | Y                 | software version      | "standalone_vray5.00.05" |
+| plugins     | object  | N                 | plugin{name, version} | {}                       |
 
 **<span id="task_info">task_info</span>**
 

@@ -2605,7 +2605,7 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 | **Parameter**    | **Type**  | Necessary  | **Description**                                                                           |
 |------------------|-----------|------------|-------------------------------------------------------------------------------------------|
 | taskIds          | List[str] | Y          | A collection of task numbers that edit the configuration parameters of the specified task |
-| hardwareConfigId | int       | Y          | hardware config id                                                                        |
+| hardwareConfigId | List[str] | Y          | A collection of hardware config id                                                        |
 | model            | String    | Y          | hardware config model                                                                     |
 | gpuNum           | String    | Y          | Number of GPU card                                                                        |
 | ram              | String    | Y          | Memory size                                                                               |
@@ -2615,7 +2615,7 @@ hardware_config = api.user.get_hardware_config(task_ids=["6306543"])
 **Example of request**：
 
 ```python
-edit_hardware_config = api.task.edit_task_hardware_config([2191725], 496, '28C', '', '64GB')
+edit_hardware_config = api.task.edit_task_hardware_config(["2191725"], ["496"], '28C', '', '64GB')
 ```
 
 **Example of return**：

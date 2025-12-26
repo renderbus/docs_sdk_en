@@ -119,13 +119,13 @@ append_to_upload(custom_info_to_upload, analyze_obj.upload_json)
 
 ### IV. Setting hardware Configuration and Validate json file
 
-The hardware configuration is controlled by the parameter "hardwareconfigid", which can be obtained through the API interface.("API interfaces use methods" --> "Get platform hardware configuration information")
+The hardware configuration is controlled by the parameter "hardwareconfigids", which can be obtained through the API interface.("API interfaces use methods" --> "Get platform hardware configuration information")
 
 Specify the hardware configuration by setting `model`, `ram`, `gpuNum` of hardware_config
 
 ```
 hardware_config = {
-    "model": "Default",  # Platform CPU: Default or Platform GPU: 1080Ti or 2080Ti
+    "model": ["28C"],  # Platform CPU: 28C or Platform GPU: 1080Ti or 2080Ti (Multiple models can be entered; Default is to select all.)
     "ram": "64GB",  # memory: 64GB or 128GB
     "gpuNum": None  # GPU platform requires input like 2*GPU, if CPU platform it is None
 }
