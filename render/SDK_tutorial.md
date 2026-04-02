@@ -301,3 +301,55 @@ UPLOAD = RayvisionUpload(api, db_config_path=r"D:\test\upload\db_config.ini")
   >   window: The environment variable "USERPROFILE"/<renderfarm_sdk>
   >   Linux：The environment variable "HOME" /<renderfarm_sdk>
   >
+
+
+### IX. Intranet Submission
+
+**1. Proxy Settings on Internet-Accessible Machine**
+
+- Download the proxy program: [Click to Download](https://cdl.renderbus.com/client/desktop/qclient/web/RayProxy.zip)
+- Open the application "RayProxy.exe"
+- Simply click "Start" - no need to query the platform for the IP address; keep the default port (you can modify it if the port is occupied)
+
+**2. Login Authentication Example**
+
+Implemented by setting environment variables. The Python environment requires the PySocks third-party module to be installed in advance.
+
+```python
+proxy_ip = "xxx.xxx.xxx.xxx"        # Internet-accessible machine IP
+proxy_port = 3000                   # Default proxy program port (Client Settings port in RayProxy)
+os.environ['HTTP_PROXY'] = f'socks5://{proxy_ip}:{proxy_port}'
+os.environ['HTTPS_PROXY'] = f'socks5://{proxy_ip}:{proxy_port}'
+
+render_para = {
+    "domain": "task.renderbus.com",
+    "platform": "62",
+    "access_id": "xxxx",
+    "access_key": "xxxx",
+}
+
+api = RayvisionAPI(
+        access_id=render_para['access_id'],
+        access_key=render_para['access_key'],
+        domain=render_para['domain'],
+        platform=render_para['platform']
+    )
+```
+
+**3. File Transfer Example**
+
+The transfer engine only supports "raysyncproxy"
+
+```python
+raysync_proxy_ip = "xxx.xxx.xxx.xxx"        # Internet-accessible machine IP
+raysync_proxy_port = 3100                   # Default proxy program port (Management Settings port in RayProxy)
+CONFIG_PATH = [
+    r"C:\workspace\work\tips.json",
+    r"C:\workspace\work\task.json",
+    r"C:\workspace\work\asset.json",
+    r"C:\workspace\work\upload.json",
+]
+upload_obj = RayvisionUpload(api)
+upload_obj.upload(str(task_id), *CONFIG_PATH, engine_type='raysyncproxy', proxy_ip=raysync_proxy_ip, proxy_port=raysync_proxy_port)
+```
+
