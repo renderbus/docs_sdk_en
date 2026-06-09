@@ -44,7 +44,7 @@ Please refer to `Installation Guide <installation_guide.html>`__
    update_task_info(update_task, task_path=r"C:\workspace\1586932339\task.json")
 
 
-For details, please refer to `Detailed Parameter Configuration <json_file>`__
+For details, please refer to `Software Parameter Configuration <json_file>`__
 
 
 .. _header-n34:

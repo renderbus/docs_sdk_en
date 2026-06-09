@@ -1,4 +1,4 @@
-Detailed parameter configuration
+Software parameter configuration
 ===================================
 
 .. toctree::

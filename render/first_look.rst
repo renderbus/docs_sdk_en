@@ -90,7 +90,7 @@ Refer to `SDK Getting Started Tutorial <SDK_tutorial.html>`_
 Parameter setting
 -------------------
 
-Refer to `Detailed parameters configuration <para_configration.html>`_
+Refer to `Software parameters configuration <para_configration.html>`_
 
 .. _header-n37:
 
