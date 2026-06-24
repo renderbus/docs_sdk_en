@@ -53,6 +53,11 @@ Support analysis function:
 
 - Blender
 
+- Katana
+
+- Unreal Engine
+
+
 Unsupport analysis function:
 
 - Arnorld Standalone
