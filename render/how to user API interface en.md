@@ -35,14 +35,16 @@ api = RayvisionAPI(access_id=user_info['access_id'],
 
 **Return parameters**：
 
-| **Parameters** | **Type** | **Description**            | **Memo**                         |
-| -------------------- | -------------- | -------------------------------- | -------------------------------------- |
-| platform             | Integer        | Platform number                  |                                        |
-| name                 | String         | Platform number description      |                                        |
-| type                 | Integer        | Platform type                    | 0:GPU,1:CPU,2:pic                      |
-| status               | Integer        | Platform status                  | 0:Not activated,1:normal,2:busy,3:full |
-| taskPrefix           | String         | Platform prefix for task numbers | "W"                                    |
-| isShow               | Integer        | Whether to display               | 1:show,0:Do not show                   |
+| **Parameters** | **Type**  | **Description**                  | **Memo**                               |
+|----------------|-----------|----------------------------------|----------------------------------------|
+| platform       | Integer   | Platform number                  | 62                                     |
+| name           | String    | Platform number description      | query_platform_w62                     |
+| chineseName    | String    | Chinese platform name            | CPU 3 区（24核 48线程-高性能 \| 28核 56线程）      |
+| englishName    | String    | English platform name            | CPU 3 Region (48Tplus \| 56 threads)   |
+| type           | Integer   | Platform type                    | 0:GPU,1:CPU,2:pic                      |
+| status         | Integer   | Platform status                  | 0:Not activated,1:normal,2:busy,3:full |
+| taskPrefix     | String    | Platform prefix for task numbers | "3W"                                   |
+| isShow         | Integer   | Whether to display               | 1:show,0:Do not show                   |
 
 **Example of request**：
 
@@ -55,17 +57,19 @@ platform = api.query.platforms()
 
 ```json
 {
-    "version": "1.0.0",
+    "version": "2.0.0",
     "result": true,
     "message": "success",
     "code": 200,
     "data": [
         {
-            "platform": 6,
-            "name": "query_platform_w6",
+            "platform": 62,
+            "name": "query_platform_w62",
+            'chineseName': 'CPU 3 区（24核 48线程-高性能 | 28核 56线程）', 
+            'englishName': 'CPU 3 Region(48Tplus | 56 threads)',
             "type": 1,
             "status": 1,
-            "taskPrefix": "W",
+            "taskPrefix": "3W",
             "isShow": 1
         }
     ],
