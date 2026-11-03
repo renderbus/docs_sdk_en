@@ -44,7 +44,7 @@ Blender Profile documentation
         "user_id": "10013141",
         "enable_layered": "0",
         "is_layer_rendering": "1",
-        "task_stop_time": "0",
+        "task_stop_time": "86400",
         "task_id": "8368517",
         "job_stop_time": "259200",
         "input_project_path": "",
@@ -109,7 +109,7 @@ plugins | object | Y | plugin{name:  version} | {}
 | is_distribute_render   | string   | N                   | distributed render mode,"0":off, "1":on                      | "0"                                                          |
 | input_cg_file          | string   | Y                   | input file path                                              | "D:/houdini/cg_file/PRAM RENDER 1.blend"                     |
 | input_project_path     | string   | Y                   | project path, could be empty                                 |                                                              |
-| job_stop_time          | string   | Y                   | Set the frame timeout time, will only affect the current frame, unit seconds | "28800"                                                      |
+| job_stop_time          | string   | Y                   | Set the frame timeout time, will only affect the current frame, in seconds, must be greater than 300 | "28800"                                                      |
 | user_id                | string   | N                   | user id                                                      |                                                              |
 | pre_frames             | string   | Y                   | Priority rendering (priority frames are not recommended to customize multiple individual frames) | "000: 1,3-4 [1]" means: Priority rendering first frame: No Priority rendering middle frame: No Priority rendering last frame: No Priority rendering custom frame: 1,3-4 [1] |
 | platform               | string   | Y                   | submit platform : "2": "www2", "3": "www3", "6": "www4", "21": "gpu", | "2"                                                          |
@@ -123,8 +123,8 @@ plugins | object | Y | plugin{name:  version} | {}
 | frames_per_task        | string   | Y                   | frames per task                                              | "1"                                                          |
 | stop_after_test        | string   | Y                   | "1":pause after priority render, "2":continue after priority render (default "2") | “2”                                                          |
 | task_id                | string   | N                   | task id                                                      | “54508419”                                                   |
-| task_stop_time         | string   | Y                   | Large task timeout stops in unit seconds, "0" means unlimited | "86400"                                                      |
-| time_out               | string   | Y                   | Overtime reminder time, unit: sec                            | "43200"                                                      |
+| task_stop_time         | string   | Y                   | Large task timeout stop, in seconds, must be greater than 300 | "86400"                                                      |
+| time_out               | string   | Y                   | Overtime reminder time, in seconds, must be greater than 300                            | "43200"                                                      |
 
 **<span id="scene_info">scene_info</span>**
 
