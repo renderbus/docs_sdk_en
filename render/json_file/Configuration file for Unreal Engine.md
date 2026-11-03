@@ -104,7 +104,7 @@
         "input_project_path": "", 
         "task_id": "439800", 
         "task_stop_time": "86400", 
-        "time_out": "12"
+        "time_out": "43200"
     }, 
     "software_config": {
         "cg_version": "5.4.4", 
@@ -147,7 +147,7 @@
 | render_layer_type      | string | Layer selection method."0": renderlayer"1": rendersetup | "0"     |
 | is_distribute_render   | string | Enable distributed rendering."0": Disabled"1": Enabled | "0"     |
 | input_cg_file          | string | Local path to the rendering scene        |         |
-| job_stop_time          | string | Timeout for subtask stop, in seconds     | "28800" |
+| job_stop_time          | string | Timeout for subtask stop, in seconds, must be greater than 300     | "28800" |
 | user_id                | string | User ID                                  |         |
 | pre_frames             | string | Priority rendering."000:1,3-4[1]" means:Priority first frame: NoPriority middle frames: NoPriority last frame: NoPriority custom frames: 1,3-4[1] |         |
 | platform               | string | Submission platform                      | "2"     |
@@ -162,8 +162,8 @@
 | stop_after_test        | string | Whether to pause after priority rendering."1": Pause"2": Do not pause |         |
 | input_project_path     | string | Project path, empty if not set           |         |
 | task_id                | string | Task ID                                  |         |
-| task_stop_time         | string | Main task timeout, in seconds            | "86400" |
-| time_out               | string | Timeout in hours                         | "12"    |
+| task_stop_time         | string | Main task timeout, in seconds, must be greater than 300            | "86400" |
+| time_out               | string | Timeout, in seconds, must be greater than 300 | "43200"    |
 
 ------
 

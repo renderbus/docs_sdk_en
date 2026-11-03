@@ -89,6 +89,8 @@ update_task = {
 update_task_info(update_task, analyze_obj.task_json)
 ```
 
+【Note】`job_stop_time`, `task_stop_time`, and `time_out` in `task_info` are in seconds and must be greater than 300.
+
 ##### 2. task.json add custom parameters
 
 > The added custom parameters will be integrated into dictionary for key is "additional_info".
